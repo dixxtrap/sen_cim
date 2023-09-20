@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OwnerShipRecord = void 0;
 const typeorm_1 = require("typeorm");
-const gravesite_1 = require("./gravesite");
+const gravasite_1 = require("./gravasite");
 const concessionOwner_1 = require("./concessionOwner");
 let OwnerShipRecord = class OwnerShipRecord {
 };
@@ -20,12 +20,12 @@ __decorate([
     __metadata("design:type", Number)
 ], OwnerShipRecord.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => gravesite_1.Gravesite, (gravesite) => gravesite.ownerShipRecords, {
+    (0, typeorm_1.ManyToOne)(() => gravasite_1.Gravesite, (gravesite) => gravesite.ownerShipRecords, {
         onDelete: 'SET NULL',
         onUpdate: "SET NULL",
         nullable: true
     }),
-    __metadata("design:type", gravesite_1.Gravesite)
+    __metadata("design:type", gravasite_1.Gravesite)
 ], OwnerShipRecord.prototype, "gravesite", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => concessionOwner_1.ConcessionOwner, (concessionOwner) => concessionOwner.ownerShipRecords, {

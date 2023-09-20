@@ -11,7 +11,7 @@ import {
 } from 'typeorm'
 
 import { Section } from './section'
-import { Gravesite } from './gravesite';
+import { Gravesite } from './gravasite';
 
 @Entity()
 export class Row{

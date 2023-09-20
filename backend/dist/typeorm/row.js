@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Row = void 0;
 const typeorm_1 = require("typeorm");
 const section_1 = require("./section");
-const gravesite_1 = require("./gravesite");
+const gravasite_1 = require("./gravasite");
 let Row = class Row {
 };
 __decorate([
@@ -28,7 +28,7 @@ __decorate([
     __metadata("design:type", section_1.Section)
 ], Row.prototype, "section", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => gravesite_1.Gravesite, (gravesite) => gravesite.row, {
+    (0, typeorm_1.OneToMany)(() => gravasite_1.Gravesite, (gravesite) => gravesite.row, {
         cascade: true,
         nullable: true,
         onDelete: 'SET NULL'

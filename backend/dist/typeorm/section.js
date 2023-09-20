@@ -31,7 +31,7 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => row_1.Row, (row) => row.section, {
         cascade: true,
         nullable: true,
-        onDelete: 'SET NULL',
+        onDelete: 'SET NULL'
     }),
     __metadata("design:type", Array)
 ], Section.prototype, "rows", void 0);

@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Gravesite } from "./gravesite";
+import { Gravesite } from "./gravasite";
 import { Deceased } from "./deceased";
 
 

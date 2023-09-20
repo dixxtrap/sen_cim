@@ -2,10 +2,10 @@ import { Burial } from './burial';
 import { Cimetery } from './cimetery';
 import { ConcessionOwner } from './concessionOwner';
 import { Deceased } from './deceased';
-import { Gravesite } from './gravesite';
+import { Gravesite } from './gravasite';
 import { OwnerShipRecord } from './ownerShipRecord';
 import { Row } from './row';
 import { Section } from './section';
 
-export const entities = [Cimetery, Section, Row, Gravesite, Burial, Deceased, OwnerShipRecord, ConcessionOwner,];
-export { Cimetery, Section, Row, Gravesite, Burial, Deceased, OwnerShipRecord, ConcessionOwner};
+export const entities = [Cimetery, Section,Section,Burial,OwnerShipRecord,ConcessionOwner, Gravesite, Row, Deceased];
+export {Cimetery,Section,Burial,OwnerShipRecord,ConcessionOwner, Gravesite, Row, Deceased };

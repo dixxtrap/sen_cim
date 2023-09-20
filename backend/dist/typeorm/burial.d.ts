@@ -1,4 +1,4 @@
-import { Gravesite } from "./gravesite";
+import { Gravesite } from "./gravasite";
 import { Deceased } from "./deceased";
 export declare class Burial {
     id: number;

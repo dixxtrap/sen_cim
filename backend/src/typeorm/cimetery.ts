@@ -23,7 +23,7 @@ export class Cimetery {
     nullable: true,
     onDelete: 'SET NULL',
   })
-  sections: Section[];  
+  sections: Section[];
   @Column('varchar')
   name: string;
   @Column('varchar', { length: 30, nullable: true })

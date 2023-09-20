@@ -65,4 +65,4 @@ Gravesite = __decorate([
     (0, typeorm_1.Index)(['platNumber'], { unique: true })
 ], Gravesite);
 exports.Gravesite = Gravesite;
-//# sourceMappingURL=gravesite.js.map
+//# sourceMappingURL=gravasite.js.map

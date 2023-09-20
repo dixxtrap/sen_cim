@@ -21,19 +21,21 @@ export class Section {
   })
   cimetery: Cimetery;
 
-  @OneToMany(()=> Row, (row)=> row.section,{
+  @OneToMany(()=> Row, (row)=> row.section, {
     cascade: true,
     nullable: true,
-    onDelete: 'SET NULL',
+    onDelete : 'SET NULL'
   })
-  rows:Row[]
+  rows: Row[]
   
+
   @Column({ nullable: true })
   name: string;
   @Column({ nullable: true })
   link: string;
   @Column({ nullable: true })
   comment: string;
+
   @Column({ nullable: true })
   laltitude: number;
   @Column({ nullable: true })

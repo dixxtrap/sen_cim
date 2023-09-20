@@ -1,4 +1,4 @@
-import { Gravesite } from "./gravesite";
+import { Gravesite } from "./gravasite";
 import { ConcessionOwner } from "./concessionOwner";
 export declare class OwnerShipRecord {
     id: number;

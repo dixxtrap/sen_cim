@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CimeteryController = void 0;
 const common_1 = require("@nestjs/common");
 const service_1 = require("./service");
-const swagger_1 = require("@nestjs/swagger");
 let CimeteryController = class CimeteryController {
     constructor(service) {
         this.service = service;
@@ -20,7 +19,6 @@ let CimeteryController = class CimeteryController {
 };
 CimeteryController = __decorate([
     (0, common_1.Controller)('cimetery'),
-    (0, swagger_1.ApiTags)('cimetery'),
     __metadata("design:paramtypes", [service_1.CimeteryService])
 ], CimeteryController);
 exports.CimeteryController = CimeteryController;
