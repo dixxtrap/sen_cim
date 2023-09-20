@@ -6,5 +6,6 @@ import { Gravesite } from './gravasite';
 import { OwnerShipRecord } from './ownerShipRecord';
 import { Row } from './row';
 import { Section } from './section';
-export declare const entities: (typeof Cimetery | typeof Section | typeof Row | typeof Gravesite | typeof ConcessionOwner | typeof OwnerShipRecord | typeof Burial | typeof Deceased)[];
-export { Cimetery, Section, Burial, OwnerShipRecord, ConcessionOwner, Gravesite, Row, Deceased };
+import { Whises } from './wishes';
+export declare const entities: (typeof Cimetery | typeof Section | typeof Row | typeof Gravesite | typeof ConcessionOwner | typeof OwnerShipRecord | typeof Burial | typeof Deceased | typeof Whises)[];
+export { Cimetery, Section, Burial, OwnerShipRecord, ConcessionOwner, Gravesite, Row, Deceased, Whises };

@@ -6,6 +6,7 @@ import { Gravesite } from './gravasite';
 import { OwnerShipRecord } from './ownerShipRecord';
 import { Row } from './row';
 import { Section } from './section';
+import { Whises } from './wishes';
 
-export const entities = [Cimetery, Section,Section,Burial,OwnerShipRecord,ConcessionOwner, Gravesite, Row, Deceased];
-export {Cimetery,Section,Burial,OwnerShipRecord,ConcessionOwner, Gravesite, Row, Deceased };
+export const entities = [Cimetery, Section,Burial,OwnerShipRecord,ConcessionOwner, Gravesite, Row, Deceased, Whises];
+export {Cimetery,Section,Burial,OwnerShipRecord,ConcessionOwner, Gravesite, Row, Deceased, Whises };
