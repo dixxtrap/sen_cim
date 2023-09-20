@@ -9,66 +9,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Section = void 0;
+exports.Row = void 0;
 const typeorm_1 = require("typeorm");
-const cimetery_1 = require("./cimetery");
-const row_1 = require("./row");
-let Section = class Section {
+const section_1 = require("./section");
+const gravesite_1 = require("./gravesite");
+let Row = class Row {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], Section.prototype, "id", void 0);
+], Row.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => cimetery_1.Cimetery, (cimetery) => cimetery.sections, {
+    (0, typeorm_1.ManyToOne)(() => section_1.Section, (section) => section.rows, {
         onDelete: 'SET NULL',
         onUpdate: 'SET NULL',
         nullable: true,
     }),
-    __metadata("design:type", cimetery_1.Cimetery)
-], Section.prototype, "cimetery", void 0);
+    __metadata("design:type", section_1.Section)
+], Row.prototype, "section", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => row_1.Row, (row) => row.section, {
+    (0, typeorm_1.OneToMany)(() => gravesite_1.Gravesite, (gravesite) => gravesite.row, {
         cascade: true,
         nullable: true,
-        onDelete: 'SET NULL',
+        onDelete: 'SET NULL'
     }),
     __metadata("design:type", Array)
-], Section.prototype, "rows", void 0);
+], Row.prototype, "gravesites", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
-], Section.prototype, "name", void 0);
+], Row.prototype, "numero", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
-], Section.prototype, "link", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", String)
-], Section.prototype, "comment", void 0);
+], Row.prototype, "emplacement", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", Number)
-], Section.prototype, "laltitude", void 0);
+], Row.prototype, "capacity", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", Number)
-], Section.prototype, "longitude", void 0);
-__decorate([
-    (0, typeorm_1.CreateDateColumn)(),
-    __metadata("design:type", Date)
-], Section.prototype, "createdAt", void 0);
-__decorate([
-    (0, typeorm_1.UpdateDateColumn)(),
-    __metadata("design:type", Date)
-], Section.prototype, "updatedAt", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", Number)
-], Section.prototype, "cimeteryId", void 0);
-Section = __decorate([
+], Row.prototype, "sectionId", void 0);
+Row = __decorate([
     (0, typeorm_1.Entity)()
-], Section);
-exports.Section = Section;
-//# sourceMappingURL=section.js.map
+], Row);
+exports.Row = Row;
+//# sourceMappingURL=row.js.map

@@ -3,10 +3,12 @@ import {
   CreateDateColumn,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { Cimetery } from './cimetery';
+import { Row } from './row';
 
 @Entity()
 export class Section {
@@ -18,13 +20,20 @@ export class Section {
     nullable: true,
   })
   cimetery: Cimetery;
+
+  @OneToMany(()=> Row, (row)=> row.section,{
+    cascade: true,
+    nullable: true,
+    onDelete: 'SET NULL',
+  })
+  rows:Row[]
+  
   @Column({ nullable: true })
   name: string;
   @Column({ nullable: true })
   link: string;
   @Column({ nullable: true })
   comment: string;
-
   @Column({ nullable: true })
   laltitude: number;
   @Column({ nullable: true })
@@ -33,4 +42,6 @@ export class Section {
   createdAt: Date;
   @UpdateDateColumn()
   updatedAt: Date;
+  @Column({ nullable: true })
+  cimeteryId: number;
 }
