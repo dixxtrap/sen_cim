@@ -20,7 +20,15 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], Whises.prototype, "whishe", void 0);
+], Whises.prototype, "whish", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    __metadata("design:type", Date)
+], Whises.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], Whises.prototype, "updatedAt", void 0);
 Whises = __decorate([
     (0, typeorm_1.Entity)()
 ], Whises);

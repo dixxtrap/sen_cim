@@ -78,6 +78,10 @@ __decorate([
     (0, typeorm_1.UpdateDateColumn)(),
     __metadata("design:type", Date)
 ], Cimetery.prototype, "updatedAt", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Cimetery.prototype, "photo", void 0);
 Cimetery = __decorate([
     (0, typeorm_1.Entity)(),
     (0, typeorm_1.Index)(['name'], { unique: true }),

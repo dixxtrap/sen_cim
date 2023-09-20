@@ -1,16 +1,18 @@
-import { Gravesite } from "./gravasite";
-import { Deceased } from "./deceased";
+import { Gravesite } from './gravasite';
+import { Deceased } from './deceased';
 export declare class Burial {
     id: number;
     gravesite: Gravesite;
     deceased: Deceased;
     burialDate: Date;
-    funeralType: String;
-    issuingMunicipality: String;
-    burialPermitNumber: String;
-    issueIn: String;
+    funeralType: string;
+    issuingMunicipality: string;
+    burialPermitNumber: string;
+    issueIn: string;
+    createdAt: Date;
+    updatedAt: Date;
     dateOfIssuanceOfThePermit: Date;
-    receiptNumber: String;
+    receiptNumber: string;
     amountPaid: number;
     allocatedTombVaultArea: number;
     gravesiteId: number;

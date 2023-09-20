@@ -4,8 +4,8 @@ export declare class Row {
     id: number;
     section: Section;
     gravesites: Gravesite[];
-    numero: String;
-    emplacement: String;
+    numero: string;
+    emplacement: string;
     capacity: number;
     sectionId: number;
 }

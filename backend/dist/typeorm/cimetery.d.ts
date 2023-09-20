@@ -15,4 +15,5 @@ export declare class Cimetery {
     isActive: boolean;
     createdAt: Date;
     updatedAt: Date;
+    photo: string;
 }

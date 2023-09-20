@@ -7,5 +7,5 @@ import { OwnerShipRecord } from './ownerShipRecord';
 import { Row } from './row';
 import { Section } from './section';
 import { Whises } from './wishes';
-export declare const entities: (typeof Cimetery | typeof Section | typeof Row | typeof Gravesite | typeof ConcessionOwner | typeof OwnerShipRecord | typeof Burial | typeof Deceased | typeof Whises)[];
-export { Cimetery, Section, Burial, OwnerShipRecord, ConcessionOwner, Gravesite, Row, Deceased, Whises };
+export declare const entities: (typeof Cimetery | typeof Section | typeof Burial | typeof OwnerShipRecord | typeof ConcessionOwner | typeof Gravesite | typeof Row | typeof Deceased | typeof Whises)[];
+export { Cimetery, Section, Burial, OwnerShipRecord, ConcessionOwner, Gravesite, Row, Deceased, Whises, };

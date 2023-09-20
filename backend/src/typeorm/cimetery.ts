@@ -50,4 +50,6 @@ export class Cimetery {
   createdAt: Date;
   @UpdateDateColumn()
   updatedAt: Date;
+  @Column({ nullable: true })
+  photo: string;
 }

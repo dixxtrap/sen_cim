@@ -13,11 +13,12 @@ const app_service_1 = require("./app.service");
 const typeorm_1 = require("@nestjs/typeorm");
 const module_1 = require("./ressources/cimetery/module");
 const mysql_config_1 = require("./mysql.config");
+const module_2 = require("./ressources/section/module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forRoot(mysql_config_1.default), module_1.CimeteryModule],
+        imports: [typeorm_1.TypeOrmModule.forRoot(mysql_config_1.default), module_1.CimeteryModule, module_2.SectionModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

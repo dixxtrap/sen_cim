@@ -23,15 +23,15 @@ __decorate([
     (0, typeorm_1.ManyToOne)(() => gravasite_1.Gravesite, (gravesite) => gravesite.burials, {
         onDelete: 'SET NULL',
         onUpdate: 'SET NULL',
-        nullable: true
+        nullable: true,
     }),
     __metadata("design:type", gravasite_1.Gravesite)
 ], Burial.prototype, "gravesite", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => deceased_1.Deceased, (deceased) => deceased.burials, {
+    (0, typeorm_1.OneToOne)(() => deceased_1.Deceased, (deceased) => deceased.burials, {
         onDelete: 'SET NULL',
         onUpdate: 'SET NULL',
-        nullable: true
+        nullable: true,
     }),
     __metadata("design:type", deceased_1.Deceased)
 ], Burial.prototype, "deceased", void 0);
@@ -40,35 +40,43 @@ __decorate([
     __metadata("design:type", Date)
 ], Burial.prototype, "burialDate", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Burial.prototype, "funeralType", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Burial.prototype, "issuingMunicipality", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Burial.prototype, "burialPermitNumber", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Burial.prototype, "issueIn", void 0);
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)
+], Burial.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], Burial.prototype, "updatedAt", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", Date)
 ], Burial.prototype, "dateOfIssuanceOfThePermit", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Burial.prototype, "receiptNumber", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", Number)
 ], Burial.prototype, "amountPaid", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", Number)
 ], Burial.prototype, "allocatedTombVaultArea", void 0);
 __decorate([

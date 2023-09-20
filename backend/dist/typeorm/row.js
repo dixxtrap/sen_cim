@@ -31,7 +31,7 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => gravasite_1.Gravesite, (gravesite) => gravesite.row, {
         cascade: true,
         nullable: true,
-        onDelete: 'SET NULL'
+        onDelete: 'SET NULL',
     }),
     __metadata("design:type", Array)
 ], Row.prototype, "gravesites", void 0);

@@ -19,5 +19,15 @@ const section_1 = require("./section");
 Object.defineProperty(exports, "Section", { enumerable: true, get: function () { return section_1.Section; } });
 const wishes_1 = require("./wishes");
 Object.defineProperty(exports, "Whises", { enumerable: true, get: function () { return wishes_1.Whises; } });
-exports.entities = [cimetery_1.Cimetery, section_1.Section, burial_1.Burial, ownerShipRecord_1.OwnerShipRecord, concessionOwner_1.ConcessionOwner, gravasite_1.Gravesite, row_1.Row, deceased_1.Deceased, wishes_1.Whises];
+exports.entities = [
+    cimetery_1.Cimetery,
+    section_1.Section,
+    burial_1.Burial,
+    ownerShipRecord_1.OwnerShipRecord,
+    concessionOwner_1.ConcessionOwner,
+    gravasite_1.Gravesite,
+    row_1.Row,
+    deceased_1.Deceased,
+    wishes_1.Whises,
+];
 //# sourceMappingURL=index.js.map

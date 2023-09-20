@@ -22,21 +22,21 @@ __decorate([
 __decorate([
     (0, typeorm_1.ManyToOne)(() => gravasite_1.Gravesite, (gravesite) => gravesite.ownerShipRecords, {
         onDelete: 'SET NULL',
-        onUpdate: "SET NULL",
-        nullable: true
+        onUpdate: 'SET NULL',
+        nullable: true,
     }),
     __metadata("design:type", gravasite_1.Gravesite)
 ], OwnerShipRecord.prototype, "gravesite", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => concessionOwner_1.ConcessionOwner, (concessionOwner) => concessionOwner.ownerShipRecords, {
         onDelete: 'SET NULL',
-        onUpdate: "SET NULL",
-        nullable: true
+        onUpdate: 'SET NULL',
+        nullable: true,
     }),
     __metadata("design:type", concessionOwner_1.ConcessionOwner)
 ], OwnerShipRecord.prototype, "concessionOwner", void 0);
 __decorate([
-    (0, typeorm_1.CreateDateColumn)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", Date)
 ], OwnerShipRecord.prototype, "ownerShipStartDate", void 0);
 __decorate([

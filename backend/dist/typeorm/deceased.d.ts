@@ -1,13 +1,13 @@
-import { Burial } from "./burial";
+import { Burial } from './burial';
 export declare class Deceased {
     id: number;
     burials: Burial[];
-    firstName: String;
-    lastName: String;
-    placeOfBirth: String;
-    placeOfDeath: String;
+    firstName: string;
+    lastName: string;
+    placeOfBirth: string;
+    placeOfDeath: string;
     dateOfBirth: Date;
     dateOfDeath: Date;
-    gender: String;
-    deaceasedPhoto: number;
+    gender: string;
+    photo: string;
 }

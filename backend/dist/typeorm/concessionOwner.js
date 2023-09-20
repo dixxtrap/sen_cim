@@ -22,14 +22,34 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => ownerShipRecord_1.OwnerShipRecord, (osr) => osr.concessionOwner, {
         cascade: true,
         nullable: true,
-        onDelete: 'SET NULL'
+        onDelete: 'SET NULL',
     }),
     __metadata("design:type", Array)
 ], ConcessionOwner.prototype, "ownerShipRecords", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], ConcessionOwner.prototype, "firstName", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], ConcessionOwner.prototype, "lastName", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], ConcessionOwner.prototype, "address", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", Number)
+], ConcessionOwner.prototype, "phone", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    __metadata("design:type", Date)
+], ConcessionOwner.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], ConcessionOwner.prototype, "updatedAt", void 0);
 ConcessionOwner = __decorate([
     (0, typeorm_1.Entity)()
 ], ConcessionOwner);

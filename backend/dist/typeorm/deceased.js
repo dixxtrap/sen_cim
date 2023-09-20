@@ -19,29 +19,45 @@ __decorate([
     __metadata("design:type", Number)
 ], Deceased.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => burial_1.Burial, (burial) => burial.deceased, {
+    (0, typeorm_1.OneToOne)(() => burial_1.Burial, (burial) => burial.deceased, {
         cascade: true,
         nullable: true,
-        onDelete: 'SET NULL'
+        onDelete: 'SET NULL',
     }),
     __metadata("design:type", Array)
 ], Deceased.prototype, "burials", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 20 }),
     __metadata("design:type", String)
 ], Deceased.prototype, "firstName", void 0);
 __decorate([
-    (0, typeorm_1.CreateDateColumn)(),
+    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 20 }),
+    __metadata("design:type", String)
+], Deceased.prototype, "lastName", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 30 }),
+    __metadata("design:type", String)
+], Deceased.prototype, "placeOfBirth", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 30 }),
+    __metadata("design:type", String)
+], Deceased.prototype, "placeOfDeath", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", Date)
 ], Deceased.prototype, "dateOfBirth", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", Date)
+], Deceased.prototype, "dateOfDeath", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Deceased.prototype, "gender", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", Number)
-], Deceased.prototype, "deaceasedPhoto", void 0);
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Deceased.prototype, "photo", void 0);
 Deceased = __decorate([
     (0, typeorm_1.Entity)()
 ], Deceased);

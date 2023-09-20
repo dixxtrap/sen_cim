@@ -23,16 +23,16 @@ __decorate([
 __decorate([
     (0, typeorm_1.ManyToOne)(() => row_1.Row, (row) => row.gravesites, {
         onDelete: 'SET NULL',
-        onUpdate: "SET NULL",
-        nullable: true
+        onUpdate: 'SET NULL',
+        nullable: true,
     }),
     __metadata("design:type", row_1.Row)
 ], Gravesite.prototype, "row", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => burial_1.Burial, (burial) => burial.gravesite, {
+    (0, typeorm_1.OneToOne)(() => burial_1.Burial, (burial) => burial.gravesite, {
         cascade: true,
         nullable: true,
-        onDelete: 'SET NULL'
+        onDelete: 'SET NULL',
     }),
     __metadata("design:type", Array)
 ], Gravesite.prototype, "burials", void 0);
@@ -40,21 +40,21 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => ownerShipRecord_1.OwnerShipRecord, (osr) => osr.gravesite, {
         cascade: true,
         nullable: true,
-        onDelete: 'SET NULL'
+        onDelete: 'SET NULL',
     }),
     __metadata("design:type", Array)
 ], Gravesite.prototype, "ownerShipRecords", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 30 }),
     __metadata("design:type", String)
 ], Gravesite.prototype, "platNumber", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 30 }),
     __metadata("design:type", String)
 ], Gravesite.prototype, "status", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
+    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 30 }),
+    __metadata("design:type", Date)
 ], Gravesite.prototype, "purchase", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),

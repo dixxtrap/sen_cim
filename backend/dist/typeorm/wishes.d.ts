@@ -1,4 +1,6 @@
 export declare class Whises {
     id: number;
-    whishe: string;
+    whish: string;
+    createdAt: Date;
+    updatedAt: Date;
 }

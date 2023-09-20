@@ -1,30 +1,38 @@
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Burial } from "./burial";
-
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Burial } from './burial';
 
 @Entity()
-export class Deceased{
-    @PrimaryGeneratedColumn()
-    id:number
-    
-    @OneToMany(()=> Burial, (burial)=> burial.deceased,{
-        cascade: true,
-        nullable: true,
-        onDelete : 'SET NULL'
-    })
-    burials: Burial[]
+export class Deceased {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    firstName: String
-    lastName: String
-    placeOfBirth: String
-    placeOfDeath: String
-    @CreateDateColumn()
-    dateOfBirth: Date
-    dateOfDeath: Date
-    @Column()
-    gender: String
-    @Column()
-    deaceasedPhoto: number
+  @OneToOne(() => Burial, (burial) => burial.deceased, {
+    cascade: true,
+    nullable: true,
+    onDelete: 'SET NULL',
+  })
+  burials: Burial[];
 
+  @Column({ nullable: true, type: 'varchar', length: 20 })
+  firstName: string;
+  @Column({ nullable: true, type: 'varchar', length: 20 })
+  lastName: string;
+  @Column({ nullable: true, type: 'varchar', length: 30 })
+  placeOfBirth: string;
+  @Column({ nullable: true, type: 'varchar', length: 30 })
+  placeOfDeath: string;
+  @Column({ nullable: true })
+  dateOfBirth: Date;
+  @Column({ nullable: true })
+  dateOfDeath: Date;
+  @Column({ nullable: true })
+  gender: string;
+  @Column({ nullable: true })
+  photo: string;
 }
