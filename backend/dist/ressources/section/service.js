@@ -21,6 +21,21 @@ let SectionService = class SectionService {
     constructor(repos) {
         this.repos = repos;
     }
+    async get() {
+        return await this.repos.find();
+    }
+    async create(body) {
+        return await this.repos.save(this.repos.create(body));
+    }
+    async getById(id) {
+        return await this.repos.findOne({ where: { id } });
+    }
+    async update(id, body) {
+        return await this.repos.update(id, Object.assign({}, body));
+    }
+    async delete(id) {
+        return await this.repos.delete({ id });
+    }
 };
 SectionService = __decorate([
     (0, common_1.Injectable)(),

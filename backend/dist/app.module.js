@@ -14,11 +14,27 @@ const typeorm_1 = require("@nestjs/typeorm");
 const module_1 = require("./ressources/cimetery/module");
 const mysql_config_1 = require("./mysql.config");
 const module_2 = require("./ressources/section/module");
+const module_3 = require("./ressources/row/module");
+const module_4 = require("./ressources/gravesite/module");
+const module_5 = require("./ressources/burial/module");
+const module_6 = require("./ressources/deceased/module");
+const module_7 = require("./ressources/ownerShipRecord/module");
+const module_8 = require("./ressources/concessionOwner/module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forRoot(mysql_config_1.default), module_1.CimeteryModule, module_2.SectionModule],
+        imports: [
+            typeorm_1.TypeOrmModule.forRoot(mysql_config_1.default),
+            module_1.CimeteryModule,
+            module_2.SectionModule,
+            module_3.RowModule,
+            module_4.GravesiteModule,
+            module_5.BurialModule,
+            module_6.DeceasedModule,
+            module_7.OwnerShipRecordModule,
+            module_8.ConcessionOwnerModule
+        ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

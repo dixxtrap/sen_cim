@@ -20,5 +20,5 @@ export class Flower {
   @CreateDateColumn()
   createsAt: Date;
   @UpdateDateColumn()
-  updatedAt;
+  updatedAt: Date;
 }

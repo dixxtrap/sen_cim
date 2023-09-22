@@ -4,5 +4,5 @@ export declare class Flower {
     comment: string;
     photo: string;
     createsAt: Date;
-    updatedAt: any;
+    updatedAt: Date;
 }

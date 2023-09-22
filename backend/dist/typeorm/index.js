@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Whises = exports.Deceased = exports.Row = exports.Gravesite = exports.ConcessionOwner = exports.OwnerShipRecord = exports.Burial = exports.Section = exports.Cimetery = exports.entities = void 0;
+exports.Flower = exports.Whises = exports.Deceased = exports.Row = exports.Gravesite = exports.ConcessionOwner = exports.OwnerShipRecord = exports.Burial = exports.Section = exports.Cimetery = exports.entities = void 0;
 const burial_1 = require("./burial");
 Object.defineProperty(exports, "Burial", { enumerable: true, get: function () { return burial_1.Burial; } });
 const cimetery_1 = require("./cimetery");
@@ -9,6 +9,8 @@ const concessionOwner_1 = require("./concessionOwner");
 Object.defineProperty(exports, "ConcessionOwner", { enumerable: true, get: function () { return concessionOwner_1.ConcessionOwner; } });
 const deceased_1 = require("./deceased");
 Object.defineProperty(exports, "Deceased", { enumerable: true, get: function () { return deceased_1.Deceased; } });
+const flower_1 = require("./flower");
+Object.defineProperty(exports, "Flower", { enumerable: true, get: function () { return flower_1.Flower; } });
 const gravasite_1 = require("./gravasite");
 Object.defineProperty(exports, "Gravesite", { enumerable: true, get: function () { return gravasite_1.Gravesite; } });
 const ownerShipRecord_1 = require("./ownerShipRecord");
@@ -29,5 +31,6 @@ exports.entities = [
     row_1.Row,
     deceased_1.Deceased,
     wishes_1.Whises,
+    flower_1.Flower
 ];
 //# sourceMappingURL=index.js.map

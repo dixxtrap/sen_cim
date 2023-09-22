@@ -35,7 +35,7 @@ __decorate([
 ], Flower.prototype, "createsAt", void 0);
 __decorate([
     (0, typeorm_1.UpdateDateColumn)(),
-    __metadata("design:type", Object)
+    __metadata("design:type", Date)
 ], Flower.prototype, "updatedAt", void 0);
 Flower = __decorate([
     (0, typeorm_1.Entity)()
