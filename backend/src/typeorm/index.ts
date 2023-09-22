@@ -2,6 +2,7 @@ import { Burial } from './burial';
 import { Cimetery } from './cimetery';
 import { ConcessionOwner } from './concessionOwner';
 import { Deceased } from './deceased';
+import { Flower } from './flower';
 import { Gravesite } from './gravasite';
 import { OwnerShipRecord } from './ownerShipRecord';
 import { Row } from './row';
@@ -18,6 +19,8 @@ export const entities = [
   Row,
   Deceased,
   Whises,
+  Flower
+
 ];
 export {
   Cimetery,
@@ -29,4 +32,5 @@ export {
   Row,
   Deceased,
   Whises,
+  Flower
 };
