@@ -3,9 +3,9 @@ import { entities } from './typeorm';
 const config: MysqlConnectionOptions = {
   type: 'mysql',
   host: 'localhost',
-  port: 3306,
+  port: 3307,
   username: 'root',
-  password: '',
+  password: 'root',
   dateStrings: true,
   entities: entities,
   database: 'sen_cim',

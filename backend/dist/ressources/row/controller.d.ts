@@ -1,5 +1,5 @@
-import { RowServive } from "./service";
-import { RowDto } from "./dto";
+import { RowServive } from './service';
+import { RowDto } from './dto';
 export declare class RowController {
     private service;
     constructor(service: RowServive);

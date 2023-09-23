@@ -8,23 +8,23 @@ import { SectionDto } from './dto';
 export class SectionService {
   constructor(@InjectRepository(Section) private repos: Repository<Section>) {}
 
-  async get(){
-    return await this.repos.find()
+  async get() {
+    return await this.repos.find();
   }
 
-  async create(body: SectionDto){
-    return await this.repos.save(this.repos.create(body))
+  async create(body: SectionDto) {
+    return await this.repos.save(this.repos.create(body));
   }
 
-  async getById(id: number){
-    return await this.repos.findOne({where: {id}})
+  async getById(id: number) {
+    return await this.repos.findOne({ where: { id } });
   }
 
-  async update(id: number, body: SectionDto){
-    return await this.repos.update(id , {...body})
+  async update(id: number, body: SectionDto) {
+    return await this.repos.update(id, { ...body });
   }
 
-  async delete(id: number){
-    return await this.repos.delete({id})
+  async delete(id: number) {
+    return await this.repos.delete({ id });
   }
 }

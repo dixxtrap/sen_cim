@@ -4,7 +4,7 @@ import { OwnerShipRecord } from './ownerShipRecord';
 export declare class Gravesite {
     id: number;
     row: Row;
-    burials: Burial[];
+    burials: Burial;
     ownerShipRecords: OwnerShipRecord[];
     platNumber: string;
     status: string;

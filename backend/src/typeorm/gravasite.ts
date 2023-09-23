@@ -13,7 +13,6 @@ import { Burial } from './burial';
 import { OwnerShipRecord } from './ownerShipRecord';
 
 @Entity()
-@Index(['platNumber'], { unique: true })
 export class Gravesite {
   @PrimaryGeneratedColumn()
   id: number;
@@ -30,7 +29,7 @@ export class Gravesite {
     nullable: true,
     onDelete: 'SET NULL',
   })
-  burials: Burial[];
+  burials: Burial;
 
   @OneToMany(() => OwnerShipRecord, (osr) => osr.gravesite, {
     cascade: true,
@@ -47,4 +46,4 @@ export class Gravesite {
   purchase: Date;
   @Column({ nullable: true })
   rowId: number;
-}
+} 

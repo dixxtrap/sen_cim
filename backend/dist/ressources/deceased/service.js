@@ -18,8 +18,12 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("../../typeorm");
 const typeorm_3 = require("typeorm");
 let DeceasedService = class DeceasedService {
-    constructor(repos) {
+    constructor(repos, burial, section, row, gravesite) {
         this.repos = repos;
+        this.burial = burial;
+        this.section = section;
+        this.row = row;
+        this.gravesite = gravesite;
     }
     async get() {
         return await this.repos.find();
@@ -28,7 +32,32 @@ let DeceasedService = class DeceasedService {
         return await this.repos.findOne({ where: { id } });
     }
     async create(body) {
-        return await this.repos.save(this.repos.create(body));
+        var _a;
+        const section = await this.section.findOne({
+            where: { name: body.sectionName },
+        });
+        if (!section)
+            throw new common_1.HttpException({
+                code: 404,
+                status: 'NOT_FOUND',
+                message: `Section with name ${body.sectionName} not found`,
+            }, 404);
+        console.log('-----------------section created successful------------------');
+        const row = (_a = (await this.row.findOne({
+            where: { sectionId: section.id, numero: body.rowName },
+        }))) !== null && _a !== void 0 ? _a : (await this.row.save(this.row.create({ sectionId: section.id, numero: body.rowName })));
+        console.log('-----------------row created successful------------------');
+        const deceased = await this.repos.save(this.repos.create(body));
+        console.log('-----------------Deceased created successful------------------');
+        const gravasite = await this.gravesite.save(this.gravesite.create({ rowId: row.id, platNumber: body.platNumber }));
+        console.log('-----------------gravesite created successful------------------');
+        const burial = await this.burial.save(this.burial.create({
+            burialPermitNumber: body.burialPermitNumber,
+            gravesiteId: gravasite.id,
+            deceasedId: deceased.id,
+            burialDate: body.burialDate,
+        }));
+        return burial;
     }
     async update(id, body) {
         return await this.repos.update(id, Object.assign({}, body));
@@ -40,7 +69,15 @@ let DeceasedService = class DeceasedService {
 DeceasedService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(typeorm_2.Deceased)),
-    __metadata("design:paramtypes", [typeorm_3.Repository])
+    __param(1, (0, typeorm_1.InjectRepository)(typeorm_2.Burial)),
+    __param(2, (0, typeorm_1.InjectRepository)(typeorm_2.Section)),
+    __param(3, (0, typeorm_1.InjectRepository)(typeorm_2.Row)),
+    __param(4, (0, typeorm_1.InjectRepository)(typeorm_2.Gravesite)),
+    __metadata("design:paramtypes", [typeorm_3.Repository,
+        typeorm_3.Repository,
+        typeorm_3.Repository,
+        typeorm_3.Repository,
+        typeorm_3.Repository])
 ], DeceasedService);
 exports.DeceasedService = DeceasedService;
 //# sourceMappingURL=service.js.map

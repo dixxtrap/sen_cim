@@ -1,4 +1,9 @@
 export declare class DeceasedDto {
+    sectionName: string;
+    rowName: string;
+    platNumber: string;
+    burialDate: Date;
+    burialPermitNumber: string;
     id: number;
     firstName: string;
     lastName: string;

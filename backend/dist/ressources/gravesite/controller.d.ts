@@ -1,5 +1,5 @@
-import { GravesiteService } from "./service";
-import { GravesiteDto } from "./dto";
+import { GravesiteService } from './service';
+import { GravesiteDto } from './dto';
 export declare class GravesiteController {
     private service;
     constructor(service: GravesiteService);

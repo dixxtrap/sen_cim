@@ -17,11 +17,11 @@ export class Deceased {
     nullable: true,
     onDelete: 'SET NULL',
   })
-  burials: Burial[];
+  burial: Burial;
 
-  @Column({ nullable: true, type: 'varchar', length: 20 })
+  @Column({ nullable: true, type: 'varchar', length: 30 })
   firstName: string;
-  @Column({ nullable: true, type: 'varchar', length: 20 })
+  @Column({ nullable: true, type: 'varchar', length: 30 })
   lastName: string;
   @Column({ nullable: true, type: 'varchar', length: 30 })
   placeOfBirth: string;

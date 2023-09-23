@@ -15,16 +15,16 @@ import { ConcessionOwnerModule } from './ressources/concessionOwner/module';
 
 @Module({
   imports: [
-     TypeOrmModule.forRoot(config),
-     CimeteryModule, 
-     SectionModule, 
-     RowModule, 
-     GravesiteModule, 
-     BurialModule, 
-     DeceasedModule,
-     OwnerShipRecordModule,
-     ConcessionOwnerModule
-    ],
+    TypeOrmModule.forRoot(config),
+    CimeteryModule,
+    SectionModule,
+    RowModule,
+    GravesiteModule,
+    BurialModule,
+    DeceasedModule,
+    OwnerShipRecordModule,
+    ConcessionOwnerModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

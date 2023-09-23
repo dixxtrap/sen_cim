@@ -15,6 +15,26 @@ class DeceasedDto {
 }
 __decorate([
     (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], DeceasedDto.prototype, "sectionName", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], DeceasedDto.prototype, "rowName", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], DeceasedDto.prototype, "platNumber", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", Date)
+], DeceasedDto.prototype, "burialDate", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], DeceasedDto.prototype, "burialPermitNumber", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", Number)
 ], DeceasedDto.prototype, "id", void 0);
 __decorate([

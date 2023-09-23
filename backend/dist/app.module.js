@@ -33,7 +33,7 @@ AppModule = __decorate([
             module_5.BurialModule,
             module_6.DeceasedModule,
             module_7.OwnerShipRecordModule,
-            module_8.ConcessionOwnerModule
+            module_8.ConcessionOwnerModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

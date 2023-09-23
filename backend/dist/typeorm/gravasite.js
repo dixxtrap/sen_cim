@@ -34,7 +34,7 @@ __decorate([
         nullable: true,
         onDelete: 'SET NULL',
     }),
-    __metadata("design:type", Array)
+    __metadata("design:type", burial_1.Burial)
 ], Gravesite.prototype, "burials", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => ownerShipRecord_1.OwnerShipRecord, (osr) => osr.gravesite, {
@@ -61,8 +61,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Gravesite.prototype, "rowId", void 0);
 Gravesite = __decorate([
-    (0, typeorm_1.Entity)(),
-    (0, typeorm_1.Index)(['platNumber'], { unique: true })
+    (0, typeorm_1.Entity)()
 ], Gravesite);
 exports.Gravesite = Gravesite;
 //# sourceMappingURL=gravasite.js.map

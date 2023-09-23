@@ -1,7 +1,7 @@
 import { Burial } from './burial';
 export declare class Deceased {
     id: number;
-    burials: Burial[];
+    burial: Burial;
     firstName: string;
     lastName: string;
     placeOfBirth: string;

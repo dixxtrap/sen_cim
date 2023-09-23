@@ -1,5 +1,5 @@
-import { OwnerShipRecordService } from "./service";
-import { OwnerShipRecordDto } from "./dto";
+import { OwnerShipRecordService } from './service';
+import { OwnerShipRecordDto } from './dto';
 export declare class OwnerShipRecordController {
     private service;
     constructor(service: OwnerShipRecordService);

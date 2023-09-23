@@ -31,6 +31,6 @@ exports.entities = [
     row_1.Row,
     deceased_1.Deceased,
     wishes_1.Whises,
-    flower_1.Flower
+    flower_1.Flower,
 ];
 //# sourceMappingURL=index.js.map

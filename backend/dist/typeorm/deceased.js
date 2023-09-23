@@ -24,14 +24,14 @@ __decorate([
         nullable: true,
         onDelete: 'SET NULL',
     }),
-    __metadata("design:type", Array)
-], Deceased.prototype, "burials", void 0);
+    __metadata("design:type", burial_1.Burial)
+], Deceased.prototype, "burial", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 20 }),
+    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 30 }),
     __metadata("design:type", String)
 ], Deceased.prototype, "firstName", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 20 }),
+    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 30 }),
     __metadata("design:type", String)
 ], Deceased.prototype, "lastName", void 0);
 __decorate([

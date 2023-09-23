@@ -16,9 +16,11 @@ let DeceasedModule = class DeceasedModule {
 };
 DeceasedModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([typeorm_2.Deceased])],
+        imports: [
+            typeorm_1.TypeOrmModule.forFeature([typeorm_2.Deceased, typeorm_2.Burial, typeorm_2.Section, typeorm_2.Row, typeorm_2.Gravesite]),
+        ],
         controllers: [controller_1.DeceasedController],
-        providers: [service_1.DeceasedService]
+        providers: [service_1.DeceasedService],
     })
 ], DeceasedModule);
 exports.DeceasedModule = DeceasedModule;

@@ -18,7 +18,7 @@ GravesiteModule = __decorate([
     (0, common_1.Module)({
         imports: [typeorm_2.TypeOrmModule.forFeature([typeorm_1.Gravesite])],
         controllers: [controller_1.GravesiteController],
-        providers: [service_1.GravesiteService]
+        providers: [service_1.GravesiteService],
     })
 ], GravesiteModule);
 exports.GravesiteModule = GravesiteModule;

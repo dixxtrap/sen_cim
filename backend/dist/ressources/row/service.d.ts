@@ -1,6 +1,6 @@
-import { Row } from "src/typeorm";
-import { Repository } from "typeorm";
-import { RowDto } from "./dto";
+import { Row } from 'src/typeorm';
+import { Repository } from 'typeorm';
+import { RowDto } from './dto';
 export declare class RowServive {
     private repos;
     constructor(repos: Repository<Row>);

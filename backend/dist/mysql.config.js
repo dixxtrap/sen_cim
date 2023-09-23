@@ -4,9 +4,9 @@ const typeorm_1 = require("./typeorm");
 const config = {
     type: 'mysql',
     host: 'localhost',
-    port: 3306,
+    port: 3307,
     username: 'root',
-    password: '',
+    password: 'root',
     dateStrings: true,
     entities: typeorm_1.entities,
     database: 'sen_cim',

@@ -19,8 +19,7 @@ export const entities = [
   Row,
   Deceased,
   Whises,
-  Flower
-
+  Flower,
 ];
 export {
   Cimetery,
@@ -32,5 +31,5 @@ export {
   Row,
   Deceased,
   Whises,
-  Flower
+  Flower,
 };

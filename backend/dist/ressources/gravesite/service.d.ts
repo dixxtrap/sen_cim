@@ -1,6 +1,6 @@
-import { Gravesite } from "src/typeorm";
-import { Repository } from "typeorm";
-import { GravesiteDto } from "./dto";
+import { Gravesite } from 'src/typeorm';
+import { Repository } from 'typeorm';
+import { GravesiteDto } from './dto';
 export declare class GravesiteService {
     private repos;
     constructor(repos: Repository<Gravesite>);

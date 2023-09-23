@@ -18,7 +18,7 @@ OwnerShipRecordModule = __decorate([
     (0, common_1.Module)({
         imports: [typeorm_1.TypeOrmModule.forFeature([typeorm_2.OwnerShipRecord])],
         controllers: [controller_1.OwnerShipRecordController],
-        providers: [service_1.OwnerShipRecordService]
+        providers: [service_1.OwnerShipRecordService],
     })
 ], OwnerShipRecordModule);
 exports.OwnerShipRecordModule = OwnerShipRecordModule;

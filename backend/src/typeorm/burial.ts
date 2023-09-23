@@ -2,7 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  ManyToOne,
+  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -15,21 +15,23 @@ export class Burial {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => Gravesite, (gravesite) => gravesite.burials, {
+  @OneToOne(() => Gravesite, (gravesite) => gravesite.burials, {
     onDelete: 'SET NULL',
     onUpdate: 'SET NULL',
     nullable: true,
   })
+  @JoinColumn()
   gravesite: Gravesite;
 
-  @OneToOne(() => Deceased, (deceased) => deceased.burials, {
+  @OneToOne(() => Deceased, (deceased) => deceased.burial, {
     onDelete: 'SET NULL',
     onUpdate: 'SET NULL',
     nullable: true,
   })
+  @JoinColumn()
   deceased: Deceased;
 
-  @CreateDateColumn()
+  @Column()
   burialDate: Date;
   @Column({ nullable: true })
   funeralType: string;
@@ -40,7 +42,7 @@ export class Burial {
   @Column({ nullable: true })
   issueIn: string;
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt: Date; 
   @UpdateDateColumn()
   updatedAt: Date;
   @Column({ nullable: true })

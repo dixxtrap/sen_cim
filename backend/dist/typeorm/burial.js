@@ -20,23 +20,25 @@ __decorate([
     __metadata("design:type", Number)
 ], Burial.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => gravasite_1.Gravesite, (gravesite) => gravesite.burials, {
+    (0, typeorm_1.OneToOne)(() => gravasite_1.Gravesite, (gravesite) => gravesite.burials, {
         onDelete: 'SET NULL',
         onUpdate: 'SET NULL',
         nullable: true,
     }),
+    (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", gravasite_1.Gravesite)
 ], Burial.prototype, "gravesite", void 0);
 __decorate([
-    (0, typeorm_1.OneToOne)(() => deceased_1.Deceased, (deceased) => deceased.burials, {
+    (0, typeorm_1.OneToOne)(() => deceased_1.Deceased, (deceased) => deceased.burial, {
         onDelete: 'SET NULL',
         onUpdate: 'SET NULL',
         nullable: true,
     }),
+    (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", deceased_1.Deceased)
 ], Burial.prototype, "deceased", void 0);
 __decorate([
-    (0, typeorm_1.CreateDateColumn)(),
+    (0, typeorm_1.Column)(),
     __metadata("design:type", Date)
 ], Burial.prototype, "burialDate", void 0);
 __decorate([
