@@ -17,6 +17,8 @@ export class Flower {
   comment: string;
   @Column({ nullable: true })
   photo: string;
+  @Column()
+  photoText: string;
   @CreateDateColumn()
   createsAt: Date;
   @UpdateDateColumn()

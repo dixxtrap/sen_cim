@@ -12,6 +12,7 @@ import { BurialModule } from './ressources/burial/module';
 import { DeceasedModule } from './ressources/deceased/module';
 import { OwnerShipRecordModule } from './ressources/ownerShipRecord/module';
 import { ConcessionOwnerModule } from './ressources/concessionOwner/module';
+import { FlowerModule } from './ressources/flower/module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { ConcessionOwnerModule } from './ressources/concessionOwner/module';
     DeceasedModule,
     OwnerShipRecordModule,
     ConcessionOwnerModule,
+    FlowerModule,
   ],
   controllers: [AppController],
   providers: [AppService],

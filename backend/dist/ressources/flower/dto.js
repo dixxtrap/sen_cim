@@ -9,40 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Flower = void 0;
-const typeorm_1 = require("typeorm");
-let Flower = class Flower {
-};
+exports.FlowerDto = void 0;
+const swagger_1 = require("@nestjs/swagger");
+class FlowerDto {
+}
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
-], Flower.prototype, "id", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ unique: true }),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
-], Flower.prototype, "name", void 0);
+], FlowerDto.prototype, "name", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
-], Flower.prototype, "comment", void 0);
+], FlowerDto.prototype, "comment", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
-], Flower.prototype, "photo", void 0);
+], FlowerDto.prototype, "photo", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
-], Flower.prototype, "photoText", void 0);
-__decorate([
-    (0, typeorm_1.CreateDateColumn)(),
-    __metadata("design:type", Date)
-], Flower.prototype, "createsAt", void 0);
-__decorate([
-    (0, typeorm_1.UpdateDateColumn)(),
-    __metadata("design:type", Date)
-], Flower.prototype, "updatedAt", void 0);
-Flower = __decorate([
-    (0, typeorm_1.Entity)()
-], Flower);
-exports.Flower = Flower;
-//# sourceMappingURL=flower.js.map
+], FlowerDto.prototype, "photoText", void 0);
+exports.FlowerDto = FlowerDto;
+//# sourceMappingURL=dto.js.map

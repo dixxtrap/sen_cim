@@ -46,4 +46,4 @@ export class Gravesite {
   purchase: Date;
   @Column({ nullable: true })
   rowId: number;
-} 
+}

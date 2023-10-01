@@ -20,6 +20,7 @@ const module_5 = require("./ressources/burial/module");
 const module_6 = require("./ressources/deceased/module");
 const module_7 = require("./ressources/ownerShipRecord/module");
 const module_8 = require("./ressources/concessionOwner/module");
+const module_9 = require("./ressources/flower/module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -34,6 +35,7 @@ AppModule = __decorate([
             module_6.DeceasedModule,
             module_7.OwnerShipRecordModule,
             module_8.ConcessionOwnerModule,
+            module_9.FlowerModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
