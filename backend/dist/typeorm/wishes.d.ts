@@ -1,6 +1,7 @@
-export declare class Whises {
+export declare class Wishes {
     id: number;
-    whish: string;
+    wish: string;
+    sign: string;
     createdAt: Date;
     updatedAt: Date;
 }

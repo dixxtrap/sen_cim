@@ -1,4 +1,11 @@
-import { Module } from '@nestjs/common';
+import {
+  Module,
+  NestModule,
+  MiddlewareConsumer,
+  RequestMethod,
+} from '@nestjs/common';
+import * as express from 'express';
+import * as path from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -13,6 +20,9 @@ import { DeceasedModule } from './ressources/deceased/module';
 import { OwnerShipRecordModule } from './ressources/ownerShipRecord/module';
 import { ConcessionOwnerModule } from './ressources/concessionOwner/module';
 import { FlowerModule } from './ressources/flower/module';
+import { WishModule } from './ressources/wish/module';
+import { SharedFlowerModule } from './ressources/shared_flower/module';
+import { ObituaryModule } from './ressources/obituary/module';
 
 @Module({
   imports: [
@@ -26,8 +36,21 @@ import { FlowerModule } from './ressources/flower/module';
     OwnerShipRecordModule,
     ConcessionOwnerModule,
     FlowerModule,
+    WishModule,
+    SharedFlowerModule,
+    ObituaryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    console.log(
+      `------------------${path.join(__dirname, 'upload')}-----------------`,
+    );
+    // Serve static assets from the "public" directory at the '/assets' route
+    consumer
+      .apply(express.static(path.join(__dirname, 'upload/')))
+      .forRoutes({ path: 'uploads', method: RequestMethod.GET });
+  }
+}

@@ -1,0 +1,31 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ExceptionCode = void 0;
+exports.ExceptionCode = {
+    SUCCEEDED: {
+        status: 200,
+        code: 'SUCCEDDED',
+        message: 'Operation reussi avec succes',
+    },
+    FAILLURE: {
+        status: 400,
+        code: 'FAILLURE',
+        message: 'Echec lors du traitement de la requete',
+    },
+    INVALID_CREDENTIAL: {
+        status: 401,
+        code: 'FAILLURE',
+        message: 'Phone ou Codepin Invalide',
+    },
+    BAD_PROFILE: {
+        status: 401,
+        code: 'BAD_PROFILE',
+        message: 'Vous avez pas le Bon profile pour se connecter',
+    },
+    NOT_FOUND: {
+        status: 404,
+        code: 'NOT_FOUND',
+        message: "Nous ne parvenons a trouver l 'entité rechercher",
+    },
+};
+//# sourceMappingURL=exception_code.js.map

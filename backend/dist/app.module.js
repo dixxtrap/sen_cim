@@ -8,6 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
+const express = require("express");
+const path = require("path");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const typeorm_1 = require("@nestjs/typeorm");
@@ -21,7 +23,16 @@ const module_6 = require("./ressources/deceased/module");
 const module_7 = require("./ressources/ownerShipRecord/module");
 const module_8 = require("./ressources/concessionOwner/module");
 const module_9 = require("./ressources/flower/module");
+const module_10 = require("./ressources/wish/module");
+const module_11 = require("./ressources/shared_flower/module");
+const module_12 = require("./ressources/obituary/module");
 let AppModule = class AppModule {
+    configure(consumer) {
+        console.log(`------------------${path.join(__dirname, 'upload')}-----------------`);
+        consumer
+            .apply(express.static(path.join(__dirname, 'upload/')))
+            .forRoutes({ path: 'uploads', method: common_1.RequestMethod.GET });
+    }
 };
 AppModule = __decorate([
     (0, common_1.Module)({
@@ -36,6 +47,9 @@ AppModule = __decorate([
             module_7.OwnerShipRecordModule,
             module_8.ConcessionOwnerModule,
             module_9.FlowerModule,
+            module_10.WishModule,
+            module_11.SharedFlowerModule,
+            module_12.ObituaryModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

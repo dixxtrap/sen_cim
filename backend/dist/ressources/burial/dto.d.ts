@@ -1,3 +1,4 @@
+import { SearchDeceasedDto } from '../deceased/dto';
 export declare class BurialDto {
     id: number;
     burialDate: Date;
@@ -13,4 +14,8 @@ export declare class BurialDto {
     allocatedTombVaultArea: number;
     gravesiteId: number;
     deceasedId: number;
+}
+export declare class SearchBurialDto extends SearchDeceasedDto {
+    cimeteryName: string;
+    burialDate: Date;
 }

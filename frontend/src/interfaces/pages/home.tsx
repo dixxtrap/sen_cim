@@ -1,4 +1,3 @@
-
 import "../style/home.css";
 
 import { TopHeader } from "../components/top_header";
@@ -19,7 +18,7 @@ export const Home = () => {
           <HomeWishes />
           <HomeChifferStat />
         </div>
-        <HomeAside />
+        <HomeAside top={<><div className="h-96 ring_gray"></div></>} />
       </div>
     </div>
   );

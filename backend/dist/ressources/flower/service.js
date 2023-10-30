@@ -18,8 +18,9 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const typeorm_3 = require("../../typeorm");
 let FlowerService = class FlowerService {
-    constructor(repos) {
+    constructor(repos, reposDeceasedFlower) {
         this.repos = repos;
+        this.reposDeceasedFlower = reposDeceasedFlower;
     }
     gets() {
         return this.repos.find();
@@ -28,7 +29,8 @@ let FlowerService = class FlowerService {
         return this.repos.findOne({ where: { id } });
     }
     async create(body) {
-        return await this.repos.save(this.repos.create(body));
+        const flower = await this.repos.save(this.repos.create(body));
+        return flower;
     }
     async update(id, body) {
         return await this.repos.update({ id }, Object.assign({}, body));
@@ -37,7 +39,9 @@ let FlowerService = class FlowerService {
 FlowerService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(typeorm_3.Flower)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __param(1, (0, typeorm_1.InjectRepository)(typeorm_3.DeceasedFlower)),
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository])
 ], FlowerService);
 exports.FlowerService = FlowerService;
 //# sourceMappingURL=service.js.map

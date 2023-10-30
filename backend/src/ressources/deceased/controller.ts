@@ -6,10 +6,12 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { DeceasedService } from './service';
-import { DeceasedDto } from './dto';
+import { DeceasedDto, SearchDeceasedDto } from './dto';
+import { PaginationDto } from 'src/utils/pagination_dto';
 
 @Controller('deceased')
 @ApiTags('Deceased')
@@ -29,7 +31,10 @@ export class DeceasedController {
   create(@Body() body: DeceasedDto) {
     return this.service.create(body);
   }
-
+  @Put('search')
+  search(@Query('') param: PaginationDto, @Body() body: SearchDeceasedDto) {
+    return this.service.search(body, param);
+  }
   @Put(':id')
   update(@Param('id') id: number, @Body() body: DeceasedDto) {
     return this.service.update(id, body);

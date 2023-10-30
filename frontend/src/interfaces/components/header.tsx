@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
-import logo from "../../assets/logo_sen_cim.jpg";
+import logo from "../../assets/logo_sen_cim.png";
 import { Link } from "react-router-dom";
 const user = {
   name: "Tom Cook",
@@ -26,12 +26,19 @@ const menuItems = [
     ],
   },
   {
-    label: "Publier",
+    label: "Envoyer une prière v",
     children: [
       { label: "Envoyer une prière", route: "/wish/create" },
       { label: "Consulter les prières", route: "/wish" },
-      { label: "Publier un avis de décès", route: "#" },
-      { label: "Consulter les avis de décès", route: "#" },
+     
+    ],
+  },
+  {
+    label: "Publier un décès v",
+    children: [
+     
+      { label: "Publier un avis de décès", route: "/obituary/create" },
+      { label: "Consulter les avis de décès", route: "/obituary" },
     ],
   },
 ];
@@ -64,8 +71,8 @@ export const Header = () => {
                         src={logo}
                         alt="Your Company"
                       />
-                      <span className="text-2xl font-serif font-bold ml-2">
-                        Sen Cim
+                      <span className="text-2xl font-serif font-bold ml-2 text-kgray-300">
+                      SenCim.
                       </span>
                     </Link>
                     <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8 items-center justify-center">
@@ -107,12 +114,7 @@ export const Header = () => {
                           </Transition>
                         </Menu>
                       ))}
-                      <Link
-                        to={"#"}
-                        className="relative flex  items-center rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-red-500  focus:ring-offset-2 px-3 "
-                      >
-                        Faire un don 🧡
-                      </Link>
+                     
                     </div>
                   </div>
                   <div className="hidden sm:ml-6 sm:flex sm:items-center">
@@ -127,12 +129,17 @@ export const Header = () => {
 
                     {/* Profile dropdown */}
                     <Menu as="div" className="relative ml-3">
-                      <div>
-                        <Menu.Button className="relative flex max-w-xs bg-red-500 p-2 px-3 text-white items-center rounded-full  text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    
+                        <Menu.Button className="relative flex max-w-xs  p-2 px-3  items-center rounded-full  text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                           <span className="absolute -inset-1.5" />
-                          Se Connecter
+                          <Link
+                        to={"#"}
+                        className="relative flex  items-center rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-red-500  focus:ring-offset-2 px-3 "
+                      >
+                        Faire un don 🧡
+                      </Link>
                         </Menu.Button>
-                      </div>
+                      
                       <Transition
                         as={Fragment}
                         enter="transition ease-out duration-200"

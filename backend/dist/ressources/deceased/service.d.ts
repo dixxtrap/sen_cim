@@ -1,6 +1,7 @@
 import { Burial, Deceased, Gravesite, Row, Section } from 'src/typeorm';
 import { Repository } from 'typeorm';
-import { DeceasedDto } from './dto';
+import { DeceasedDto, SearchDeceasedDto } from './dto';
+import { PaginationDto } from 'src/utils/pagination_dto';
 export declare class DeceasedService {
     private repos;
     private burial;
@@ -9,6 +10,7 @@ export declare class DeceasedService {
     private gravesite;
     constructor(repos: Repository<Deceased>, burial: Repository<Burial>, section: Repository<Section>, row: Repository<Row>, gravesite: Repository<Gravesite>);
     get(): Promise<Deceased[]>;
+    search(body: SearchDeceasedDto, pagination: PaginationDto): Promise<Deceased[]>;
     getById(id: number): Promise<Deceased>;
     create(body: DeceasedDto): Promise<Burial>;
     update(id: number, body: DeceasedDto): Promise<import("typeorm").UpdateResult>;

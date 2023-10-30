@@ -2,10 +2,15 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinTable,
+  ManyToMany,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Burial } from './burial';
+import { Wishes } from './wishes';
+import { Flower } from './flower';
+import { SharedFlower } from './sharedFlower';
 
 @Entity()
 export class Deceased {
@@ -35,4 +40,20 @@ export class Deceased {
   gender: string;
   @Column({ nullable: true })
   photo: string;
+  @ManyToMany(() => Wishes, {
+    cascade: true,
+    onUpdate: 'NO ACTION',
+    onDelete: 'NO ACTION',
+    eager: true,
+  })
+  @JoinTable()
+  wishes: Wishes[];
+  @ManyToMany(() => SharedFlower, {
+    cascade: true,
+    onUpdate: 'NO ACTION',
+    onDelete: 'NO ACTION',
+    eager: true,
+  })
+  @JoinTable()
+  flowers: SharedFlower[];
 }

@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DeceasedDto = void 0;
+exports.SearchDeceasedDto = exports.DeceasedDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
 class DeceasedDto {
 }
@@ -70,4 +70,19 @@ __decorate([
     __metadata("design:type", String)
 ], DeceasedDto.prototype, "photo", void 0);
 exports.DeceasedDto = DeceasedDto;
+class SearchDeceasedDto {
+}
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], SearchDeceasedDto.prototype, "firstName", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], SearchDeceasedDto.prototype, "lastName", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", Number)
+], SearchDeceasedDto.prototype, "year", void 0);
+exports.SearchDeceasedDto = SearchDeceasedDto;
 //# sourceMappingURL=dto.js.map

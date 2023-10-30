@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const service_1 = require("./service");
 const dto_1 = require("./dto");
+const pagination_dto_1 = require("../../utils/pagination_dto");
 let DeceasedController = class DeceasedController {
     constructor(service) {
         this.service = service;
@@ -29,6 +30,9 @@ let DeceasedController = class DeceasedController {
     }
     create(body) {
         return this.service.create(body);
+    }
+    search(param, body) {
+        return this.service.search(body, param);
     }
     update(id, body) {
         return this.service.update(id, body);
@@ -57,6 +61,14 @@ __decorate([
     __metadata("design:paramtypes", [dto_1.DeceasedDto]),
     __metadata("design:returntype", void 0)
 ], DeceasedController.prototype, "create", null);
+__decorate([
+    (0, common_1.Put)('search'),
+    __param(0, (0, common_1.Query)('')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [pagination_dto_1.PaginationDto, dto_1.SearchDeceasedDto]),
+    __metadata("design:returntype", void 0)
+], DeceasedController.prototype, "search", null);
 __decorate([
     (0, common_1.Put)(':id'),
     __param(0, (0, common_1.Param)('id')),

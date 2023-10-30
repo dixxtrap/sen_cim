@@ -17,18 +17,44 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("../../typeorm");
 const typeorm_3 = require("typeorm");
+const exception_code_1 = require("../../utils/exception_code");
 let BurialService = class BurialService {
     constructor(repos) {
         this.repos = repos;
     }
     async get() {
-        return await this.repos.find();
+        return await this.repos.find({ take: 15 });
+    }
+    async search(body, pagination) {
+        const burials = await this.repos.find({
+            where: {
+                deceased: {
+                    firstName: (0, typeorm_3.Like)(`%${body.firstName}%`),
+                    lastName: (0, typeorm_3.Like)(`%${body.lastName}%`),
+                    dateOfDeath: (0, typeorm_3.Raw)((alias) => `YEAR(${alias}) = :year`, {
+                        year: body.year,
+                    }),
+                },
+            },
+            relations: { gravesite: { row: { section: true } }, deceased: true },
+            skip: pagination.page * pagination.perPage,
+            take: pagination.perPage,
+        });
+        if (burials.length > 0)
+            return burials;
+        throw new common_1.HttpException(exception_code_1.ExceptionCode.NOT_FOUND, 404);
     }
     async create(body) {
         return await this.repos.save(this.repos.create(body));
     }
     async getById(id) {
-        return await this.repos.findOne({ where: { id } });
+        return await this.repos.findOne({
+            where: { id },
+            relations: {
+                deceased: { flowers: { flower: true }, wishes: true },
+                gravesite: { row: { section: { cimetery: true } } },
+            },
+        });
     }
     async update(id, body) {
         return await this.repos.update(id, Object.assign({}, body));

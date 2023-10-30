@@ -5,12 +5,12 @@ export class DeceasedDto {
   sectionName: string;
   @ApiProperty()
   rowName: string;
- 
+
   // Inhumation
   @ApiProperty()
   platNumber: string;
   @ApiProperty()
-  burialDate: Date; 
+  burialDate: Date;
   @ApiProperty()
   burialPermitNumber: string;
   // DeceasedDto
@@ -32,4 +32,13 @@ export class DeceasedDto {
   gender: string;
   @ApiProperty()
   photo: string;
+}
+
+export class SearchDeceasedDto  {
+  @ApiProperty()
+  firstName: string;
+  @ApiProperty()
+  lastName: string;
+  @ApiProperty()
+  year: number;
 }

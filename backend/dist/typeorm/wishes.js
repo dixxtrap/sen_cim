@@ -9,28 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Whises = void 0;
+exports.Wishes = void 0;
 const typeorm_1 = require("typeorm");
-let Whises = class Whises {
+let Wishes = class Wishes {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], Whises.prototype, "id", void 0);
+], Wishes.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)('text', { nullable: false }),
+    __metadata("design:type", String)
+], Wishes.prototype, "wish", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], Whises.prototype, "whish", void 0);
+], Wishes.prototype, "sign", void 0);
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)
-], Whises.prototype, "createdAt", void 0);
+], Wishes.prototype, "createdAt", void 0);
 __decorate([
     (0, typeorm_1.UpdateDateColumn)(),
     __metadata("design:type", Date)
-], Whises.prototype, "updatedAt", void 0);
-Whises = __decorate([
-    (0, typeorm_1.Entity)()
-], Whises);
-exports.Whises = Whises;
+], Wishes.prototype, "updatedAt", void 0);
+Wishes = __decorate([
+    (0, typeorm_1.Entity)({ orderBy: { createdAt: 'DESC' } })
+], Wishes);
+exports.Wishes = Wishes;
 //# sourceMappingURL=wishes.js.map

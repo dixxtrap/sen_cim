@@ -14,3 +14,8 @@ export declare class DeceasedDto {
     gender: string;
     photo: string;
 }
+export declare class SearchDeceasedDto {
+    firstName: string;
+    lastName: string;
+    year: number;
+}

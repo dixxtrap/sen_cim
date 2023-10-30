@@ -9,4 +9,12 @@ export class FlowerDto {
   photo: string;
   @ApiProperty()
   photoText: string;
+  deceasedId: number;
+}
+
+export class DeceasedFlower {
+  @ApiProperty()
+  deceasedId: number;
+  @ApiProperty()
+  flowerId: number;
 }

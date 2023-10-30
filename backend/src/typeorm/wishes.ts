@@ -6,12 +6,14 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity()
-export class Whises {
+@Entity({ orderBy: { createdAt: 'DESC' } })
+export class Wishes {
   @PrimaryGeneratedColumn()
   id: number;
+  @Column('text', { nullable: false })
+  wish: string;
   @Column()
-  whish: string;
+  sign: string;
   @CreateDateColumn()
   createdAt: Date;
   @UpdateDateColumn()

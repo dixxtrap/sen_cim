@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Flower = exports.Whises = exports.Deceased = exports.Row = exports.Gravesite = exports.ConcessionOwner = exports.OwnerShipRecord = exports.Burial = exports.Section = exports.Cimetery = exports.entities = void 0;
+exports.Obituary = exports.SharedFlower = exports.Flower = exports.Wishes = exports.DeceasedFlower = exports.DeceasedWishes = exports.Deceased = exports.Row = exports.Gravesite = exports.ConcessionOwner = exports.OwnerShipRecord = exports.Burial = exports.Section = exports.Cimetery = exports.entities = void 0;
 const burial_1 = require("./burial");
 Object.defineProperty(exports, "Burial", { enumerable: true, get: function () { return burial_1.Burial; } });
 const cimetery_1 = require("./cimetery");
@@ -20,7 +20,15 @@ Object.defineProperty(exports, "Row", { enumerable: true, get: function () { ret
 const section_1 = require("./section");
 Object.defineProperty(exports, "Section", { enumerable: true, get: function () { return section_1.Section; } });
 const wishes_1 = require("./wishes");
-Object.defineProperty(exports, "Whises", { enumerable: true, get: function () { return wishes_1.Whises; } });
+Object.defineProperty(exports, "Wishes", { enumerable: true, get: function () { return wishes_1.Wishes; } });
+const deceased_wish_1 = require("./deceased_wish");
+Object.defineProperty(exports, "DeceasedWishes", { enumerable: true, get: function () { return deceased_wish_1.DeceasedWishes; } });
+const deceased_flower_1 = require("./deceased_flower");
+Object.defineProperty(exports, "DeceasedFlower", { enumerable: true, get: function () { return deceased_flower_1.DeceasedFlower; } });
+const sharedFlower_1 = require("./sharedFlower");
+Object.defineProperty(exports, "SharedFlower", { enumerable: true, get: function () { return sharedFlower_1.SharedFlower; } });
+const obituary_1 = require("./obituary");
+Object.defineProperty(exports, "Obituary", { enumerable: true, get: function () { return obituary_1.Obituary; } });
 exports.entities = [
     cimetery_1.Cimetery,
     section_1.Section,
@@ -30,7 +38,11 @@ exports.entities = [
     gravasite_1.Gravesite,
     row_1.Row,
     deceased_1.Deceased,
-    wishes_1.Whises,
+    deceased_wish_1.DeceasedWishes,
+    deceased_flower_1.DeceasedFlower,
+    wishes_1.Wishes,
     flower_1.Flower,
+    sharedFlower_1.SharedFlower,
+    obituary_1.Obituary,
 ];
 //# sourceMappingURL=index.js.map

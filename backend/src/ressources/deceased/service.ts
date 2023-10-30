@@ -1,8 +1,10 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Burial, Deceased, Gravesite, Row, Section } from 'src/typeorm';
-import { Repository } from 'typeorm';
-import { DeceasedDto } from './dto';
+import { Equal, Like, Raw, Repository } from 'typeorm';
+import { DeceasedDto, SearchDeceasedDto } from './dto';
+import { PaginationDto } from 'src/utils/pagination_dto';
+import { ExceptionCode } from 'src/utils/exception_code';
 
 @Injectable()
 export class DeceasedService {
@@ -15,9 +17,21 @@ export class DeceasedService {
   ) {}
 
   async get() {
-    return await this.repos.find();
+    return await this.repos.find({ take: 15 });
   }
-
+  async search(body: SearchDeceasedDto, pagination: PaginationDto) {
+    const deceased = await this.repos.find({
+      where: {
+        firstName: Like(`%${body.firstName}%`),
+        dateOfDeath: Raw((alias) => `YEAR(${alias}) = :year`, {
+          year: body.year,
+        }),
+      },
+      skip: pagination.page * pagination.perPage,
+    });
+    if (deceased.length > 0) return deceased;
+    throw new HttpException(ExceptionCode.NOT_FOUND, 404);
+  }
   async getById(id: number) {
     return await this.repos.findOne({ where: { id } });
   }

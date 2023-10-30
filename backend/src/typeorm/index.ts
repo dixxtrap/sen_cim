@@ -7,7 +7,11 @@ import { Gravesite } from './gravasite';
 import { OwnerShipRecord } from './ownerShipRecord';
 import { Row } from './row';
 import { Section } from './section';
-import { Whises } from './wishes';
+import { Wishes } from './wishes';
+import { DeceasedWishes } from './deceased_wish';
+import { DeceasedFlower } from './deceased_flower';
+import { SharedFlower } from './sharedFlower';
+import { Obituary } from './obituary';
 
 export const entities = [
   Cimetery,
@@ -18,8 +22,13 @@ export const entities = [
   Gravesite,
   Row,
   Deceased,
-  Whises,
+  DeceasedWishes,
+  DeceasedFlower,
+  Wishes,
   Flower,
+  SharedFlower,
+  Obituary,
+
 ];
 export {
   Cimetery,
@@ -30,6 +39,10 @@ export {
   Gravesite,
   Row,
   Deceased,
-  Whises,
+  DeceasedWishes,
+  DeceasedFlower,
+  Wishes,
   Flower,
+  SharedFlower,
+  Obituary,
 };

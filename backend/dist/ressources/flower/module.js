@@ -16,7 +16,7 @@ let FlowerModule = class FlowerModule {
 };
 FlowerModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([typeorm_2.Flower])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([typeorm_2.Flower, typeorm_2.DeceasedFlower])],
         controllers: [controller_1.FlowerController],
         providers: [service_1.FlowerService],
     })

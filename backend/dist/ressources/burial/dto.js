@@ -9,8 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BurialDto = void 0;
+exports.SearchBurialDto = exports.BurialDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
+const dto_1 = require("../deceased/dto");
 class BurialDto {
 }
 __decorate([
@@ -70,4 +71,15 @@ __decorate([
     __metadata("design:type", Number)
 ], BurialDto.prototype, "deceasedId", void 0);
 exports.BurialDto = BurialDto;
+class SearchBurialDto extends dto_1.SearchDeceasedDto {
+}
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], SearchBurialDto.prototype, "cimeteryName", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", Date)
+], SearchBurialDto.prototype, "burialDate", void 0);
+exports.SearchBurialDto = SearchBurialDto;
 //# sourceMappingURL=dto.js.map

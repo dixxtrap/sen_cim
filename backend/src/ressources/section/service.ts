@@ -17,7 +17,10 @@ export class SectionService {
   }
 
   async getById(id: number) {
-    return await this.repos.findOne({ where: { id } });
+    return await this.repos.findOne({
+      where: { id },
+      relations: { cimetery: true },
+    });
   }
 
   async update(id: number, body: SectionDto) {

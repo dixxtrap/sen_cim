@@ -12,6 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Deceased = void 0;
 const typeorm_1 = require("typeorm");
 const burial_1 = require("./burial");
+const wishes_1 = require("./wishes");
+const sharedFlower_1 = require("./sharedFlower");
 let Deceased = class Deceased {
 };
 __decorate([
@@ -58,6 +60,26 @@ __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Deceased.prototype, "photo", void 0);
+__decorate([
+    (0, typeorm_1.ManyToMany)(() => wishes_1.Wishes, {
+        cascade: true,
+        onUpdate: 'NO ACTION',
+        onDelete: 'NO ACTION',
+        eager: true,
+    }),
+    (0, typeorm_1.JoinTable)(),
+    __metadata("design:type", Array)
+], Deceased.prototype, "wishes", void 0);
+__decorate([
+    (0, typeorm_1.ManyToMany)(() => sharedFlower_1.SharedFlower, {
+        cascade: true,
+        onUpdate: 'NO ACTION',
+        onDelete: 'NO ACTION',
+        eager: true,
+    }),
+    (0, typeorm_1.JoinTable)(),
+    __metadata("design:type", Array)
+], Deceased.prototype, "flowers", void 0);
 Deceased = __decorate([
     (0, typeorm_1.Entity)()
 ], Deceased);

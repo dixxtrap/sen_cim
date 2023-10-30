@@ -3,13 +3,44 @@
   background-size: 100% 100%; /* This will make the background image cover the entire container */
   background-origin: content-box
 }
+.btn{
+  @apply ring rounded-md ring-kprimary-200 font-medium  px-3 py-1 
+}
+.btn.primary{
+  @apply bg-kprimary-500  text-white
+}
+.btn.btn-blue{
+  @apply bg-kgray-500 text-white ring-kgray-200
+}
+.btn.btn-green{
+  @apply bg-green-500 text-white ring-green-200
+}
+btn.outline{
+  @apply bg-opacity-0
+}
+.bg_jardin{
+  background-image: url("assets/jardin.png") ;
+  background-size: 100% 100%; /* This will make the background image cover the entire container */
+  background-origin: content-box
+}
 .ring_gray{
   @apply ring-1 ring-slate-800/10  rounded-md shadow-md;
 }
 body{
   @apply relative;
 }
-
+.gravesite_bg{
+  background-image: url("./assets/img7.png") ;
+  background-size: 100%;
+}
 #root{
   @apply relative;
+}
+
+.input2 {
+  @apply block w-full rounded-md  border-0 py-1.5   px-2  bg-slate-300/40 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-[1.0px] focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
+}
+
+.title{
+  @apply text-2xl text-kprimary-500 font-semibold leading-8
 }

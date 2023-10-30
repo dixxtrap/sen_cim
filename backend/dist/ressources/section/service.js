@@ -28,7 +28,10 @@ let SectionService = class SectionService {
         return await this.repos.save(this.repos.create(body));
     }
     async getById(id) {
-        return await this.repos.findOne({ where: { id } });
+        return await this.repos.findOne({
+            where: { id },
+            relations: { cimetery: true },
+        });
     }
     async update(id, body) {
         return await this.repos.update(id, Object.assign({}, body));
