@@ -7,7 +7,7 @@ import { formatDate } from "../../utils/format_date";
 import { ObituarySearch } from "../components/obituary_search";
 
 export const Obituary = () => {
-  const { data = [], isLoading, isSuccess } = useGetObituaryQuery();
+  const { data = [], isLoading, isSuccess } = useGetObituaryQuery("");
   return (
     <>
       <Loading isLoading={isLoading} />
@@ -36,16 +36,16 @@ export const Obituary = () => {
                       />
                     </div>
                     <div className="flex flex-col gap-3 ">
-                      <span className="font-semibold">CATÉGORIE : AVIS DE DÉCÈS</span>
+                      <span className="font-semibold">CATÉGORIE : {item.category}</span>
                       <span className="font-semibold">
                         “ Annonce du décès de {item.deceasedFirstname}{" "}
                         {item.deceasedLastname} publié par {item.userDisplayName} le {formatDate(item.createdAt!)} ”
                       </span>
                       <span>Date de décès : {formatDate(item.deceasedDate!)}</span>
 
-                      <span>Lieu du décès :{item.placeOfDeath}</span>
+                      <span>Lieu du décès : {item.placeOfDeath}</span>
 
-                      <span>Age : 89 ans</span>
+                      <span>Age : {item.age} ans</span>
 
                       <span>Cause : {item.cause}</span>
                     </div>

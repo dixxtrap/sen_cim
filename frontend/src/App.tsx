@@ -20,6 +20,7 @@ function App() {
     <>
       <Provider store={store}>
         <BrowserRouter>
+        <div id='top'/>
           <Header />
           <div className="py-0">
             <header></header>
