@@ -11,17 +11,12 @@ export const Footer = () => {
     <>
       <div className="h-[500px]  flex flex-col pt-10 pl-10 bg-black ">
         <Link to={"/"} className="flex flex-shrink-0 items-center">
-          <img
-            className="hidden h-12 w-auto lg:block"
-            src={logo}
-            alt="Your Company"
-          />
-          <span className="text-2xl font-serif font-bold ml-2 text-white">
-            SenCim.
+          <span className="text-3xl  font-bold ml-2 text-white">
+            SenCim<span className="text-kprimary-500">.</span>
           </span>
         </Link>
         <div className="flex flex-row ">
-          <div className="grid grid-cols-3 py-3 gap-x-5 md:gap-x-16 text-white space-x-36 ">
+          <div className="grid grid-cols-3 py-3 gap-x-5 md:gap-x-16 text-white space-x-36 px-1 ">
             <div className="flex flex-col gap-y-3">
               <span className="text-lg font-medium ">À propos</span>
               <span className="text-justify font-thin ">
