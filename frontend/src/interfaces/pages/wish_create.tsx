@@ -11,6 +11,8 @@ import { Loading } from "../components/alert";
 export const WishCreate = () => {
   const location = useLocation();
 
+
+
   const queryParams = new URLSearchParams(location.search);
   const { handleSubmit, register, watch , formState:{errors}} = useForm({
     resolver: yupResolver(wishSchema),
@@ -54,7 +56,7 @@ export const WishCreate = () => {
             </div>
 
             <form className=" p-2 flex flex-col gap-y-3" onSubmit={_onSubmit}>
-              <Input label="(caractères utilisés : 11/160)">
+              <Input label={`(caractères utilisés : ${watch("wish") != undefined ? watch("wish")?.length : 0 }/300)`}>
                 <textarea
                   className="input2"
                   rows={8}
@@ -64,7 +66,7 @@ export const WishCreate = () => {
               </Input>
               <Input 
               error={errors.wish?.message} 
-              label="(caractères utilisés : 11/160)">
+              label={`(caractères utilisés : ${watch("sign") != undefined ? watch("sign")?.length : 0 }/30)`}>
                 <input
                   className="input2"
                   placeholder="Signez ici ( Ex : Ta maman chérie)"
@@ -76,6 +78,7 @@ export const WishCreate = () => {
               </button>
             </form>
           </div>
+          
         </div>
         <div className="w-96">
           <HomeAside />
@@ -120,7 +123,7 @@ export const WishCreateComponent = () => {
           <form className=" p-2 flex flex-col gap-y-3" onSubmit={_onSubmit}>
             <Input
               error={errors.wish?.message}
-              label={`(caractères utilisés : ${watch("wish")?.length}/160)`}
+              label={`(caractères utilisés : ${watch("wish") != undefined ? watch("wish")?.length : 0 }/160)`}
             >
               <textarea
                 className="input2"
@@ -131,7 +134,7 @@ export const WishCreateComponent = () => {
             </Input>
             <Input
               error={errors.sign?.message}
-              label={`(caractères utilisés : ${watch("sign")?.length}/30)`}
+              label={`(caractères utilisés : ${watch("sign") != undefined ? watch("sign")?.length : 0 }/30)`}
             >
               <input
                 className="input2"

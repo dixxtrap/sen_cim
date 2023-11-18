@@ -10,6 +10,10 @@ export interface Obituary {
 
   deceasedDate?: string;
 
+  age?: number;
+
+  category?:string;
+
   cause?: string;
 
   fileName?: string;
@@ -31,6 +35,10 @@ export const obituarySchema = yup.object({
   deceasedLastname: yup.string(),
 
   deceasedDate: yup.string(),
+
+  age: yup.number().min(0,"l'age doit etre supérieur à 0"),
+
+  category: yup.string(),
 
   cause: yup.string(),
 

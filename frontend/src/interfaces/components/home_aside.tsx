@@ -5,7 +5,7 @@ export const HomeAside = ({top}:{top?:ReactNode}) => {
     <div className="min-w-[360px] gap-y-4  md:w-[360px]  px-3  flex flex-col">
       {top}
       <Don />
-      <Pub />
+      {/* <Pub /> */}
     </div>
   );
 };
