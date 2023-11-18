@@ -53,7 +53,7 @@ export const TopHeader = () => {
         <Dialog.Title
           as="div"
           className="text-lg font-medium pt-3 leading-6 text-gray-900 sticky top-0 bg-white"
-        >
+         >
           <div className="w-full h-10 flex justify-between  ">
             <span> List des Defunts</span>
             <button
@@ -148,7 +148,7 @@ export const TopHeader = () => {
                 />
               </div>
 
-              <div className="input_container">
+              <div className="input_container divide-x-2">
                 <UserIcon className="icon  " />
                 <input
                   type="text"
@@ -157,7 +157,7 @@ export const TopHeader = () => {
                   {...register("lastName")}
                 />
               </div>
-              <div className="input_container">
+              <div className="input_container divide-x-2">
                 <CalendarDaysIcon className="icon  " />
                 <input
                   type="text"
@@ -168,7 +168,7 @@ export const TopHeader = () => {
               </div>
               {isAvanced && (
                 <>
-                  <div className="input_container">
+                  <div className="input_container divide-y-2">
                     <BuildingLibraryIcon className="icon  " />
                     <input
                       type="text"
@@ -176,7 +176,7 @@ export const TopHeader = () => {
                       className="input"
                     />
                   </div>
-                  <div className="input_container">
+                  <div className="input_container divide-x-2 divide-y-2">
                     <CalendarDaysIcon className="icon  " />
                     <input
                       type="text"
@@ -184,7 +184,7 @@ export const TopHeader = () => {
                       className="input"
                     />
                   </div>
-                  <div className="input_container">
+                  <div className="input_container divide-x-2 divide-y-2">
                     <CalendarDaysIcon className="icon  " />
                     <input
                       type="text"

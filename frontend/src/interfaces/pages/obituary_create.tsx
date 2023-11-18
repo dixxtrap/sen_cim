@@ -9,9 +9,10 @@ import { handlePreview } from "../../utils/handlePreviewImage";
 import { CameraIcon } from "@heroicons/react/24/outline";
 import { useGetObituaryQuery } from "../../cores/features/obituary";
 import { useNavigate, useNavigation } from "react-router-dom";
+import { formatDate } from "../../utils/format_date";
 
 export const ObituaryCreate = () => {
-  const nav=useNavigate()
+  const nav = useNavigate()
   const {
     handleSubmit,
     register,
@@ -22,7 +23,7 @@ export const ObituaryCreate = () => {
   const [file, setFile] = useState<File | undefined>();
   const [preview, setPreview] = useState<string | undefined>();
   const [changed, setChanged] = useState<boolean>(false);
-const {refetch}=useGetObituaryQuery("")
+  const { refetch } = useGetObituaryQuery("")
   const handleImage = handlePreview({
     previewImage: preview!,
     setPreviewImage: setPreview,
@@ -35,8 +36,11 @@ const {refetch}=useGetObituaryQuery("")
     formData.append("deceasedDate", data.deceasedDate!);
     formData.append("deceasedFirstname", data.deceasedFirstname!);
     formData.append("deceasedLastname", data.deceasedLastname!);
+    formData.append("age", data.age!.toString())
+    formData.append("category", data.category!)
     formData.append("cause", data.cause!);
     formData.append("userDisplayName", data.userDisplayName!);
+    formData.append("placeOfDeath", data.placeOfDeath!)
     formData.append("file", file!);
 
     const response = await fetch("/v1/obituary", {
@@ -48,6 +52,11 @@ const {refetch}=useGetObituaryQuery("")
       nav("/obituary");
     }
   });
+  const categories = [
+    { id: 1, name: 'Souvenir' },
+    { id: 2, name: 'Anniversaire' },
+    { id: 3, name: 'Avis de décès' },
+  ]
   return (
     <>
       <TopHeader2 className="bg_jardin">
@@ -91,15 +100,24 @@ const {refetch}=useGetObituaryQuery("")
                         className={"w-full h-full rounded-full"}
                       />
                     ) : (
-                      <CameraIcon className={" h-8 text-slate-700"} />
+                      <div className="">
+                        <CameraIcon className={" h-8 text-slate-700  px-7"} />
+                        <span className="text-xs">Ajouter une photo<br/></span>
+                        <span className="text-xs px-5">du défunt</span>
+                      </div>
+                      
                     )}
                   </label>
                 </div>
 
                 <div className="grow  h-[700px]">
                   <div className="grow  flex flex-col gap-7 ">
-                    <Input label="Choisir la catégorie v">
-                      <input className="input2" />
+                    <Input label="Choisir la catégorie">
+                      <select className="input2" defaultValue={categories[2].name} {...register("category")}>
+                        {categories.map((categorie) => (
+                          <option value={categorie.name} >{categorie.name}</option>
+                        ))}
+                      </select>
                     </Input>
                     <Input label="Nom du défunt : ">
                       <input
@@ -118,6 +136,13 @@ const {refetch}=useGetObituaryQuery("")
                         type="date"
                         className="input2"
                         {...register("deceasedDate")}
+                      />
+                    </Input>
+                    <Input label="Age du défunt :" error={errors.age?.message}>
+                      <input
+                        type="number"
+                        className="input2"
+                        {...register("age")}
                       />
                     </Input>
                     <Input label="Lieu de décès :">
@@ -146,7 +171,7 @@ const {refetch}=useGetObituaryQuery("")
                   </div>
                 </div>
               </div>
-              <div className="flex  p-2  gap-4">
+              <div className="flex  p-2 my-12 gap-4">
                 <div className="grow flex justify-center">
                   <span className="text-lg text-center leading-6 my-auto py-4 ring-1 ring-kprimary-300 px-5 md:px-10 rounded-md shadow-sm shadow-kprimary-200">
                     Publiez votre avis de décès au prix de{" "}
