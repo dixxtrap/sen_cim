@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { OwnerShipRecord } from 'src/typeorm';
+import { OwnerShipRecord } from 'src/ressources/typeorm';
 import { OwnerShipRecordController } from './controller';
 import { OwnerShipRecordService } from './service';
 

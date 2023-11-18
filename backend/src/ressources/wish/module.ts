@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Wishes, DeceasedWishes } from 'src/typeorm';
+import { Wishes, DeceasedWishes } from 'src/ressources/typeorm';
 import { WishControlller } from './controller';
 import { WishService } from './service';
 

@@ -1,4 +1,4 @@
-import { Burial } from 'src/typeorm';
+import { Burial } from 'src/ressources/typeorm';
 import { Repository } from 'typeorm';
 import { BurialDto } from './dto';
 import { SearchDeceasedDto } from '../deceased/dto';

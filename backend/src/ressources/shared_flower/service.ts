@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DeceasedFlower, SharedFlower } from 'src/typeorm';
+import { DeceasedFlower, SharedFlower } from 'src/ressources/typeorm';
 import { Repository } from 'typeorm';
 import { SharedFlowerDto } from './dto';
 import { ExceptionCode } from 'src/utils/exception_code';

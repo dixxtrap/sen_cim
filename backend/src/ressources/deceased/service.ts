@@ -1,6 +1,6 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Burial, Deceased, Gravesite, Row, Section } from 'src/typeorm';
+import { Burial, Deceased, Gravesite, Row, Section } from 'src/ressources/typeorm';
 import { Equal, Like, Raw, Repository } from 'typeorm';
 import { DeceasedDto, SearchDeceasedDto } from './dto';
 import { PaginationDto } from 'src/utils/pagination_dto';

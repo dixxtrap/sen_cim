@@ -1,4 +1,4 @@
-import { Section } from 'src/typeorm';
+import { Section } from 'src/ressources/typeorm';
 import { Repository } from 'typeorm';
 import { SectionDto } from './dto';
 export declare class SectionService {

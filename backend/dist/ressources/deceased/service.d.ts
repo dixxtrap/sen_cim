@@ -1,4 +1,4 @@
-import { Burial, Deceased, Gravesite, Row, Section } from 'src/typeorm';
+import { Burial, Deceased, Gravesite, Row, Section } from 'src/ressources/typeorm';
 import { Repository } from 'typeorm';
 import { DeceasedDto, SearchDeceasedDto } from './dto';
 import { PaginationDto } from 'src/utils/pagination_dto';

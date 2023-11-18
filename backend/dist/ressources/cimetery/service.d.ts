@@ -1,4 +1,4 @@
-import { Cimetery } from 'src/typeorm';
+import { Cimetery } from 'src/ressources/typeorm';
 import { Repository } from 'typeorm';
 import { CimeteryDto } from './dto';
 export declare class CimeteryService {

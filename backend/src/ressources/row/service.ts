@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Row } from 'src/typeorm';
+import { Row } from 'src/ressources/typeorm';
 import { Repository } from 'typeorm';
 import { RowDto } from './dto';
 

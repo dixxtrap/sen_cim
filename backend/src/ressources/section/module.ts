@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Section } from 'src/typeorm';
+import { Section } from 'src/ressources/typeorm';
 import { SectionController } from './controller';
 import { SectionService } from './service';
 

@@ -1,4 +1,4 @@
-import { OwnerShipRecord } from 'src/typeorm';
+import { OwnerShipRecord } from 'src/ressources/typeorm';
 import { Repository } from 'typeorm';
 import { OwnerShipRecordDto } from './dto';
 export declare class OwnerShipRecordService {

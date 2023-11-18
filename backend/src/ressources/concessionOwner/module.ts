@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { ConcessionOwner, Deceased } from "src/typeorm";
+import { ConcessionOwner, Deceased } from "src/ressources/typeorm";
 import { ConcessionOwnerController } from "./controller";
 import { ConcessionOwnerService } from "./service";
 

@@ -1,5 +1,5 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Row } from 'src/typeorm';
+import { Row } from 'src/ressources/typeorm';
 import { RowController } from './controller';
 import { RowServive } from './service';
 import { Module } from '@nestjs/common';

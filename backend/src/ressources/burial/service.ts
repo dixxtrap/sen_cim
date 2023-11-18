@@ -1,6 +1,6 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Burial } from 'src/typeorm';
+import { Burial } from 'src/ressources/typeorm';
 import { Like, Raw, Repository } from 'typeorm';
 import { BurialDto } from './dto';
 import { SearchDeceasedDto } from '../deceased/dto';

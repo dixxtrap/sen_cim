@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const typeorm_1 = require("./typeorm");
+exports.basedire = void 0;
+const typeorm_1 = require("./ressources/typeorm");
+exports.basedire = __dirname;
 const config = {
     type: 'mysql',
     host: 'localhost',

@@ -30,8 +30,13 @@ body{
   @apply relative;
 }
 .gravesite_bg{
-  background-image: url("./assets/img7.png") ;
+  background-image: url("./assets/img7.png")  ;
   background-size: 100%;
+}
+.gravesite_bg.img{
+
+background-repeat: no-repeat;
+  background-position: center
 }
 #root{
   @apply relative;

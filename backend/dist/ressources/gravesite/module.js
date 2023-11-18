@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GravesiteModule = void 0;
 const common_1 = require("@nestjs/common");
-const typeorm_1 = require("../../typeorm");
+const typeorm_1 = require("../typeorm");
 const controller_1 = require("./controller");
 const service_1 = require("./service");
 const typeorm_2 = require("@nestjs/typeorm");

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Burial, Deceased, Gravesite, Row, Section } from 'src/typeorm';
+import { Burial, Deceased, Gravesite, Row, Section } from 'src/ressources/typeorm';
 import { DeceasedController } from './controller';
 import { DeceasedService } from './service';
 

@@ -1,4 +1,4 @@
-import { ConcessionOwner } from "src/typeorm";
+import { ConcessionOwner } from "src/ressources/typeorm";
 import { Repository } from "typeorm";
 import { ConcessionOwnerDto } from "./dto";
 export declare class ConcessionOwnerService {

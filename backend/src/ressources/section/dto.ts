@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Cimetery, Row } from 'src/typeorm';
+import { Cimetery, Row } from 'src/ressources/typeorm';
 import { CimeteryDto } from '../cimetery/dto';
 import { DeepPartial } from 'typeorm';
 

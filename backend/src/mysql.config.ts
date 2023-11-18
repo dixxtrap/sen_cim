@@ -1,5 +1,6 @@
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
-import { entities } from './typeorm';
+import { entities } from './ressources/typeorm';
+export const basedire = __dirname;
 const config: MysqlConnectionOptions = {
   type: 'mysql',
   host: 'localhost',

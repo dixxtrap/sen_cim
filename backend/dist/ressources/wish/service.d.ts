@@ -1,4 +1,4 @@
-import { DeceasedWishes, Wishes } from 'src/typeorm';
+import { DeceasedWishes, Wishes } from 'src/ressources/typeorm';
 import { Repository } from 'typeorm';
 import { WishDto } from './dto';
 import { PaginationDto } from 'src/utils/pagination_dto';

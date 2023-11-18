@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MulterModule } from '@nestjs/platform-express';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { diskStorage } from 'multer';
-import { Obituary } from 'src/typeorm';
+import { Obituary } from 'src/ressources/typeorm';
 import { ObituaryController } from './controller';
 import { ObituaryService } from './service';
 
@@ -12,9 +12,9 @@ import { ObituaryService } from './service';
     MulterModule.register({
       preservePath: false,
 
-      dest: 'dist/upload',
+      dest: './src/upload',
       storage: diskStorage({
-        destination: 'dist/upload', // Dossier de destination où les fichiers téléchargés seront stockés
+        destination: './src/upload', // Dossier de destination où les fichiers téléchargés seront stockés
       }),
     }),
   ],

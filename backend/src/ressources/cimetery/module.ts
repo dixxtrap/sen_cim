@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Cimetery } from 'src/typeorm';
+import { Cimetery } from 'src/ressources/typeorm';
 import { CimeteryController } from './controller';
 import { CimeteryService } from './service';
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Section } from 'src/typeorm';
+import { Section } from 'src/ressources/typeorm';
 import { Repository } from 'typeorm';
 import { SectionDto } from './dto';
 

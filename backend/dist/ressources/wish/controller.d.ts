@@ -9,12 +9,12 @@ export declare class WishControlller {
         pageSize: number;
         totalItems: number;
         totalPages: number;
-        items: import("../../typeorm").Wishes[];
+        items: import("../typeorm").Wishes[];
     }>;
     create(body: WishDto): Promise<{
         status: number;
         code: string;
         message: string;
     }>;
-    getById(id: number): Promise<import("../../typeorm").Wishes>;
+    getById(id: number): Promise<import("../typeorm").Wishes>;
 }
