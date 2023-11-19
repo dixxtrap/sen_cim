@@ -26,19 +26,19 @@ export class Cimetery {
   sections: Section[];
   @Column('varchar')
   name: string;
-  @Column('varchar', { length: 30, nullable: true })
+  @Column('varchar', {  nullable: true })
   email: string;
-  @Column('varchar', { nullable: true })
+  @Column('text', { nullable: true })
   description: string;
   @Column('varchar', { nullable: true })
   address: string;
-  @Column('varchar', { length: 100, default: 'Dakar' })
+  @Column('varchar', { default: 'Dakar' })
   city: string;
-  @Column('varchar', { length: 100, default: 'Senegal' })
+  @Column('varchar', { default: 'Senegal' })
   country: string;
-  @Column('varchar', { length: 20, nullable: true })
+  @Column('text', { nullable: true })
   link: string;
-  @Column('varchar', { length: 20, nullable: true })
+  @Column('varchar', { nullable: true })
   phone: string;
   @Column('double', { default: 0, nullable: true })
   laltitude: number;
@@ -50,6 +50,8 @@ export class Cimetery {
   createdAt: Date;
   @UpdateDateColumn()
   updatedAt: Date;
-  @Column({ nullable: true })
+  @Column({ nullable: true, default: null })
   photo: string;
+  @Column({ nullable: true, default: null })
+  confession: string;
 }

@@ -1,26 +1,30 @@
 import { ApiProperty } from '@nestjs/swagger';
 export class CimeteryDto {
-  id: number;
+  id?: number;
   @ApiProperty()
-  name: string;
+  name!: string;
   @ApiProperty()
-  email: string;
+  email!: string;
   @ApiProperty()
-  description: string;
+  description!: string;
   @ApiProperty()
-  address: string;
+  address!: string;
   @ApiProperty()
-  city: string;
+  city!: string;
   @ApiProperty()
-  country: string;
+  country!: string;
   @ApiProperty()
-  link: string;
+  link!: string;
   @ApiProperty()
-  phone: string;
+  phone!: string;
   @ApiProperty()
-  laltitude: number;
+  laltitude!: number;
   @ApiProperty()
-  longitude: number;
+  longitude!: number;
   @ApiProperty()
-  isActive: boolean;
+  isActive!: boolean;
+  @ApiProperty()
+  photo!: string;
+  @ApiProperty()
+  confession!: string;
 }

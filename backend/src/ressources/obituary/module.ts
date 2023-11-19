@@ -12,9 +12,9 @@ import { ObituaryService } from './service';
     MulterModule.register({
       preservePath: false,
 
-      dest: './src/upload',
+      dest: 'upload',
       storage: diskStorage({
-        destination: './src/upload', // Dossier de destination où les fichiers téléchargés seront stockés
+        destination: 'upload', // Dossier de destination où les fichiers téléchargés seront stockés
       }),
     }),
   ],

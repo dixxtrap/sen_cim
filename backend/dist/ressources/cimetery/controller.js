@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const service_1 = require("./service");
 const swagger_1 = require("@nestjs/swagger");
 const dto_1 = require("./dto");
+const platform_express_1 = require("@nestjs/platform-express");
 let CimeteryController = class CimeteryController {
     constructor(service) {
         this.service = service;
@@ -27,14 +28,21 @@ let CimeteryController = class CimeteryController {
     getById(id) {
         return this.service.getById(id);
     }
-    create(body) {
-        return this.service.create(body);
+    createBulk(body) {
+        console.log(body);
+        return this.service.createBulk(body);
+    }
+    addPhoto(id, file, body) {
+        return this.service.update(id, Object.assign(Object.assign({}, body), { photo: file.path }));
     }
     update(id, body) {
         return this.service.update(id, body);
     }
     delete(id) {
         return this.service.delete(id);
+    }
+    create(body) {
+        return this.service.create(body);
     }
 };
 __decorate([
@@ -51,12 +59,22 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CimeteryController.prototype, "getById", null);
 __decorate([
-    (0, common_1.Post)(),
+    (0, common_1.Post)('bulk'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [dto_1.CimeteryDto]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
-], CimeteryController.prototype, "create", null);
+], CimeteryController.prototype, "createBulk", null);
+__decorate([
+    (0, common_1.Put)('add_photo/:id'),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file')),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.UploadedFile)()),
+    __param(2, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Object, dto_1.CimeteryDto]),
+    __metadata("design:returntype", void 0)
+], CimeteryController.prototype, "addPhoto", null);
 __decorate([
     (0, common_1.Put)(':id'),
     __param(0, (0, common_1.Param)('id')),
@@ -72,6 +90,13 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], CimeteryController.prototype, "delete", null);
+__decorate([
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [dto_1.CimeteryDto]),
+    __metadata("design:returntype", void 0)
+], CimeteryController.prototype, "create", null);
 CimeteryController = __decorate([
     (0, common_1.Controller)('cimetery'),
     (0, swagger_1.ApiTags)('Cimetery'),

@@ -31,11 +31,11 @@ __decorate([
     __metadata("design:type", String)
 ], Cimetery.prototype, "name", void 0);
 __decorate([
-    (0, typeorm_1.Column)('varchar', { length: 30, nullable: true }),
+    (0, typeorm_1.Column)('varchar', { nullable: true }),
     __metadata("design:type", String)
 ], Cimetery.prototype, "email", void 0);
 __decorate([
-    (0, typeorm_1.Column)('varchar', { nullable: true }),
+    (0, typeorm_1.Column)('text', { nullable: true }),
     __metadata("design:type", String)
 ], Cimetery.prototype, "description", void 0);
 __decorate([
@@ -43,19 +43,19 @@ __decorate([
     __metadata("design:type", String)
 ], Cimetery.prototype, "address", void 0);
 __decorate([
-    (0, typeorm_1.Column)('varchar', { length: 100, default: 'Dakar' }),
+    (0, typeorm_1.Column)('varchar', { default: 'Dakar' }),
     __metadata("design:type", String)
 ], Cimetery.prototype, "city", void 0);
 __decorate([
-    (0, typeorm_1.Column)('varchar', { length: 100, default: 'Senegal' }),
+    (0, typeorm_1.Column)('varchar', { default: 'Senegal' }),
     __metadata("design:type", String)
 ], Cimetery.prototype, "country", void 0);
 __decorate([
-    (0, typeorm_1.Column)('varchar', { length: 20, nullable: true }),
+    (0, typeorm_1.Column)('text', { nullable: true }),
     __metadata("design:type", String)
 ], Cimetery.prototype, "link", void 0);
 __decorate([
-    (0, typeorm_1.Column)('varchar', { length: 20, nullable: true }),
+    (0, typeorm_1.Column)('varchar', { nullable: true }),
     __metadata("design:type", String)
 ], Cimetery.prototype, "phone", void 0);
 __decorate([
@@ -79,9 +79,13 @@ __decorate([
     __metadata("design:type", Date)
 ], Cimetery.prototype, "updatedAt", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
+    (0, typeorm_1.Column)({ nullable: true, default: null }),
     __metadata("design:type", String)
 ], Cimetery.prototype, "photo", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true, default: null }),
+    __metadata("design:type", String)
+], Cimetery.prototype, "confession", void 0);
 Cimetery = __decorate([
     (0, typeorm_1.Entity)(),
     (0, typeorm_1.Index)(['name'], { unique: true }),

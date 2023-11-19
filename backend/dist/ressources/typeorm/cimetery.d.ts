@@ -16,4 +16,5 @@ export declare class Cimetery {
     createdAt: Date;
     updatedAt: Date;
     photo: string;
+    confession: string;
 }

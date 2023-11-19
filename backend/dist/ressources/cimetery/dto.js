@@ -57,5 +57,13 @@ __decorate([
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", Boolean)
 ], CimeteryDto.prototype, "isActive", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], CimeteryDto.prototype, "photo", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], CimeteryDto.prototype, "confession", void 0);
 exports.CimeteryDto = CimeteryDto;
 //# sourceMappingURL=dto.js.map

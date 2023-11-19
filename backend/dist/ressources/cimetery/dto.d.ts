@@ -1,5 +1,5 @@
 export declare class CimeteryDto {
-    id: number;
+    id?: number;
     name: string;
     email: string;
     description: string;
@@ -11,4 +11,6 @@ export declare class CimeteryDto {
     laltitude: number;
     longitude: number;
     isActive: boolean;
+    photo: string;
+    confession: string;
 }

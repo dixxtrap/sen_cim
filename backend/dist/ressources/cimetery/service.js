@@ -17,6 +17,8 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("../typeorm");
 const typeorm_3 = require("typeorm");
+const fs_1 = require("fs");
+const exception_code_1 = require("../../utils/exception_code");
 let CimeteryService = class CimeteryService {
     constructor(repos) {
         this.repos = repos;
@@ -27,10 +29,30 @@ let CimeteryService = class CimeteryService {
     async create(body) {
         return await this.repos.save(this.repos.create(body));
     }
+    async createBulk(body) {
+        const result = await Promise.all(body.map((item) => {
+            try {
+                this.create(item);
+            }
+            catch (error) {
+                console.log(`---------------dublicate ${item.name}------------------`);
+                console.log(error);
+            }
+        }));
+        if (result.length > 0) {
+            return exception_code_1.ExceptionCode.SUCCEEDED;
+        }
+    }
     async getById(id) {
         return await this.repos.findOne({ where: { id } });
     }
     async update(id, body) {
+        const cim = await this.repos.findOne({ where: { id: (0, typeorm_3.Equal)(id) } });
+        if (cim.photo && cim.photo !== '') {
+            (0, fs_1.unlink)(cim.photo, () => {
+                console.log('file delete');
+            });
+        }
         return await this.repos.update({ id }, Object.assign({}, body));
     }
     async delete(id) {
