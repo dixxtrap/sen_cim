@@ -12,7 +12,7 @@ export const Home = () => {
     <div className="">
       <TopHeader />
       <div className="flex   bg-sky-50">
-        <div className="grow flex flex-col p-3 gap-y-5 md:gap-y-10">
+        <div className="grow flex flex-col w-[70vw] p-3 gap-y-5 md:gap-y-10">
           <HomeCimetery />
           <HomeChifferKey />
           <HomeWishes />

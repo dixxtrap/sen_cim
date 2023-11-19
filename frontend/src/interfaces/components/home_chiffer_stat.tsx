@@ -13,7 +13,7 @@ export const HomeChifferStat = () => {
               { title: "Recherches/mois", lenght: "10 000+" },
               { title: "Avis de décès/mois", lenght: "500+" },
             ].map((e) => (
-              <div className="bg-white h-36 flex flex-col items-center justify-center">
+              <div className="bg-white rounded-md h-36 flex flex-col items-center justify-center">
                 <span className="text-red-500 font-bold text-2xl">
                   {e.lenght}
                 </span>
