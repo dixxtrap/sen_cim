@@ -1,3 +1,4 @@
 */node_modules
 */node_modules
 backend/upload/
+backend/src/mysql.config.ts

@@ -1,6 +1,12 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Burial, Deceased, Gravesite, Row, Section } from 'src/ressources/typeorm';
+import {
+  Burial,
+  Deceased,
+  Gravesite,
+  Row,
+  Section,
+} from 'src/ressources/typeorm';
 import { Equal, Like, Raw, Repository } from 'typeorm';
 import { DeceasedDto, SearchDeceasedDto } from './dto';
 import { PaginationDto } from 'src/utils/pagination_dto';
@@ -39,7 +45,7 @@ export class DeceasedService {
   async create(body: DeceasedDto) {
     // TODO/Find or inconue section
     const section = await this.section.findOne({
-      where: { name: body.sectionName },
+      where: { name: body.sectionName.toLowerCase() },
     });
     if (!section)
       throw new HttpException(
