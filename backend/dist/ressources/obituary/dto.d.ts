@@ -5,6 +5,8 @@ export declare class ObituaryDto {
     deceasedFirstname: string;
     deceasedLastname: string;
     deceasedDate: string;
+    age: number;
+    category: string;
     cause: string;
     userDisplayName: string;
 }

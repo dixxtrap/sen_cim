@@ -12,6 +12,10 @@ export class ObituaryDto {
   @ApiProperty()
   deceasedDate: string;
   @ApiProperty()
+  age: number;
+  @ApiProperty()
+  category: string;
+  @ApiProperty()
   cause: string;
   @ApiProperty()
   userDisplayName: string;

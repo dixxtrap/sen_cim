@@ -22,9 +22,9 @@ ObituaryModule = __decorate([
             typeorm_1.TypeOrmModule.forFeature([typeorm_2.Obituary]),
             platform_express_1.MulterModule.register({
                 preservePath: false,
-                dest: 'dist/upload',
+                dest: './src/upload',
                 storage: (0, multer_1.diskStorage)({
-                    destination: 'dist/upload',
+                    destination: './src/upload',
                 }),
             }),
         ],

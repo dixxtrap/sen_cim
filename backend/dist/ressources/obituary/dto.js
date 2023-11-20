@@ -31,6 +31,14 @@ __decorate([
 ], ObituaryDto.prototype, "deceasedDate", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", Number)
+], ObituaryDto.prototype, "age", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], ObituaryDto.prototype, "category", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], ObituaryDto.prototype, "cause", void 0);
 __decorate([

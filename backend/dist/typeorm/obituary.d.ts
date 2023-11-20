@@ -5,8 +5,10 @@ export declare class Obituary {
     deceasedFirstname: string;
     deceasedLastname: string;
     deceasedDate: Date;
+    age: number;
     createdAt: Date;
     updatedAt: Date;
+    category: string;
     cause: string;
     placeOfDeath: string;
     fileName: string;

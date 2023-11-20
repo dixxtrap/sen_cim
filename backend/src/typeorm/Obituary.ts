@@ -20,10 +20,14 @@ export class Obituary {
   deceasedLastname: string;
   @Column('date', { nullable: true, default: null })
   deceasedDate: Date;
+  @Column()
+  age: number;
   @CreateDateColumn()
   createdAt: Date;
   @UpdateDateColumn()
   updatedAt: Date;
+  @Column()
+  category: string;
   @Column()
   cause: string;
   @Column({ default: null })

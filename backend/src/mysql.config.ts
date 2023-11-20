@@ -1,11 +1,12 @@
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
 import { entities } from './typeorm';
+export const basedire = __dirname;
 const config: MysqlConnectionOptions = {
   type: 'mysql',
   host: 'localhost',
-  port: 3307,
+  port: 3306,
   username: 'root',
-  password: 'root',
+  password: '',
   dateStrings: true,
   entities: entities,
   database: 'sen_cim',

@@ -20,6 +20,7 @@ const platform_express_1 = require("@nestjs/platform-express");
 const multer_1 = require("multer");
 const path_1 = require("path");
 const dto_1 = require("./dto");
+const mysql_config_1 = require("../../mysql.config");
 let ObituaryController = class ObituaryController {
     constructor(service) {
         this.service = service;
@@ -30,7 +31,8 @@ let ObituaryController = class ObituaryController {
         return this.service.create(body);
     }
     async getFile(res, name) {
-        const filePath = (0, path_1.join)(__dirname, '../..', 'upload', name);
+        console.log(`file--------------------${mysql_config_1.basedire}------------------ ${(0, path_1.join)(mysql_config_1.basedire, '..', 'src', 'upload', name)}`);
+        const filePath = (0, path_1.join)(mysql_config_1.basedire, '..', 'src', 'upload', name);
         return res.sendFile(filePath);
     }
     find() {
@@ -40,13 +42,13 @@ let ObituaryController = class ObituaryController {
 __decorate([
     (0, common_1.Post)(),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file', {
-        dest: 'dist/upload',
+        dest: './src/upload',
         storage: (0, multer_1.diskStorage)({
             destination: (req, file, cb) => {
                 console.log('------------------destination file-------------------');
                 console.log(file);
                 console.log(file);
-                cb(null, 'dist/upload/');
+                cb(null, './src/upload');
             },
             filename: (req, file, callback) => {
                 console.log('------------------destination file name-------------------');

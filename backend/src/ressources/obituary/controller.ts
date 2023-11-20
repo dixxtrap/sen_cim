@@ -16,6 +16,7 @@ import { diskStorage } from 'multer';
 import { extname, join } from 'path';
 import { ObituaryDto } from './dto';
 import { Response } from 'express';
+import { basedire } from 'src/mysql.config';
 
 @Controller('obituary')
 @ApiTags('obituary')
@@ -25,13 +26,13 @@ export class ObituaryController {
   @Post()
   @UseInterceptors(
     FileInterceptor('file', {
-      dest: 'dist/upload',
+      dest: './src/upload',
       storage: diskStorage({
         destination: (req, file, cb) => {
           console.log('------------------destination file-------------------');
           console.log(file);
           console.log(file);
-          cb(null, 'dist/upload/');
+          cb(null, './src/upload');
         }, // Dossier de destination où les fichiers téléchargés seront stockés
         filename: (req, file, callback) => {
           console.log(
@@ -59,7 +60,16 @@ export class ObituaryController {
   }
   @Get('file/:name')
   async getFile(@Res() res: Response, @Param('name') name: string) {
-    const filePath = join(__dirname, '../..', 'upload', name); // Path to the specific file
+    console.log(
+      `file--------------------${basedire}------------------ ${join(
+        basedire,
+        '..',
+        'src',
+        'upload',
+        name,
+      )}`,
+    );
+    const filePath = join(basedire, '..', 'src', 'upload', name); // Path to the specific file
     return res.sendFile(filePath);
   }
   @Get('')
