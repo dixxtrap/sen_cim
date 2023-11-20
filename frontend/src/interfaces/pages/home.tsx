@@ -6,6 +6,7 @@ import { HomeWishes } from "../components/home_wish";
 import { HomeChifferStat } from "../components/home_chiffer_stat";
 import { HomeChifferKey } from "../components/home_chiffer_key";
 import { HomeCimetery } from "../components/home_cimetery";
+import { ObituaryAside } from "../components/obituary_aside";
 
 export const Home = () => {
   return (
@@ -18,8 +19,10 @@ export const Home = () => {
           <HomeWishes />
           <HomeChifferStat />
         </div>
-        <HomeAside top={<><div className="h-96 ring_gray"></div></>} />
+        <HomeAside top={<ObituaryAside />} />
       </div>
     </div>
   );
 };
+
+

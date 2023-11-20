@@ -10,6 +10,7 @@ import { CameraIcon } from "@heroicons/react/24/outline";
 import { useGetObituaryQuery } from "../../cores/features/obituary";
 import { useNavigate, useNavigation } from "react-router-dom";
 import { formatDate } from "../../utils/format_date";
+import cloud_add from "../../assets/ci_cloud-add.png"
 
 export const ObituaryCreate = () => {
   
@@ -101,8 +102,8 @@ export const ObituaryCreate = () => {
                         className={"w-full h-full rounded-full"}
                       />
                     ) : (
-                      <div className="">
-                        <CameraIcon className={" h-8 text-slate-700  px-7"} />
+                      <div className=" flex flex-col">
+                        <img src={cloud_add} alt="" className={" h-12 text-slate-700  px-7"} />
                         <span className="text-xs">Ajouter une photo<br/></span>
                         <span className="text-xs px-5">du défunt</span>
                       </div>
