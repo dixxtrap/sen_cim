@@ -38,15 +38,15 @@ __decorate([
     __metadata("design:type", deceased_1.Deceased)
 ], Burial.prototype, "deceased", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true, default: null }),
     __metadata("design:type", Date)
 ], Burial.prototype, "burialDate", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
+    (0, typeorm_1.Column)({ nullable: true, default: null }),
     __metadata("design:type", String)
 ], Burial.prototype, "funeralType", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
+    (0, typeorm_1.Column)({ nullable: true, default: null }),
     __metadata("design:type", String)
 ], Burial.prototype, "issuingMunicipality", void 0);
 __decorate([

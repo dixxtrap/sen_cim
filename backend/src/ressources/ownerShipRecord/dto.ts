@@ -2,11 +2,15 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class OwnerShipRecordDto {
   @ApiProperty()
-  id: number;
+  id?: number;
   @ApiProperty()
-  ownerShipStartDate: Date;
+  ownerShipStartDate?: Date;
   @ApiProperty()
   gravesiteId: number;
   @ApiProperty()
-  concessionOwnerId: number;
+  ownerShipName?: string;
+  @ApiProperty()
+  ownerShipPhone?: string;
+  @ApiProperty()
+  ownerShipAddress?: string;
 }

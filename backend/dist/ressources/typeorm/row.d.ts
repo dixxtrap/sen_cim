@@ -8,4 +8,5 @@ export declare class Row {
     emplacement: string;
     capacity: number;
     sectionId: number;
+    beforeInser(): Promise<void>;
 }

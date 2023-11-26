@@ -12,4 +12,5 @@ export declare class Section {
     createdAt: Date;
     updatedAt: Date;
     cimeteryId: number;
+    beforeInser(): Promise<void>;
 }

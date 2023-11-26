@@ -8,5 +8,6 @@ import { OwnerShipRecordService } from './service';
   imports: [TypeOrmModule.forFeature([OwnerShipRecord])],
   controllers: [OwnerShipRecordController],
   providers: [OwnerShipRecordService],
+  exports: [OwnerShipRecordService],
 })
 export class OwnerShipRecordModule {}

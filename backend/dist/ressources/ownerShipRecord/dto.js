@@ -27,7 +27,15 @@ __decorate([
 ], OwnerShipRecordDto.prototype, "gravesiteId", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", Number)
-], OwnerShipRecordDto.prototype, "concessionOwnerId", void 0);
+    __metadata("design:type", String)
+], OwnerShipRecordDto.prototype, "ownerShipName", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], OwnerShipRecordDto.prototype, "ownerShipPhone", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], OwnerShipRecordDto.prototype, "ownerShipAddress", void 0);
 exports.OwnerShipRecordDto = OwnerShipRecordDto;
 //# sourceMappingURL=dto.js.map

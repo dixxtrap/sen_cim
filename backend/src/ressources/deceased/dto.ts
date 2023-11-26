@@ -11,11 +11,14 @@ export class DeceasedDto {
   platNumber: string;
   @ApiProperty()
   burialDate: Date;
+  burialDateMonth?: string;
+  burialDateDay?: string;
+  burialDateYear?: string;
   @ApiProperty()
   burialPermitNumber: string;
   // DeceasedDto
   @ApiProperty()
-  id: number;
+  id?: number;
   @ApiProperty()
   firstName: string;
   @ApiProperty()
@@ -25,16 +28,27 @@ export class DeceasedDto {
   @ApiProperty()
   placeOfDeath: string;
   @ApiProperty()
-  dateOfBirth: Date;
+  dateOfBirth?: Date;
+  dateOfBirthStr?: string;
+
+  dateOfDeathDay?: string;
+  dateOfDeathMonth?: string;
+  dateOfDeathYear?: string;
   @ApiProperty()
   dateOfDeath: Date;
+  dateOfDeathStr?: string;
+
   @ApiProperty()
-  gender: string;
+  gender?: string;
   @ApiProperty()
-  photo: string;
+  photo?: string;
+  cimeteryId?: number;
+  ownShipName?: string;
+  ownShipAddress?: string;
+  ownShipPhone?: string;
 }
 
-export class SearchDeceasedDto  {
+export class SearchDeceasedDto {
   @ApiProperty()
   firstName: string;
   @ApiProperty()

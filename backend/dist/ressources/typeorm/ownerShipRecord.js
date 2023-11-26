@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.OwnerShipRecord = void 0;
 const typeorm_1 = require("typeorm");
 const gravasite_1 = require("./gravasite");
-const concessionOwner_1 = require("./concessionOwner");
 let OwnerShipRecord = class OwnerShipRecord {
 };
 __decorate([
@@ -20,23 +19,15 @@ __decorate([
     __metadata("design:type", Number)
 ], OwnerShipRecord.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => gravasite_1.Gravesite, (gravesite) => gravesite.ownerShipRecords, {
+    (0, typeorm_1.OneToMany)(() => gravasite_1.Gravesite, (gravesite) => gravesite.ownerShipRecord, {
         onDelete: 'SET NULL',
         onUpdate: 'SET NULL',
         nullable: true,
     }),
-    __metadata("design:type", gravasite_1.Gravesite)
+    __metadata("design:type", Array)
 ], OwnerShipRecord.prototype, "gravesite", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => concessionOwner_1.ConcessionOwner, (concessionOwner) => concessionOwner.ownerShipRecords, {
-        onDelete: 'SET NULL',
-        onUpdate: 'SET NULL',
-        nullable: true,
-    }),
-    __metadata("design:type", concessionOwner_1.ConcessionOwner)
-], OwnerShipRecord.prototype, "concessionOwner", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
+    (0, typeorm_1.Column)({ nullable: true, default: null }),
     __metadata("design:type", Date)
 ], OwnerShipRecord.prototype, "ownerShipStartDate", void 0);
 __decorate([
@@ -44,9 +35,17 @@ __decorate([
     __metadata("design:type", Number)
 ], OwnerShipRecord.prototype, "gravesiteId", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", Number)
-], OwnerShipRecord.prototype, "concessionOwnerId", void 0);
+    (0, typeorm_1.Column)({ nullable: true, default: null }),
+    __metadata("design:type", String)
+], OwnerShipRecord.prototype, "ownerName", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true, default: null }),
+    __metadata("design:type", String)
+], OwnerShipRecord.prototype, "ownerAddress", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true, default: null }),
+    __metadata("design:type", String)
+], OwnerShipRecord.prototype, "ownerPhone", void 0);
 OwnerShipRecord = __decorate([
     (0, typeorm_1.Entity)()
 ], OwnerShipRecord);

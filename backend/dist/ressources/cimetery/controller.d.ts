@@ -6,7 +6,7 @@ export declare class CimeteryController {
     constructor(service: CimeteryService);
     get(): Promise<import("../typeorm").Cimetery[]>;
     getById(id: number): Promise<import("../typeorm").Cimetery>;
-    createBulk(body: any): Promise<{
+    createBulk(body: any, file: Express.Multer.File): Promise<{
         status: number;
         code: string;
         message: string;
@@ -14,5 +14,5 @@ export declare class CimeteryController {
     addPhoto(id: number, file: Express.Multer.File, body: CimeteryDto): Promise<import("typeorm").UpdateResult>;
     update(id: number, body: CimeteryDto): Promise<import("typeorm").UpdateResult>;
     delete(id: number): Promise<import("typeorm").UpdateResult>;
-    create(body: CimeteryDto): Promise<import("../typeorm").Cimetery>;
+    create(body: CimeteryDto): Promise<CimeteryDto & import("../typeorm").Cimetery>;
 }

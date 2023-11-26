@@ -13,13 +13,6 @@ export class ConcessionOwner {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToMany(() => OwnerShipRecord, (osr) => osr.concessionOwner, {
-    cascade: true,
-    nullable: true,
-    onDelete: 'SET NULL',
-  })
-  ownerShipRecords: OwnerShipRecord[];
-
   @Column({ nullable: true })
   firstName: string;
   @Column({ nullable: true })
@@ -27,7 +20,7 @@ export class ConcessionOwner {
   @Column({ nullable: true })
   address: string;
   @Column({ nullable: true })
-  phone: number;
+  phone: string;
   @CreateDateColumn()
   createdAt: Date;
   @UpdateDateColumn()

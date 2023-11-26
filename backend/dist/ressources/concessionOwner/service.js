@@ -28,7 +28,7 @@ let ConcessionOwnerService = class ConcessionOwnerService {
         return await this.repos.findOne({ where: { id } });
     }
     async create(body) {
-        return await this.repos.save(this.repos.create(body));
+        const own = await this.repos.find({ where: { phone: (0, typeorm_3.Like)(body.phone) } });
     }
     async update(id, body) {
         return await this.repos.update(id, Object.assign({}, body));

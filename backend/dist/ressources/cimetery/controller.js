@@ -28,9 +28,9 @@ let CimeteryController = class CimeteryController {
     getById(id) {
         return this.service.getById(id);
     }
-    createBulk(body) {
+    createBulk(body, file) {
         console.log(body);
-        return this.service.createBulk(body);
+        return this.service.createBulk({ path: file.path, body });
     }
     addPhoto(id, file, body) {
         return this.service.update(id, Object.assign(Object.assign({}, body), { photo: file.path }));
@@ -60,9 +60,11 @@ __decorate([
 ], CimeteryController.prototype, "getById", null);
 __decorate([
     (0, common_1.Post)('bulk'),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file')),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.UploadedFile)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", void 0)
 ], CimeteryController.prototype, "createBulk", null);
 __decorate([

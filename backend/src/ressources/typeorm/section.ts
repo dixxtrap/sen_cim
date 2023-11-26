@@ -1,7 +1,10 @@
 import {
+  AfterLoad,
+  BeforeInsert,
   Column,
   CreateDateColumn,
   Entity,
+  Index,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -11,6 +14,7 @@ import { Cimetery } from './cimetery';
 import { Row } from './row';
 
 @Entity()
+@Index(['cimeteryId', 'name'], { unique: true })
 export class Section {
   @PrimaryGeneratedColumn()
   id: number;
@@ -28,7 +32,7 @@ export class Section {
   })
   rows: Row[];
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, default: '-' })
   name: string;
   @Column({ nullable: true })
   link: string;
@@ -45,4 +49,15 @@ export class Section {
   updatedAt: Date;
   @Column({ nullable: true })
   cimeteryId: number;
+  @BeforeInsert()
+  @AfterLoad()
+  async beforeInser() {
+    this.name = (
+      this.name === '' || this.name === null || this.name === '--'
+        ? '-'
+        : this.name
+    )
+      .toLowerCase()
+      .trim();
+  }
 }

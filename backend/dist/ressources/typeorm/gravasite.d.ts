@@ -5,7 +5,7 @@ export declare class Gravesite {
     id: number;
     row: Row;
     burials: Burial;
-    ownerShipRecords: OwnerShipRecord[];
+    ownerShipRecord: OwnerShipRecord;
     platNumber: string;
     status: string;
     purchase: Date;

@@ -29,10 +29,11 @@ export class CimeteryController {
     return this.service.getById(id);
   }
   @Post('bulk')
-  createBulk(@Body() body) {
+  @UseInterceptors(FileInterceptor('file'))
+  createBulk(@Body() body, @UploadedFile() file: Express.Multer.File) {
     console.log(body);
     // return ExceptionCode.SUCCEEDED;
-     return this.service.createBulk(body);
+    return this.service.createBulk({ path: file.path, body });
   }
   @Put('add_photo/:id')
   @UseInterceptors(FileInterceptor('file'))

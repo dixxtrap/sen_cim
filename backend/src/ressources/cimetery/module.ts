@@ -5,20 +5,12 @@ import { CimeteryController } from './controller';
 import { CimeteryService } from './service';
 import { diskStorage } from 'multer';
 import { MulterModule } from '@nestjs/platform-express';
+import { MulterConfig } from 'src/utils/multer.config';
+import { ExcelService } from 'src/utils/excel.service';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Cimetery]),
-    MulterModule.register({
-      preservePath: false,
-
-      dest: 'upload',
-      storage: diskStorage({
-        destination: 'upload', // Dossier de destination où les fichiers téléchargés seront stockés
-      }),
-    }),
-  ],
+  imports: [TypeOrmModule.forFeature([Cimetery]), MulterConfig],
   controllers: [CimeteryController],
-  providers: [CimeteryService],
+  providers: [CimeteryService, ExcelService],
 })
 export class CimeteryModule {}

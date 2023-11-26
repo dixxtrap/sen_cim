@@ -14,6 +14,13 @@ const typeorm_1 = require("typeorm");
 const section_1 = require("./section");
 const gravasite_1 = require("./gravasite");
 let Row = class Row {
+    async beforeInser() {
+        this.numero = (this.numero === '' || this.numero === null || this.numero === '--'
+            ? '-'
+            : this.numero)
+            .toLowerCase()
+            .trim();
+    }
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
@@ -36,7 +43,7 @@ __decorate([
     __metadata("design:type", Array)
 ], Row.prototype, "gravesites", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
+    (0, typeorm_1.Column)({ nullable: true, default: '-' }),
     __metadata("design:type", String)
 ], Row.prototype, "numero", void 0);
 __decorate([
@@ -51,8 +58,16 @@ __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", Number)
 ], Row.prototype, "sectionId", void 0);
+__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    (0, typeorm_1.AfterLoad)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], Row.prototype, "beforeInser", null);
 Row = __decorate([
-    (0, typeorm_1.Entity)()
+    (0, typeorm_1.Entity)(),
+    (0, typeorm_1.Index)(['sectionId', 'numero'], { unique: true })
 ], Row);
 exports.Row = Row;
 //# sourceMappingURL=row.js.map

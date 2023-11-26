@@ -25,7 +25,20 @@ let RowServive = class RowServive {
         return await this.repos.find();
     }
     async create(body) {
-        return await this.repos.save(this.repos.create(body));
+        const section = await this.repos.findOne({
+            where: {
+                sectionId: (0, typeorm_3.Equal)(body.sectionId),
+                numero: (0, typeorm_3.Like)(`${body.numero === '' || body.numero === '--'
+                    ? '-'
+                    : body.numero}`
+                    .trim()
+                    .toLowerCase()),
+            },
+        });
+        console.log(section);
+        if (section)
+            return section;
+        return this.repos.save(this.repos.create(Object.assign({}, body)));
     }
     async getById(id) {
         return await this.repos.findOne({ where: { id } });

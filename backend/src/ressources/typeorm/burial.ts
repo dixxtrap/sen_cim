@@ -31,18 +31,18 @@ export class Burial {
   @JoinColumn()
   deceased: Deceased;
 
-  @Column()
+  @Column({ nullable: true, default: null })
   burialDate: Date;
-  @Column({ nullable: true })
+  @Column({ nullable: true, default: null })
   funeralType: string;
-  @Column({ nullable: true })
+  @Column({ nullable: true, default: null })
   issuingMunicipality: string;
   @Column({ nullable: true })
   burialPermitNumber: string;
   @Column({ nullable: true })
   issueIn: string;
   @CreateDateColumn()
-  createdAt: Date; 
+  createdAt: Date;
   @UpdateDateColumn()
   updatedAt: Date;
   @Column({ nullable: true })

@@ -19,6 +19,7 @@ RowModule = __decorate([
         imports: [typeorm_1.TypeOrmModule.forFeature([typeorm_2.Row])],
         controllers: [controller_1.RowController],
         providers: [service_1.RowServive],
+        exports: [service_1.RowServive],
     })
 ], RowModule);
 exports.RowModule = RowModule;

@@ -14,6 +14,13 @@ const typeorm_1 = require("typeorm");
 const cimetery_1 = require("./cimetery");
 const row_1 = require("./row");
 let Section = class Section {
+    async beforeInser() {
+        this.name = (this.name === '' || this.name === null || this.name === '--'
+            ? '-'
+            : this.name)
+            .toLowerCase()
+            .trim();
+    }
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
@@ -36,7 +43,7 @@ __decorate([
     __metadata("design:type", Array)
 ], Section.prototype, "rows", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
+    (0, typeorm_1.Column)({ nullable: true, default: '-' }),
     __metadata("design:type", String)
 ], Section.prototype, "name", void 0);
 __decorate([
@@ -67,8 +74,16 @@ __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", Number)
 ], Section.prototype, "cimeteryId", void 0);
+__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    (0, typeorm_1.AfterLoad)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], Section.prototype, "beforeInser", null);
 Section = __decorate([
-    (0, typeorm_1.Entity)()
+    (0, typeorm_1.Entity)(),
+    (0, typeorm_1.Index)(['cimeteryId', 'name'], { unique: true })
 ], Section);
 exports.Section = Section;
 //# sourceMappingURL=section.js.map

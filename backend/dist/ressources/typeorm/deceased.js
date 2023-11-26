@@ -29,27 +29,27 @@ __decorate([
     __metadata("design:type", burial_1.Burial)
 ], Deceased.prototype, "burial", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 30 }),
+    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 100 }),
     __metadata("design:type", String)
 ], Deceased.prototype, "firstName", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 30 }),
+    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 100 }),
     __metadata("design:type", String)
 ], Deceased.prototype, "lastName", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 30 }),
+    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 100 }),
     __metadata("design:type", String)
 ], Deceased.prototype, "placeOfBirth", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 30 }),
+    (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 100 }),
     __metadata("design:type", String)
 ], Deceased.prototype, "placeOfDeath", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
+    (0, typeorm_1.Column)({ type: 'date', nullable: true }),
     __metadata("design:type", Date)
 ], Deceased.prototype, "dateOfBirth", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
+    (0, typeorm_1.Column)({ nullable: true, default: null }),
     __metadata("design:type", Date)
 ], Deceased.prototype, "dateOfDeath", void 0);
 __decorate([

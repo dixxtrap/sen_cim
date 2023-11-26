@@ -24,17 +24,17 @@ export class Deceased {
   })
   burial: Burial;
 
-  @Column({ nullable: true, type: 'varchar', length: 30 })
+  @Column({ nullable: true, type: 'varchar', length: 100 })
   firstName: string;
-  @Column({ nullable: true, type: 'varchar', length: 30 })
+  @Column({ nullable: true, type: 'varchar', length: 100 })
   lastName: string;
-  @Column({ nullable: true, type: 'varchar', length: 30 })
+  @Column({ nullable: true, type: 'varchar', length: 100 })
   placeOfBirth: string;
-  @Column({ nullable: true, type: 'varchar', length: 30 })
+  @Column({ nullable: true, type: 'varchar', length: 100 })
   placeOfDeath: string;
-  @Column({ nullable: true })
+  @Column({ type: 'date', nullable: true })
   dateOfBirth: Date;
-  @Column({ nullable: true })
+  @Column({ nullable: true, default: null })
   dateOfDeath: Date;
   @Column({ nullable: true })
   gender: string;

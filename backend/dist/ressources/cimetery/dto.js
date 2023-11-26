@@ -9,8 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CimeteryDto = void 0;
+exports.CimeteryDto = exports.getLocalisation = void 0;
 const swagger_1 = require("@nestjs/swagger");
+const getLocalisation = (str) => {
+    const list = str === null || str === void 0 ? void 0 : str.split(',');
+    if ((list === null || list === void 0 ? void 0 : list.length) === 2)
+        return { laltitude: parseFloat(list[0]), longitude: parseFloat(list[1]) };
+    else
+        return {
+            laltitude: null,
+            longitude: null,
+        };
+};
+exports.getLocalisation = getLocalisation;
 class CimeteryDto {
 }
 __decorate([

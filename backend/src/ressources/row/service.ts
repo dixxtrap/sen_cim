@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Row } from 'src/ressources/typeorm';
-import { Repository } from 'typeorm';
+import { Equal, Like, Repository } from 'typeorm';
 import { RowDto } from './dto';
 
 @Injectable()
@@ -13,7 +13,27 @@ export class RowServive {
   }
 
   async create(body: RowDto) {
-    return await this.repos.save(this.repos.create(body));
+    const section = await this.repos.findOne({
+      where: {
+        sectionId: Equal(body.sectionId),
+        numero: Like(
+          `${
+            body.numero === '' ||  body.numero === '--'
+              ? '-'
+              : body.numero
+          }`
+            .trim()
+            .toLowerCase(),
+        ),
+      },
+    });
+    console.log(section);
+    if (section) return section;
+    return this.repos.save(
+      this.repos.create({
+        ...body,
+      }),
+    );
   }
 
   async getById(id: number) {

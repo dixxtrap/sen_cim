@@ -12,24 +12,15 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("../typeorm");
 const controller_1 = require("./controller");
 const service_1 = require("./service");
-const multer_1 = require("multer");
-const platform_express_1 = require("@nestjs/platform-express");
+const multer_config_1 = require("../../utils/multer.config");
+const excel_service_1 = require("../../utils/excel.service");
 let CimeteryModule = class CimeteryModule {
 };
 CimeteryModule = __decorate([
     (0, common_1.Module)({
-        imports: [
-            typeorm_1.TypeOrmModule.forFeature([typeorm_2.Cimetery]),
-            platform_express_1.MulterModule.register({
-                preservePath: false,
-                dest: 'upload',
-                storage: (0, multer_1.diskStorage)({
-                    destination: 'upload',
-                }),
-            }),
-        ],
+        imports: [typeorm_1.TypeOrmModule.forFeature([typeorm_2.Cimetery]), multer_config_1.MulterConfig],
         controllers: [controller_1.CimeteryController],
-        providers: [service_1.CimeteryService],
+        providers: [service_1.CimeteryService, excel_service_1.ExcelService],
     })
 ], CimeteryModule);
 exports.CimeteryModule = CimeteryModule;

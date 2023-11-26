@@ -8,5 +8,6 @@ import { Module } from '@nestjs/common';
   imports: [TypeOrmModule.forFeature([Row])],
   controllers: [RowController],
   providers: [RowServive],
+  exports: [RowServive],
 })
 export class RowModule {}

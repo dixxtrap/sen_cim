@@ -2,6 +2,7 @@ import {
   Column,
   Entity,
   Index,
+  JoinColumn,
   ManyToMany,
   ManyToOne,
   OneToMany,
@@ -31,12 +32,8 @@ export class Gravesite {
   })
   burials: Burial;
 
-  @OneToMany(() => OwnerShipRecord, (osr) => osr.gravesite, {
-    cascade: true,
-    nullable: true,
-    onDelete: 'SET NULL',
-  })
-  ownerShipRecords: OwnerShipRecord[];
+  @ManyToOne(() => OwnerShipRecord)
+  ownerShipRecord: OwnerShipRecord;
 
   @Column({ nullable: true, type: 'varchar', length: 30 })
   platNumber: string;

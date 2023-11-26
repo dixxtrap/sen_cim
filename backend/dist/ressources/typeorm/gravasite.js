@@ -37,13 +37,9 @@ __decorate([
     __metadata("design:type", burial_1.Burial)
 ], Gravesite.prototype, "burials", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => ownerShipRecord_1.OwnerShipRecord, (osr) => osr.gravesite, {
-        cascade: true,
-        nullable: true,
-        onDelete: 'SET NULL',
-    }),
-    __metadata("design:type", Array)
-], Gravesite.prototype, "ownerShipRecords", void 0);
+    (0, typeorm_1.ManyToOne)(() => ownerShipRecord_1.OwnerShipRecord),
+    __metadata("design:type", ownerShipRecord_1.OwnerShipRecord)
+], Gravesite.prototype, "ownerShipRecord", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true, type: 'varchar', length: 30 }),
     __metadata("design:type", String)

@@ -5,21 +5,21 @@ import { DeepPartial } from 'typeorm';
 
 export class SectionDto {
   @ApiProperty()
-  id: number;
+  id?: number;
   @ApiProperty()
-  name: string;
+  name?: string;
   @ApiProperty()
-  link: string;
+  link?: string;
   @ApiProperty()
-  comment: string;
+  comment?: string;
   @ApiProperty()
-  laltitude: number;
+  laltitude?: number;
   @ApiProperty()
-  longitude: number;
+  longitude?: number;
   @ApiProperty()
-  createdAt: Date;
+  createdAt?: Date;
   @ApiProperty()
-  updatedAt: Date;
+  updatedAt?: Date;
   @ApiProperty()
   cimeteryId: number;
 }

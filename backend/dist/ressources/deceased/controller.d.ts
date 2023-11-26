@@ -1,3 +1,4 @@
+/// <reference types="multer" />
 import { DeceasedService } from './service';
 import { DeceasedDto, SearchDeceasedDto } from './dto';
 import { PaginationDto } from 'src/utils/pagination_dto';
@@ -6,6 +7,11 @@ export declare class DeceasedController {
     constructor(service: DeceasedService);
     get(): Promise<import("../typeorm").Deceased[]>;
     getById(id: number): Promise<import("../typeorm").Deceased>;
+    bulk(body: DeceasedDto, file: Express.Multer.File): Promise<{
+        status: number;
+        code: string;
+        message: string;
+    }>;
     create(body: DeceasedDto): Promise<import("../typeorm").Burial>;
     search(param: PaginationDto, body: SearchDeceasedDto): Promise<import("../typeorm").Deceased[]>;
     update(id: number, body: DeceasedDto): Promise<import("typeorm").UpdateResult>;

@@ -1,10 +1,10 @@
 import { Gravesite } from './gravasite';
-import { ConcessionOwner } from './concessionOwner';
 export declare class OwnerShipRecord {
     id: number;
-    gravesite: Gravesite;
-    concessionOwner: ConcessionOwner;
+    gravesite: Gravesite[];
     ownerShipStartDate: Date;
     gravesiteId: number;
-    concessionOwnerId: number;
+    ownerName: string;
+    ownerAddress: string;
+    ownerPhone: string;
 }

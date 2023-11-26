@@ -6,10 +6,13 @@ import {
   Param,
   Post,
   Put,
+  UploadedFile,
+  UseInterceptors,
 } from '@nestjs/common';
 import { SectionService } from './service';
 import { ApiTags } from '@nestjs/swagger';
 import { SectionDto } from './dto';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('section')
 @ApiTags('Section')
@@ -25,7 +28,11 @@ export class SectionController {
   getById(@Param('id') id: number) {
     return this.service.getById(id);
   }
-
+  @Post('bulk')
+  @UseInterceptors(FileInterceptor('file'))
+  bulk(@Body() body: SectionDto, @UploadedFile() file: Express.Multer.File) {
+    return this.service.bulk({ path: file.path, body });
+  }
   @Post()
   create(@Body() body: SectionDto) {
     return this.service.create(body);

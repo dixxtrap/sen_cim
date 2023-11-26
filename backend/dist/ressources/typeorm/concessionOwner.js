@@ -11,21 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConcessionOwner = void 0;
 const typeorm_1 = require("typeorm");
-const ownerShipRecord_1 = require("./ownerShipRecord");
 let ConcessionOwner = class ConcessionOwner {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
 ], ConcessionOwner.prototype, "id", void 0);
-__decorate([
-    (0, typeorm_1.OneToMany)(() => ownerShipRecord_1.OwnerShipRecord, (osr) => osr.concessionOwner, {
-        cascade: true,
-        nullable: true,
-        onDelete: 'SET NULL',
-    }),
-    __metadata("design:type", Array)
-], ConcessionOwner.prototype, "ownerShipRecords", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
@@ -40,7 +31,7 @@ __decorate([
 ], ConcessionOwner.prototype, "address", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], ConcessionOwner.prototype, "phone", void 0);
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),

@@ -12,15 +12,24 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("../typeorm");
 const controller_1 = require("./controller");
 const service_1 = require("./service");
+const multer_config_1 = require("../../utils/multer.config");
+const excel_service_1 = require("../../utils/excel.service");
+const module_1 = require("../section/module");
+const module_2 = require("../row/module");
+const module_3 = require("../ownerShipRecord/module");
 let DeceasedModule = class DeceasedModule {
 };
 DeceasedModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            typeorm_1.TypeOrmModule.forFeature([typeorm_2.Deceased, typeorm_2.Burial, typeorm_2.Section, typeorm_2.Row, typeorm_2.Gravesite]),
+            typeorm_1.TypeOrmModule.forFeature([typeorm_2.Deceased, typeorm_2.Burial, typeorm_2.Row, typeorm_2.Gravesite]),
+            module_1.SectionModule,
+            module_2.RowModule,
+            module_3.OwnerShipRecordModule,
+            multer_config_1.MulterConfig,
         ],
         controllers: [controller_1.DeceasedController],
-        providers: [service_1.DeceasedService],
+        providers: [service_1.DeceasedService, excel_service_1.ExcelService],
     })
 ], DeceasedModule);
 exports.DeceasedModule = DeceasedModule;
