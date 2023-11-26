@@ -17,5 +17,6 @@ export declare class CimeteryDto {
     longitude?: number;
     isActive?: boolean;
     photo?: string;
+    photoName?: string;
     confession?: string;
 }

@@ -12,5 +12,5 @@ import { DeceasedWishes } from './deceased_wish';
 import { DeceasedFlower } from './deceased_flower';
 import { SharedFlower } from './sharedFlower';
 import { Obituary } from './obituary';
-export declare const entities: (typeof Gravesite | typeof Row | typeof Burial | typeof OwnerShipRecord | typeof Cimetery | typeof Section | typeof ConcessionOwner | typeof Deceased | typeof DeceasedWishes | typeof DeceasedFlower | typeof Wishes | typeof Flower | typeof SharedFlower | typeof Obituary)[];
+export declare const entities: (typeof Cimetery | typeof Section | typeof Row | typeof Gravesite | typeof OwnerShipRecord | typeof Burial | typeof Wishes | typeof Flower | typeof SharedFlower | typeof Deceased | typeof ConcessionOwner | typeof DeceasedWishes | typeof DeceasedFlower | typeof Obituary)[];
 export { Cimetery, Section, Burial, OwnerShipRecord, ConcessionOwner, Gravesite, Row, Deceased, DeceasedWishes, DeceasedFlower, Wishes, Flower, SharedFlower, Obituary, };

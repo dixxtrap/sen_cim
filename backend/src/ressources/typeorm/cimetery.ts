@@ -26,7 +26,7 @@ export class Cimetery {
   sections: Section[];
   @Column('varchar')
   name: string;
-  @Column('varchar', {  nullable: true })
+  @Column('varchar', { nullable: true })
   email: string;
   @Column('text', { nullable: true })
   description: string;
@@ -52,6 +52,8 @@ export class Cimetery {
   updatedAt: Date;
   @Column({ nullable: true, default: null })
   photo: string;
+  @Column({ nullable: true, default: null })
+  photoName: string;
   @Column({ nullable: true, default: null })
   confession: string;
 }

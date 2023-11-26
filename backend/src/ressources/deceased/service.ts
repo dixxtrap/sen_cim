@@ -161,7 +161,6 @@ export class DeceasedService {
       );
     } catch (error) {
       console.log(error);
-      
     }
 
     return ExceptionCode.SUCCEEDED;

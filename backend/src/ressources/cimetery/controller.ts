@@ -42,7 +42,11 @@ export class CimeteryController {
     @UploadedFile() file: Express.Multer.File,
     @Body() body: CimeteryDto,
   ) {
-    return this.service.update(id, { ...body, photo: file.path });
+    return this.service.update(id, {
+      ...body,
+      photo: file.path,
+      photoName: file.filename,
+    });
   }
   @Put(':id')
   update(@Param('id') id: number, @Body() body: CimeteryDto) {

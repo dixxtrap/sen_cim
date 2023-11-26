@@ -33,7 +33,7 @@ let CimeteryController = class CimeteryController {
         return this.service.createBulk({ path: file.path, body });
     }
     addPhoto(id, file, body) {
-        return this.service.update(id, Object.assign(Object.assign({}, body), { photo: file.path }));
+        return this.service.update(id, Object.assign(Object.assign({}, body), { photo: file.path, photoName: file.filename }));
     }
     update(id, body) {
         return this.service.update(id, body);

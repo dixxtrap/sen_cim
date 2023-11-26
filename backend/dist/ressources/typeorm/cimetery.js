@@ -85,6 +85,10 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)({ nullable: true, default: null }),
     __metadata("design:type", String)
+], Cimetery.prototype, "photoName", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true, default: null }),
+    __metadata("design:type", String)
 ], Cimetery.prototype, "confession", void 0);
 Cimetery = __decorate([
     (0, typeorm_1.Entity)(),

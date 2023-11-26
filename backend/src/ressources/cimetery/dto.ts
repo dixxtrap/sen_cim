@@ -38,5 +38,7 @@ export class CimeteryDto {
   @ApiProperty()
   photo?: string;
   @ApiProperty()
+  photoName?: string;
+  @ApiProperty()
   confession?: string;
 }
