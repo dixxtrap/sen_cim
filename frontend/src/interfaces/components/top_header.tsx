@@ -77,8 +77,9 @@ export const TopHeader = () => {
         {
           <div className="h-[75vh] overflow-scroll">
             <ul role="list" className="divide-y    divide-gray-100">
-              {data &&
-                data!.data!.map((burial: Burial) => (
+              {isSuccess &&
+                data?.data &&
+                data?.data?.map((burial: Burial) => (
                   <li key={burial.id} className="">
                     <Link to={`deceased/${burial.id}`} className="flex ">
                       <div className="flex min-w-0 gap-x-4 w-full">
@@ -131,7 +132,6 @@ export const TopHeader = () => {
           <div className="flex justify-between">
             <div>
               <span className="font-bold  ">Total : {data?.totalPage} </span>
-              
             </div>
             <div className="flex items-center">
               <button

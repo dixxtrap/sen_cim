@@ -1,7 +1,7 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Burial } from 'src/ressources/typeorm';
-import { Like, Raw, Repository } from 'typeorm';
+import { Equal, Like, Raw, Repository } from 'typeorm';
 import { BurialDto } from './dto';
 import { SearchDeceasedDto } from '../deceased/dto';
 import { PaginationDto } from 'src/utils/pagination_dto';
@@ -15,6 +15,21 @@ export class BurialService {
     return await this.repos.find({ take: 15 });
   }
   async search(body: SearchDeceasedDto, pagination: PaginationDto) {
+    console.log('-------------------search-------------------');
+    const length = await this.repos.count({
+      where: {
+        deceased: {
+          firstName: Like(`%${body.firstName}%`),
+          lastName: Like(`%${body.lastName}%`),
+          dateOfDeath: Raw((alias) => `YEAR(${alias}) = :year`, {
+            year: body.year,
+          }),
+        },
+      },
+    });
+    const totalPage = Math.round(length / pagination.perPage);
+    const hasNext = totalPage > pagination.page;
+
     const burials = await this.repos.find({
       where: {
         deceased: {
@@ -29,7 +44,13 @@ export class BurialService {
       skip: pagination.page * pagination.perPage,
       take: pagination.perPage,
     });
-    if (burials.length > 0) return burials;
+    if (burials.length > 0)
+      return {
+        totalPage,
+        data: burials,
+        length,
+        hasNext,
+      };
     throw new HttpException(ExceptionCode.NOT_FOUND, 404);
   }
   async create(body: BurialDto) {
@@ -38,7 +59,7 @@ export class BurialService {
 
   async getById(id: number) {
     return await this.repos.findOne({
-      where: { id },
+      where: { id: Equal(id) },
       relations: {
         deceased: { flowers: { flower: true }, wishes: true },
         gravesite: { row: { section: { cimetery: true } } },

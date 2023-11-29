@@ -28,8 +28,8 @@ export class BurialController {
     return this.service.search(body, param);
   }
   @Get(':id')
-  getById(@Param('id') id: number) {
-    return this.service.getById(id);
+  async getById(@Param('id') id: number) {
+    return await  this.service.getById(id);
   }
 
   @Post()
