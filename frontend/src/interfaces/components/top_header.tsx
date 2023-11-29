@@ -1,25 +1,36 @@
-import { BuildingLibraryIcon } from "@heroicons/react/20/solid";
+import {
+  BuildingLibraryIcon,
+  ChevronLeftIcon,
+} from "@heroicons/react/24/solid";
 import { CalendarDaysIcon } from "@heroicons/react/20/solid";
-import { UserIcon, XCircleIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronRightIcon,
+  UserIcon,
+  XCircleIcon,
+} from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import React, { ReactNode, useEffect, useState } from "react";
 import { useGetDeceasedQuery } from "../../cores/features/deceased.slice";
 import { useForm } from "react-hook-form";
 import { useSearchBurialMutation } from "../../cores/features/burial.slice";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { burialSearchSchema } from "../../cores/models/burial.model";
+import { Burial, burialSearchSchema } from "../../cores/models/burial.model";
 import { Dialog } from "@headlessui/react";
 import { Modal } from "./dialog";
 import { formatDate } from "../../utils/format_date";
 import gravesiteImg from "../../assets/img7.png";
 import { Link } from "react-router-dom";
+import { initialPagination } from "../../cores/models/pagination.model";
+import { Loading } from "./alert";
 export const TopHeader = () => {
   const [isAvanced, setIsAvanced] = useState<boolean>(false);
-
+  const [paginate, setPaginate] = useState(initialPagination);
+  const [burial, setBurial] = useState<BurialSearch>();
   const [search, { isError, isLoading, isSuccess, data, reset }] =
     useSearchBurialMutation();
   const {
     formState: { errors },
+
     handleSubmit,
 
     register,
@@ -33,17 +44,16 @@ export const TopHeader = () => {
   });
   const onsubmit = handleSubmit((data) => {
     console.log(data);
+    setBurial(data);
     search({
       burial: data,
-      pagination: { page: 0, perPage: 50, fromDate: "0000" },
+      pagination: paginate,
     });
   });
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   return (
     <form onSubmit={onsubmit}>
+      <Loading isLoading={isLoading} />
       <Modal
         isOpen={isSuccess}
         onClose={() => {
@@ -53,7 +63,7 @@ export const TopHeader = () => {
         <Dialog.Title
           as="div"
           className="text-lg font-medium pt-3 leading-6 text-gray-900 sticky top-0 bg-white"
-         >
+        >
           <div className="w-full h-10 flex justify-between  ">
             <span> List des Defunts</span>
             <button
@@ -68,7 +78,7 @@ export const TopHeader = () => {
           <div className="h-[75vh] overflow-scroll">
             <ul role="list" className="divide-y    divide-gray-100">
               {data &&
-                data!.map((burial) => (
+                data!.data!.map((burial: Burial) => (
                   <li key={burial.id} className="">
                     <Link to={`deceased/${burial.id}`} className="flex ">
                       <div className="flex min-w-0 gap-x-4 w-full">
@@ -114,6 +124,44 @@ export const TopHeader = () => {
             </ul>
           </div>
         }
+        <Dialog.Title
+          as="div"
+          className="text-lg font-medium pt-3 leading-6  text-gray-900 sticky bottom-0 "
+        >
+          <div className="flex justify-between">
+            <div>
+              <span className="font-bold  ">Total : {data?.totalPage} </span>
+              
+            </div>
+            <div className="flex items-center">
+              <button
+                onClick={() => {
+                  if (paginate.page > 0) {
+                    setPaginate((prev) => {
+                      return { ...prev, page: paginate.page - 1 };
+                    });
+                    search({ pagination: paginate, burial: burial });
+                  }
+                }}
+              >
+                <ChevronLeftIcon className="h-5" />
+              </button>
+              <span className="font-bold p-2">{paginate.page}</span>
+              <button
+                onClick={() => {
+                  if (data?.hasNext) {
+                    setPaginate((prev) => {
+                      return { ...prev, page: paginate.page + 1 };
+                    });
+                    search({ pagination: paginate, burial: burial });
+                  }
+                }}
+              >
+                <ChevronRightIcon className="h-5" />
+              </button>
+            </div>
+          </div>
+        </Dialog.Title>
       </Modal>
       <div className=" w-full bg_cim ">
         <div
@@ -144,7 +192,7 @@ export const TopHeader = () => {
                   type="text"
                   placeholder="Nom"
                   className="input  focus:border-red-500 focus:ring-red-500  "
-                  {...register("firstName")}
+                  {...register("lastName")}
                 />
               </div>
 
@@ -154,7 +202,7 @@ export const TopHeader = () => {
                   type="text"
                   placeholder="Prénom"
                   className="input"
-                  {...register("lastName")}
+                  {...register("firstName")}
                 />
               </div>
               <div className="input_container divide-x-2">
@@ -219,9 +267,11 @@ export const TopHeader2 = ({
   className: string;
   children: ReactNode;
 }) => {
-  return <div className={clsx("h-96", className)}>
-    <div className="w-full h-full bg-blue-900/50 flex items-center justify-center">
-    {children}
+  return (
+    <div className={clsx("h-96", className)}>
+      <div className="w-full h-full bg-blue-900/50 flex items-center justify-center">
+        {children}
+      </div>
     </div>
-  </div>;
+  );
 };

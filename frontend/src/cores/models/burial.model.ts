@@ -26,7 +26,7 @@ export interface BurialSearch {
 }
 
 export const burialSearchSchema = yup.object({
-  firstName: yup.string().max(30).required(),
+  firstName: yup.string().max(30),
   lastName: yup.string(),
-  year: yup.number(),
+  year: yup.number().optional(),
 });

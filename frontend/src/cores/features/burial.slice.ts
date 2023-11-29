@@ -5,6 +5,7 @@ import { Wish } from "../models/wish.model";
 import { GatewayResponse } from "../models/gateway_response";
 import { SharedFlowerCreate } from "../models/shared_flower";
 import { PaginatedData } from "../models/paginated_data";
+import { PaginationResult } from "../models/pagination";
 
 export const burialApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "/v1" }),
@@ -12,7 +13,7 @@ export const burialApi = createApi({
   tagTypes: ["burial"],
   endpoints: (builder) => ({
     searchBurial: builder.mutation<
-      [Burial],
+      PaginationResult<[Burial]>,
       { pagination: PaginationDto; burial: BurialSearch }
     >({
       query: ({ pagination, burial }) => ({
