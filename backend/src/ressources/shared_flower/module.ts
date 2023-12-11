@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { DeceasedFlower, SharedFlower } from 'src/typeorm';
+import { DeceasedFlower, SharedFlower } from 'src/ressources/typeorm';
 import { SharedFlowerController } from './controller';
 import { SharedFlowerService } from './service';
 

@@ -1,7 +1,7 @@
 export declare class RowDto {
-    id: number;
+    id?: number;
     numero: string;
-    emplacement: string;
-    capacity: number;
+    emplacement?: string;
+    capacity?: number;
     sectionId: number;
 }

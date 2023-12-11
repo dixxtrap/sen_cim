@@ -30,6 +30,7 @@ export const Wish = () => {
             Consulter les prières envoyées
           </span>
           <div className="grid grid-cols-2 gap-2 gap-y-5 p-3">
+           
             {wishes?.items.map((wish) => (
               <div className="p-3 rounded-md  text-center shadow-md flex flex-col  ring-kgray-100/10 ring-inset ring-1">
                 <span>{wish.wish}</span>

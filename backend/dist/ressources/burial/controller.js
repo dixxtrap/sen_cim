@@ -28,8 +28,8 @@ let BurialController = class BurialController {
     search(body, param) {
         return this.service.search(body, param);
     }
-    getById(id) {
-        return this.service.getById(id);
+    async getById(id) {
+        return await this.service.getById(id);
     }
     create(body) {
         return this.service.create(body);
@@ -60,7 +60,7 @@ __decorate([
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], BurialController.prototype, "getById", null);
 __decorate([
     (0, common_1.Post)(),

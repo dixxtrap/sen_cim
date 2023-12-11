@@ -1,13 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
 export class RowDto {
   @ApiProperty()
-  id: number;
+  id?: number;
   @ApiProperty()
   numero: string;
   @ApiProperty()
-  emplacement: string;
+  emplacement?: string;
   @ApiProperty()
-  capacity: number;
+  capacity?: number;
   @ApiProperty()
   sectionId: number;
 }

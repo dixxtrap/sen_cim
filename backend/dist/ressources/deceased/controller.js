@@ -18,6 +18,7 @@ const swagger_1 = require("@nestjs/swagger");
 const service_1 = require("./service");
 const dto_1 = require("./dto");
 const pagination_dto_1 = require("../../utils/pagination_dto");
+const platform_express_1 = require("@nestjs/platform-express");
 let DeceasedController = class DeceasedController {
     constructor(service) {
         this.service = service;
@@ -28,8 +29,11 @@ let DeceasedController = class DeceasedController {
     getById(id) {
         return this.service.getById(id);
     }
+    bulk(body, file) {
+        return this.service.bulk({ path: file.path, body: body });
+    }
     create(body) {
-        return this.service.create(body);
+        return this.service.create2(body);
     }
     search(param, body) {
         return this.service.search(body, param);
@@ -54,6 +58,15 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], DeceasedController.prototype, "getById", null);
+__decorate([
+    (0, common_1.Post)('bulk'),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file')),
+    __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.UploadedFile)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [dto_1.DeceasedDto, Object]),
+    __metadata("design:returntype", void 0)
+], DeceasedController.prototype, "bulk", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),

@@ -1,26 +1,44 @@
 import { ApiProperty } from '@nestjs/swagger';
+
+export const getLocalisation = (str?: string) => {
+  const list = str?.split(',');
+  if (list?.length === 2)
+    return { laltitude: parseFloat(list[0]), longitude: parseFloat(list[1]) };
+  else
+    return {
+      laltitude: null,
+      longitude: null,
+    };
+};
 export class CimeteryDto {
-  id: number;
+  id?: number;
+  localisation?: string;
   @ApiProperty()
-  name: string;
+  name?: string;
   @ApiProperty()
-  email: string;
+  email?: string;
   @ApiProperty()
-  description: string;
+  description?: string;
   @ApiProperty()
-  address: string;
+  address?: string;
   @ApiProperty()
-  city: string;
+  city?: string;
   @ApiProperty()
-  country: string;
+  country?: string;
   @ApiProperty()
-  link: string;
+  link?: string;
   @ApiProperty()
-  phone: string;
+  phone?: string;
   @ApiProperty()
-  laltitude: number;
+  laltitude?: number;
   @ApiProperty()
-  longitude: number;
+  longitude?: number;
   @ApiProperty()
-  isActive: boolean;
+  isActive?: boolean;
+  @ApiProperty()
+  photo?: string;
+  @ApiProperty()
+  photoName?: string;
+  @ApiProperty()
+  confession?: string;
 }

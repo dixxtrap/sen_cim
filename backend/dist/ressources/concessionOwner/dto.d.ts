@@ -3,7 +3,7 @@ export declare class ConcessionOwnerDto {
     firstName: string;
     lastName: string;
     address: string;
-    phone: number;
+    phone: string;
     createdAt: Date;
     updatedAt: Date;
 }

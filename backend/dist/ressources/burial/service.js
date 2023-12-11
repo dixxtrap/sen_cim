@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BurialService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const typeorm_2 = require("../../typeorm");
+const typeorm_2 = require("../typeorm");
 const typeorm_3 = require("typeorm");
 const exception_code_1 = require("../../utils/exception_code");
 let BurialService = class BurialService {
@@ -26,6 +26,20 @@ let BurialService = class BurialService {
         return await this.repos.find({ take: 15 });
     }
     async search(body, pagination) {
+        console.log('-------------------search-------------------');
+        const length = await this.repos.count({
+            where: {
+                deceased: {
+                    firstName: (0, typeorm_3.Like)(`%${body.firstName}%`),
+                    lastName: (0, typeorm_3.Like)(`%${body.lastName}%`),
+                    dateOfDeath: (0, typeorm_3.Raw)((alias) => `YEAR(${alias}) = :year`, {
+                        year: body.year,
+                    }),
+                },
+            },
+        });
+        const totalPage = Math.round(length / pagination.perPage);
+        const hasNext = totalPage > pagination.page;
         const burials = await this.repos.find({
             where: {
                 deceased: {
@@ -41,7 +55,12 @@ let BurialService = class BurialService {
             take: pagination.perPage,
         });
         if (burials.length > 0)
-            return burials;
+            return {
+                totalPage,
+                data: burials,
+                length,
+                hasNext,
+            };
         throw new common_1.HttpException(exception_code_1.ExceptionCode.NOT_FOUND, 404);
     }
     async create(body) {
@@ -49,7 +68,7 @@ let BurialService = class BurialService {
     }
     async getById(id) {
         return await this.repos.findOne({
-            where: { id },
+            where: { id: (0, typeorm_3.Equal)(id) },
             relations: {
                 deceased: { flowers: { flower: true }, wishes: true },
                 gravesite: { row: { section: { cimetery: true } } },

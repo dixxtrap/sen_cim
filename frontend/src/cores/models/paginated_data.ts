@@ -3,5 +3,6 @@ export interface PaginatedData<T> {
   pageSize: number;
   totalItems: number;
   totalPages: number;
+  
   items: T[];
 }

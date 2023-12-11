@@ -1,6 +1,8 @@
 export declare class OwnerShipRecordDto {
-    id: number;
-    ownerShipStartDate: Date;
+    id?: number;
+    ownerShipStartDate?: Date;
     gravesiteId: number;
-    concessionOwnerId: number;
+    ownerShipName?: string;
+    ownerShipPhone?: string;
+    ownerShipAddress?: string;
 }

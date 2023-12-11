@@ -1,0 +1,20 @@
+import { Burial } from './burial';
+import { Cimetery } from './cimetery';
+import { ConcessionOwner } from './concessionOwner';
+import { Deceased } from './deceased';
+import { Flower } from './flower';
+import { Gravesite } from './gravasite';
+import { OwnerShipRecord } from './ownerShipRecord';
+import { Row } from './row';
+import { Section } from './section';
+import { Wishes } from './wishes';
+import { DeceasedWishes } from './deceased_wish';
+import { DeceasedFlower } from './deceased_flower';
+import { SharedFlower } from './sharedFlower';
+import { Obituary } from './obituary';
+<<<<<<< HEAD:backend/dist/typeorm/index.d.ts
+export declare const entities: (typeof Cimetery | typeof Section | typeof Row | typeof Gravesite | typeof ConcessionOwner | typeof OwnerShipRecord | typeof Burial | typeof Wishes | typeof Flower | typeof SharedFlower | typeof Deceased | typeof DeceasedWishes | typeof DeceasedFlower | typeof Obituary)[];
+=======
+export declare const entities: (typeof Cimetery | typeof Section | typeof Row | typeof Gravesite | typeof OwnerShipRecord | typeof Burial | typeof Wishes | typeof Flower | typeof SharedFlower | typeof Deceased | typeof ConcessionOwner | typeof DeceasedWishes | typeof DeceasedFlower | typeof Obituary)[];
+>>>>>>> 0d9866966a600c5344c773bd2a3981c981c7739a:backend/dist/ressources/typeorm/index.d.ts
+export { Cimetery, Section, Burial, OwnerShipRecord, ConcessionOwner, Gravesite, Row, Deceased, DeceasedWishes, DeceasedFlower, Wishes, Flower, SharedFlower, Obituary, };

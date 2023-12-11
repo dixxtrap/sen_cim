@@ -9,16 +9,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CimeteryModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const typeorm_2 = require("../../typeorm");
+const typeorm_2 = require("../typeorm");
 const controller_1 = require("./controller");
 const service_1 = require("./service");
+const multer_config_1 = require("../../utils/multer.config");
+const excel_service_1 = require("../../utils/excel.service");
 let CimeteryModule = class CimeteryModule {
 };
 CimeteryModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([typeorm_2.Cimetery])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([typeorm_2.Cimetery]), multer_config_1.MulterConfig],
         controllers: [controller_1.CimeteryController],
-        providers: [service_1.CimeteryService],
+        providers: [service_1.CimeteryService, excel_service_1.ExcelService],
     })
 ], CimeteryModule);
 exports.CimeteryModule = CimeteryModule;

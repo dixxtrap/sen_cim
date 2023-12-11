@@ -1,4 +1,4 @@
-import { Row } from 'src/typeorm';
+import { Row } from 'src/ressources/typeorm';
 import { Repository } from 'typeorm';
 import { RowDto } from './dto';
 export declare class RowServive {

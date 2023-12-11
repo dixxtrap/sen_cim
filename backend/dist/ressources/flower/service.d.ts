@@ -1,5 +1,5 @@
 import { Repository } from 'typeorm';
-import { DeceasedFlower, Flower } from '../../typeorm';
+import { DeceasedFlower, Flower } from '../typeorm';
 import { FlowerDto } from './dto';
 export declare class FlowerService {
     private repos;

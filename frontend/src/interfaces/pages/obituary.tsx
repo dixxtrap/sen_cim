@@ -30,9 +30,9 @@ export const Obituary = () => {
                   <div className="grid grid-cols-3">
                     <div>
                       <img
-                        src={`/v1/obituary/file/${item.fileName}`}
+                        src={`v1/obituary/file/${item.fileName}`}
                         alt=""
-                        className="h-32 w-32 rounded-full"
+                        className="h-32 w-32 rounded-full gravesite_bg img"
                       />
                     </div>
                     <div className="flex flex-col gap-3 ">

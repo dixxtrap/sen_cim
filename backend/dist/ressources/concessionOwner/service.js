@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConcessionOwnerService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const typeorm_2 = require("../../typeorm");
+const typeorm_2 = require("../typeorm");
 const typeorm_3 = require("typeorm");
 let ConcessionOwnerService = class ConcessionOwnerService {
     constructor(repos) {
@@ -28,7 +28,7 @@ let ConcessionOwnerService = class ConcessionOwnerService {
         return await this.repos.findOne({ where: { id } });
     }
     async create(body) {
-        return await this.repos.save(this.repos.create(body));
+        const own = await this.repos.find({ where: { phone: (0, typeorm_3.Like)(body.phone) } });
     }
     async update(id, body) {
         return await this.repos.update(id, Object.assign({}, body));

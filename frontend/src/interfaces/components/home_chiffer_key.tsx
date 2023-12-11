@@ -15,7 +15,7 @@ export const HomeChifferKey = () => {
               { title: "Cimetières inventoriés", lenght: useGetCimeteryQuery("").data?.length },
               { title: "Défunts repertoriés", lenght: useGetDeceasedQuery("").data?.length},
             ].map((e) => (
-              <div className="bg-white h-36 flex flex-col items-center justify-center">
+              <div className="bg-white rounded-md h-36 flex flex-col items-center justify-center">
                 <span className="text-red-500 font-bold text-2xl">
                   {e.lenght}
                 </span>

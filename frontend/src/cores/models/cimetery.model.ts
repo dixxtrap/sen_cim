@@ -14,4 +14,5 @@ export interface Cimetery {
   createdAt: string;
   updatedAt: string;
   photo?: string;
+  photoName?: string;
 }

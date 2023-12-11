@@ -1,4 +1,4 @@
-import { Gravesite } from 'src/typeorm';
+import { Gravesite } from 'src/ressources/typeorm';
 import { Repository } from 'typeorm';
 import { GravesiteDto } from './dto';
 export declare class GravesiteService {

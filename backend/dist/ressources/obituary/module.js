@@ -11,7 +11,7 @@ const common_1 = require("@nestjs/common");
 const platform_express_1 = require("@nestjs/platform-express");
 const typeorm_1 = require("@nestjs/typeorm");
 const multer_1 = require("multer");
-const typeorm_2 = require("../../typeorm");
+const typeorm_2 = require("../typeorm");
 const controller_1 = require("./controller");
 const service_1 = require("./service");
 let ObituaryModule = class ObituaryModule {
@@ -22,9 +22,15 @@ ObituaryModule = __decorate([
             typeorm_1.TypeOrmModule.forFeature([typeorm_2.Obituary]),
             platform_express_1.MulterModule.register({
                 preservePath: false,
+<<<<<<< HEAD
                 dest: './src/upload',
                 storage: (0, multer_1.diskStorage)({
                     destination: './src/upload',
+=======
+                dest: 'upload',
+                storage: (0, multer_1.diskStorage)({
+                    destination: 'upload',
+>>>>>>> 0d9866966a600c5344c773bd2a3981c981c7739a
                 }),
             }),
         ],

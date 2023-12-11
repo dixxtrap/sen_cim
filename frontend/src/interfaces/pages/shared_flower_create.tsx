@@ -92,7 +92,7 @@ export const SharedFlowerCreate = () => {
                         <div className="p-4 grid grid-cols-4">
                           {flowers.map((item) => (
                             <div
-                              onClick={() => setValue("flowerId", item.id)}
+                              onClick={() => setValue("flowerId", item.id-1)}
                               key={item.name}
                               className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50"
                             >

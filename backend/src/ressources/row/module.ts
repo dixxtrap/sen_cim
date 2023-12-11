@@ -1,5 +1,5 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Row } from 'src/typeorm';
+import { Row } from 'src/ressources/typeorm';
 import { RowController } from './controller';
 import { RowServive } from './service';
 import { Module } from '@nestjs/common';
@@ -8,5 +8,6 @@ import { Module } from '@nestjs/common';
   imports: [TypeOrmModule.forFeature([Row])],
   controllers: [RowController],
   providers: [RowServive],
+  exports: [RowServive],
 })
 export class RowModule {}

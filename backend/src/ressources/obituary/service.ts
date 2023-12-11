@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { Obituary } from 'src/typeorm';
+import { Obituary } from 'src/ressources/typeorm';
 import { Repository } from 'typeorm';
 import { ObituaryDto } from './dto';
 

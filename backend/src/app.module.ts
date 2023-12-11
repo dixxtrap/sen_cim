@@ -43,14 +43,14 @@ import { ObituaryModule } from './ressources/obituary/module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    console.log(
-      `------------------${path.join(__dirname, 'upload')}-----------------`,
-    );
-    // Serve static assets from the "public" directory at the '/assets' route
-    consumer
-      .apply(express.static(path.join(__dirname, 'upload/')))
-      .forRoutes({ path: 'uploads', method: RequestMethod.GET });
-  }
+export class AppModule  {
+  // configure(consumer: MiddlewareConsumer) {
+  //   console.log(
+  //     `------------------${path.join(__dirname, 'upload')}-----------------`,
+  //   );
+  //   // Serve static assets from the "public" directory at the '/assets' route
+  //   consumer
+  //     .apply(express.static(path.join(__dirname, 'upload/')))
+  //     .forRoutes({ path: 'uploads', method: RequestMethod.GET });
+  // }
 }

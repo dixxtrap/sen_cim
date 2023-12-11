@@ -9,16 +9,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SectionModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const typeorm_2 = require("../../typeorm");
+const typeorm_2 = require("../typeorm");
 const controller_1 = require("./controller");
 const service_1 = require("./service");
+const multer_config_1 = require("../../utils/multer.config");
+const excel_service_1 = require("../../utils/excel.service");
 let SectionModule = class SectionModule {
 };
 SectionModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([typeorm_2.Section])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([typeorm_2.Section]), multer_config_1.MulterConfig],
         controllers: [controller_1.SectionController],
-        providers: [service_1.SectionService],
+        providers: [service_1.SectionService, excel_service_1.ExcelService],
+        exports: [service_1.SectionService],
     })
 ], SectionModule);
 exports.SectionModule = SectionModule;

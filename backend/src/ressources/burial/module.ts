@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { Burial } from "src/typeorm";
+import { Burial } from "src/ressources/typeorm";
 import { BurialController } from "./controller";
 import { BurialService } from "./service";
 

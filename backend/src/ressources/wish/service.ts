@@ -1,6 +1,6 @@
 import { HttpException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DeceasedWishes, Wishes } from 'src/typeorm';
+import { DeceasedWishes, Wishes } from 'src/ressources/typeorm';
 import { ExceptionCode } from 'src/utils/exception_code';
 import { Repository } from 'typeorm';
 import { WishDto } from './dto';

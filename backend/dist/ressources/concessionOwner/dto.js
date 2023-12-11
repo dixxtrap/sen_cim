@@ -31,7 +31,7 @@ __decorate([
 ], ConcessionOwnerDto.prototype, "address", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], ConcessionOwnerDto.prototype, "phone", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),

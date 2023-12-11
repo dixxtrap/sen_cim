@@ -56,7 +56,7 @@ export const WishCreate = () => {
             </div>
 
             <form className=" p-2 flex flex-col gap-y-3" onSubmit={_onSubmit}>
-              <Input label={`(caractères utilisés : ${watch("wish") != undefined ? watch("wish")?.length : 0 }/300)`}>
+              <Input error={errors.wish?.message} label={`(caractères utilisés : ${watch("wish") != undefined ? watch("wish")?.length : 0 }/500)`}>
                 <textarea
                   className="input2"
                   rows={8}
@@ -65,7 +65,7 @@ export const WishCreate = () => {
                 />
               </Input>
               <Input 
-              error={errors.wish?.message} 
+              error={errors.sign?.message} 
               label={`(caractères utilisés : ${watch("sign") != undefined ? watch("sign")?.length : 0 }/30)`}>
                 <input
                   className="input2"

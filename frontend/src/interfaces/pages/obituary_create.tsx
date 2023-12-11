@@ -13,6 +13,7 @@ import { formatDate } from "../../utils/format_date";
 import cloud_add from "../../assets/ci_cloud-add.png"
 
 export const ObituaryCreate = () => {
+  
   const nav = useNavigate()
   const {
     handleSubmit,
@@ -79,7 +80,7 @@ export const ObituaryCreate = () => {
             </div>
             <div className="flex flex-col">
               <div className="flex  p-2 md:p-4  gap-4 flex-row-reverse">
-                <div className="w-40 h-40 bg-kgray-50/20 rounded-full">
+                <div className="w-40 h-40 bg-[#d9d9d9] rounded-full">
                   <label
                     htmlFor={`img`}
                     className="w-full h-full flex items-center justify-center min-w-fit"
