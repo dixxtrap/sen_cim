@@ -3,6 +3,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import logo from "../../assets/logo_sen_cim.png";
+import logoSC from "../../assets/logoSenCim.png";
 import { Link } from "react-router-dom";
 const user = {
   name: "Tom Cook",
@@ -61,7 +62,7 @@ export const Header = () => {
                 <div className="flex h-16 justify-between items-center">
                   <div className="flex">
                     <Link to={"/"} className="flex flex-shrink-0 items-center">
-                      <img
+                      {/* <img
                         className="block h-12 w-auto lg:hidden"
                         src={logo}
                         alt="Your Company"
@@ -73,13 +74,18 @@ export const Header = () => {
                       />
                       <span className="text-2xl font-serif font-bold ml-2 text-kgray-300">
                       SenCim.
-                      </span>
+                      </span> */}
+                      <img
+                        className="hidden h-12 w-auto lg:block"
+                        src={logoSC}
+                        alt="Your Company"
+                      />
                     </Link>
                     <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8 items-center justify-center">
                       {menuItems.map((item) => (
                         <Menu as="div" className="relative ml-3">
                           <div>
-                            <Menu.Button className="relative flex  items-center rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-red-500  focus:ring-offset-2 px-3 ">
+                            <Menu.Button className="relative flex  items-center rounded-md bg-white  focus:outline-none focus:ring-2 focus:ring-red-500  focus:ring-offset-2 px-3 ">
                               <span className="absolute -inset-1.5" />
                               <span className="sr-only">Open user menu</span>
                               <span>{item.label}</span>
@@ -130,11 +136,11 @@ export const Header = () => {
                     {/* Profile dropdown */}
                     <Menu as="div" className="relative ml-3">
                     
-                        <Menu.Button className="relative flex max-w-xs  p-2 px-3  items-center rounded-full  text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        <Menu.Button className="relative flex max-w-xs  p-2 px-3  items-center rounded-full  focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                           <span className="absolute -inset-1.5" />
                           <Link
                         to={"#"}
-                        className="relative flex  items-center rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-red-500  focus:ring-offset-2 px-3 "
+                        className="relative flex  items-center rounded-md bg-white  focus:outline-none focus:ring-2 focus:ring-red-500  focus:ring-offset-2 px-3 "
                       >
                         Faire un don 🧡
                       </Link>

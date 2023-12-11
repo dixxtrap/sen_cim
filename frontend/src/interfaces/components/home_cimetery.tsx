@@ -34,10 +34,10 @@ export const HomeCimetery = () => {
   } = useGetCimeteryQuery("");
   return (
     <div className="flex flex-col py-4 ">
-      <span className="text-red-500 text-3xl font-bold mx-auto">
+      <span className="text-red-500 text-3xl font-bold mx-auto mb-4">
         Nos Cimetières
       </span>
-      <span className="mx-auto">
+      <span className="mx-auto mb-4">
         {" "}
         Les cimetières du Sénégal repertoriés dans notre base
       </span>

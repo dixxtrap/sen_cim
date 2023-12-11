@@ -22,7 +22,7 @@ export const HomeWishes = () => {
 
         <div className="text-center shadow-md h-full pb-5 px-11 ring-inset ring-1 ring-slate-800/10 rounded-2xl flex flex-col">
           <span className="text-center text-xl m-auto">
-            “ Yasmina, je prie que ton ame repose en paix où qu’il soit. Tu nous manques et on te gardear à jamais dans nos coeurs pour l’étenité. ”
+            “ Yasmina, je prie que ton âme repose en paix où qu’il soit. Tu nous manques et on te gardera à jamais dans nos coeurs pour l’éternité. ”
           </span>
           <span className="pl-72 text-zinc-600  ">
             Ta chère maman

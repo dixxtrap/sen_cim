@@ -22,6 +22,21 @@ import gravesiteImg from "../../assets/img7.png";
 import { Link } from "react-router-dom";
 import { initialPagination } from "../../cores/models/pagination.model";
 import { Loading } from "./alert";
+import Slider, { Settings } from "react-slick";
+
+const settings: Settings = {
+  dots: true,
+  infinite: true,
+  speed: 200,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  adaptiveHeight: true,
+  useCSS: true,
+  centerPadding: "20px",
+
+  className: "flex gap-4",
+};
+
 export const TopHeader = () => {
   const [isAvanced, setIsAvanced] = useState<boolean>(false);
   const [paginate, setPaginate] = useState(initialPagination);
@@ -38,7 +53,7 @@ export const TopHeader = () => {
     defaultValues: {
       firstName: "",
       lastName: "",
-      year: 1997,
+      year: undefined,
     },
     resolver: yupResolver(burialSearchSchema),
   });
@@ -50,6 +65,8 @@ export const TopHeader = () => {
       pagination: paginate,
     });
   });
+
+  const [index, setIndex] = useState(0);
 
   return (
     <form onSubmit={onsubmit}>
@@ -164,20 +181,24 @@ export const TopHeader = () => {
         </Dialog.Title>
       </Modal>
       <div className=" w-full bg_cim ">
-        <div
+
+         <div
           className={clsx(
             "h-full w-full mx-auto  py-20 text-white items-center px-[200px]  bg-blue-900/50 flex flex-col",
             isAvanced && ""
           )}
         >
+
+
+
           <span className="text-6xl   ">Rechercher un défunt</span>
-          <span className="text-center py-10">
+          <span className="text-center py-10 text-xl">
             Recherchez les information sur <br /> un défunt proche plus
             facilement
           </span>
 
           <div className="flex w-full flex-row-reverse items-start">
-            <button type="submit" className="bg-red-500 py-3 px-5 rounded-r-md">
+            <button type="submit" className="bg-red-500 py-3 px-5 rounded-r-md h-14">
               Rechecher
             </button>
             <div
@@ -186,7 +207,7 @@ export const TopHeader = () => {
                 { "rounded-br-none": !isAvanced }
               )}
             >
-              <div className="input_container grow ">
+              <div className="input_container grow h-14 ">
                 <UserIcon className="icon  " />
                 <input
                   type="text"
@@ -196,8 +217,8 @@ export const TopHeader = () => {
                 />
               </div>
 
-              <div className="input_container divide-x-2">
-                <UserIcon className="icon  " />
+              <div className="input_container divide-x-2 h-14">
+                <UserIcon className="icon" />
                 <input
                   type="text"
                   placeholder="Prénom"
@@ -205,18 +226,18 @@ export const TopHeader = () => {
                   {...register("firstName")}
                 />
               </div>
-              <div className="input_container divide-x-2">
+              <div className="input_container divide-x-2 h-14">
                 <CalendarDaysIcon className="icon  " />
                 <input
                   type="text"
-                  placeholder="Date de décés"
+                  placeholder="Année de décés"
                   className="input"
                   {...register("year")}
                 />
               </div>
               {isAvanced && (
                 <>
-                  <div className="input_container divide-y-2">
+                  <div className="input_container divide-y-2 h-14">
                     <BuildingLibraryIcon className="icon  " />
                     <input
                       type="text"
@@ -224,7 +245,7 @@ export const TopHeader = () => {
                       className="input"
                     />
                   </div>
-                  <div className="input_container divide-x-2 divide-y-2">
+                  <div className="input_container divide-x-2 divide-y-2 h-14">
                     <CalendarDaysIcon className="icon  " />
                     <input
                       type="text"
@@ -232,7 +253,7 @@ export const TopHeader = () => {
                       className="input"
                     />
                   </div>
-                  <div className="input_container divide-x-2 divide-y-2">
+                  <div className="input_container divide-x-2 divide-y-2 h-14">
                     <CalendarDaysIcon className="icon  " />
                     <input
                       type="text"
@@ -254,7 +275,10 @@ export const TopHeader = () => {
                 : "> Retour sur recherche classique"}
             </button>
           </div>
+
+          
         </div>
+     
       </div>
     </form>
   );

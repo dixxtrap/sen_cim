@@ -24,7 +24,7 @@ export const LegalDisclaimer = () => {
 
                 <span className="font-bold">Hébergeur<br /><br /></span>
 
-                l’hébergement du site est assuré par l’hébergeur LWS.
+                l’hébergement du site est assuré par l’hébergeur AWS.
               </p>
             </div>
           </div>

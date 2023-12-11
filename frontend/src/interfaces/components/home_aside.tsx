@@ -20,7 +20,7 @@ export const Pub = () => {
 export const Don = () => {
   return (
     <div className=" ring_gray flex flex-col p-3 gap-y-8 items-center justify-center">
-      <span className="text-3xl mx-auto text-center">
+      <span className="text-2xl mx-auto text-center">
         Faire un <span className="text-red-500 font-bold"> don à SenCim </span>
         🧡 pour contribuer à la réussite de ce projet
       </span>

@@ -7,6 +7,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { wishSchema } from "../../cores/models/wish.model";
 import { useAddWishMutation } from "../../cores/features/burial.slice";
 import { Loading } from "../components/alert";
+import { TopHeader2 } from "../components/top_header";
+import { HomeWishes } from "../components/home_wish";
 
 export const WishCreate = () => {
   const location = useLocation();
@@ -31,14 +33,21 @@ export const WishCreate = () => {
       {isSuccess && (
         <Navigate to={deceasedId ? `/deceased/${burialId}` : `/wish`} />
       )}
+      <TopHeader2 className="bg_jardin">
+        <div className="md:px-20 px-3 max-w-2xl flex items-center justify-center">
+          <span className="text-center  text-white text-2xl">
+          Repos et paix en mémoire de nos proches partis avant nous.  À ceux là que nous avons aimés, que leurs âmes reposent en paix.
+          </span>
+        </div>
+      </TopHeader2>
       <div className="min-h-[600px] flex p-3">
         <div className="grow flex flex-col gap-y-4">
           {" "}
-          <span className=" text-3xl font-bold text-kprimary-500 pb-3">
+          {/* <span className=" text-3xl font-bold text-kprimary-500 pb-3">
             {" "}
             Envoyer une prière pour un proche
-          </span>
-          <div className="grid grid-cols-2 gap-2">
+          </span> */}
+          {/* <div className="grid grid-cols-2 gap-2">
             <div className="p-4 shadow-sm text-center ring-1  ring-kgray-50/30 rounded-md">
               Quand vous laissez une prière sur notre site, chaque dernier
               samedi du mois, un acte symbolique est posé et partagé sur nos
@@ -47,7 +56,8 @@ export const WishCreate = () => {
               défunts pour le repos de leurs âmes.
             </div>
             <div className="p-4 shadow-sm text-center ring-1  ring-kgray-50/30 rounded-md"></div>
-          </div>
+          </div> */}
+          <HomeWishes/>
           <div className="ring gap-y-4 ring-kgray-50/10 shadow-md ring-inset rounded-md divide-y">
             <div className="h-12 py-2 px-4">
               <span className="text-xl text-kprimary-500 font-bold">
