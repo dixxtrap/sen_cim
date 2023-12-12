@@ -7,9 +7,12 @@ export const obituaryApi = createApi({
   tagTypes: ["obituary"],
   endpoints: (builder) => ({
     getObituary: builder.query<[Obituary], string>({
-      query: () => "obituary",
+      query: () => ({
+        url: "obituary",
+        redirect: "follow",
+      }),
     }),
   }),
 });
 
-export const {useGetObituaryQuery}=obituaryApi
+export const { useGetObituaryQuery } = obituaryApi;

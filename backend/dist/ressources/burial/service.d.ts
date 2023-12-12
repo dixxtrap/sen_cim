@@ -12,6 +12,7 @@ export declare class BurialService {
         data: Burial[];
         length: number;
         hasNext: boolean;
+        page: number;
     }>;
     create(body: BurialDto): Promise<Burial>;
     getById(id: number): Promise<Burial>;

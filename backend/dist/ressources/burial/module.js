@@ -18,7 +18,7 @@ BurialModule = __decorate([
     (0, common_1.Module)({
         imports: [typeorm_1.TypeOrmModule.forFeature([typeorm_2.Burial])],
         controllers: [controller_1.BurialController],
-        providers: [service_1.BurialService]
+        providers: [service_1.BurialService],
     })
 ], BurialModule);
 exports.BurialModule = BurialModule;

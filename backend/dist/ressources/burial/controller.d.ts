@@ -10,6 +10,7 @@ export declare class BurialController {
         data: import("../typeorm").Burial[];
         length: number;
         hasNext: boolean;
+        page: number;
     }>;
     getById(id: number): Promise<import("../typeorm").Burial>;
     create(body: BurialDto): Promise<import("../typeorm").Burial>;

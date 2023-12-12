@@ -14,7 +14,11 @@ import { useGetDeceasedQuery } from "../../cores/features/deceased.slice";
 import { useForm } from "react-hook-form";
 import { useSearchBurialMutation } from "../../cores/features/burial.slice";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Burial, burialSearchSchema } from "../../cores/models/burial.model";
+import {
+  Burial,
+  BurialSearch,
+  burialSearchSchema,
+} from "../../cores/models/burial.model";
 import { Dialog } from "@headlessui/react";
 import { Modal } from "./dialog";
 import { formatDate } from "../../utils/format_date";
@@ -25,8 +29,12 @@ import { Loading } from "./alert";
 export const TopHeader = () => {
   const [isAvanced, setIsAvanced] = useState<boolean>(false);
   const [paginate, setPaginate] = useState(initialPagination);
-  const [burial, setBurial] = useState<BurialSearch>();
-  const [search, { isError, isLoading, isSuccess, data, reset }] =
+  const [burial, setBurial] = useState<BurialSearch>({
+    firstName: "",
+    lastName: "",
+    year: 1997,
+  });
+  const [search, { isLoading, isSuccess, data: paginateResult, reset , }] =
     useSearchBurialMutation();
   const {
     formState: { errors },
@@ -44,7 +52,9 @@ export const TopHeader = () => {
   });
   const onsubmit = handleSubmit((data) => {
     console.log(data);
+    reset();
     setBurial(data);
+    setPaginate(initialPagination);
     search({
       burial: data,
       pagination: paginate,
@@ -57,7 +67,9 @@ export const TopHeader = () => {
       <Modal
         isOpen={isSuccess}
         onClose={() => {
-          console.log(data);
+          console.log(paginateResult);
+          setPaginate(initialPagination);
+          reset();
         }}
       >
         <Dialog.Title
@@ -78,10 +90,11 @@ export const TopHeader = () => {
           <div className="h-[75vh] overflow-scroll">
             <ul role="list" className="divide-y    divide-gray-100">
               {isSuccess &&
-                data?.data &&
-                data?.data?.map((burial: Burial) => (
-                  <li key={burial.id} className="">
-                    <Link to={`deceased/${burial.id}`} className="flex ">
+                paginateResult &&
+                paginateResult?.data &&
+                paginateResult?.data?.map((item: Burial) => (
+                  <li key={item.id} className="">
+                    <Link to={`deceased/${item.id}`} className="flex ">
                       <div className="flex min-w-0 gap-x-4 w-full">
                         <div className="h-12 w-12 rounded-full  bg-gray-50 ">
                           <img
@@ -92,20 +105,23 @@ export const TopHeader = () => {
                         </div>{" "}
                         <div className="min-w-0 flex-auto">
                           <p className="text-sm font-semibold leading-6 text-gray-900">
-                            {burial.deceased.firstName}
+                            {item.deceased.firstName}
                           </p>
                           <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-                            {burial.deceased.lastName}
+                            {item.deceased.lastName}
                           </p>
                         </div>
                       </div>
                       <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                        <p className="text-sm leading-6 text-gray-900">{`${burial.gravesite.row.section.name}/${burial.gravesite.row.numero}`}</p>
-                        {burial.amountPaid ? (
+                        <p className="text-sm leading-6 text-gray-900">
+                          section :{" "}
+                          {`${item.gravesite.row.section.name}/ ligne: ${item.gravesite.row.numero}`}
+                        </p>
+                        {item.amountPaid ? (
                           <p className="mt-1 text-xs leading-5 text-gray-500">
                             Last seen{" "}
-                            <time dateTime={burial.burialDate}>
-                              {burial.amountPaid}
+                            <time dateTime={item.burialDate}>
+                              {item.amountPaid}
                             </time>
                           </p>
                         ) : (
@@ -114,7 +130,7 @@ export const TopHeader = () => {
                           <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                         </div> */}
                             <p className="text-xs leading-5 text-gray-500">
-                              {formatDate(burial.burialDate)}
+                              {formatDate(item.burialDate)}
                             </p>
                           </div>
                         )}
@@ -131,25 +147,32 @@ export const TopHeader = () => {
         >
           <div className="flex justify-between">
             <div>
-              <span className="font-bold  ">Total : {data?.totalPage} </span>
+              <span className="font-bold  ">
+                Total : {paginateResult?.totalPage}{" "}
+              </span>
             </div>
             <div className="flex items-center">
               <button
-                onClick={() => {
-                  if (paginate.page > 0) {
-                    setPaginate((prev) => {
+                onClick={async () => {
+                  if (paginate!.page > 0) {
+                    await reset();
+                    await setPaginate((prev) => {
                       return { ...prev, page: paginate.page - 1 };
                     });
-                    search({ pagination: paginate, burial: burial });
+                    await search({
+                      burial: burial,
+                      pagination: paginate,
+                    });
                   }
                 }}
               >
                 <ChevronLeftIcon className="h-5" />
               </button>
-              <span className="font-bold p-2">{paginate.page}</span>
+              <span className="font-bold p-2">{paginateResult?.page}</span>
               <button
                 onClick={() => {
-                  if (data?.hasNext) {
+                  if (paginateResult!.hasNext) {
+                    reset();
                     setPaginate((prev) => {
                       return { ...prev, page: paginate.page + 1 };
                     });

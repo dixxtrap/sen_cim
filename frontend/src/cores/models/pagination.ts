@@ -2,5 +2,6 @@ export interface PaginationResult<T> {
   totalPage: number;
   data: T;
   hasNext: boolean;
-  length:number
+  length: number;
+  page: number;
 }

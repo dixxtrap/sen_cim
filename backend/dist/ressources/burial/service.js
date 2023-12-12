@@ -32,14 +32,17 @@ let BurialService = class BurialService {
                 deceased: {
                     firstName: (0, typeorm_3.Like)(`%${body.firstName}%`),
                     lastName: (0, typeorm_3.Like)(`%${body.lastName}%`),
-                    dateOfDeath: (0, typeorm_3.Raw)((alias) => `YEAR(${alias}) = :year`, {
+                    dateOfDeath: (0, typeorm_3.Raw)((alias) => `YEAR(${alias}) >= :year`, {
                         year: body.year,
                     }),
                 },
             },
         });
         const totalPage = Math.round(length / pagination.perPage);
-        const hasNext = totalPage > pagination.page;
+        const hasNext = totalPage >= pagination.page;
+        console.log(hasNext);
+        console.log(totalPage);
+        console.log(pagination.page);
         const burials = await this.repos.find({
             where: {
                 deceased: {
@@ -60,6 +63,7 @@ let BurialService = class BurialService {
                 data: burials,
                 length,
                 hasNext,
+                page: pagination.page,
             };
         throw new common_1.HttpException(exception_code_1.ExceptionCode.NOT_FOUND, 404);
     }

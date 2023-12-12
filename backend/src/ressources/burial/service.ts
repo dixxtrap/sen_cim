@@ -21,15 +21,17 @@ export class BurialService {
         deceased: {
           firstName: Like(`%${body.firstName}%`),
           lastName: Like(`%${body.lastName}%`),
-          dateOfDeath: Raw((alias) => `YEAR(${alias}) = :year`, {
+          dateOfDeath: Raw((alias) => `YEAR(${alias}) >= :year`, {
             year: body.year,
           }),
         },
       },
     });
     const totalPage = Math.round(length / pagination.perPage);
-    const hasNext = totalPage > pagination.page;
-
+    const hasNext = totalPage >= pagination.page;
+    console.log(hasNext);
+    console.log(totalPage);
+    console.log(pagination.page);
     const burials = await this.repos.find({
       where: {
         deceased: {
@@ -50,6 +52,7 @@ export class BurialService {
         data: burials,
         length,
         hasNext,
+        page: pagination.page,
       };
     throw new HttpException(ExceptionCode.NOT_FOUND, 404);
   }
