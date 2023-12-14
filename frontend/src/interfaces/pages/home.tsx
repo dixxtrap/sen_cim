@@ -7,11 +7,13 @@ import { HomeChifferStat } from "../components/home_chiffer_stat";
 import { HomeChifferKey } from "../components/home_chiffer_key";
 import { HomeCimetery } from "../components/home_cimetery";
 import { ObituaryAside } from "../components/obituary_aside";
+import { Route, Routes } from "react-router-dom";
+import { Search } from "../components/search";
 
 export const Home = () => {
   return (
     <div className="">
-      <TopHeader />
+   <Search/>
       <div className="flex   bg-sky-50">
         <div className="grow flex flex-col w-[70vw] p-3 gap-y-5 md:gap-y-10">
           <HomeCimetery />

@@ -21,8 +21,8 @@ const menuItems = [
   {
     label: "Rechercher",
     children: [
-      { label: "Rechercher un défunt", route: "#" },
-      { label: "Rechercher un cimetière", route: "#" },
+      { label: "Rechercher un défunt", route: "/?search=0" },
+      { label: "Rechercher un cimetière", route: "/?search=1" },
     ],
   },
   {
@@ -71,9 +71,7 @@ export const Header = () => {
                         src={logo}
                         alt="Your Company"
                       />
-                      <span className="text-2xl font-serif font-bold ml-2 text-kgray-300">
-                      SenCim.
-                      </span>
+                     
                     </Link>
                     <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8 items-center justify-center">
                       {menuItems.map((item) => (

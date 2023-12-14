@@ -13,7 +13,7 @@ export const burialApi = createApi({
   tagTypes: ["burial"],
   endpoints: (builder) => ({
     searchBurial: builder.mutation<
-      PaginationResult<[Burial]>,
+      [Burial],
       { pagination: PaginationDto; burial: BurialSearch }
     >({
       query: ({ pagination, burial }) => ({

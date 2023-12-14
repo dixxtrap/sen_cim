@@ -4,12 +4,7 @@ import sl from "../../assets/sain-lazarre.png";
 import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {
-  ArrowLeftIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ForwardIcon,
-} from "@heroicons/react/24/outline";
+
 import clsx from "clsx";
 import { useState } from "react";
 import { useGetCimeteryQuery } from "../../cores/features/cimetery";

@@ -49,6 +49,7 @@ export const ObituaryCreate = () => {
       method: "POST",
       body: formData,
     });
+    console.log(response)
     if (response.ok) {
       await refetch();
       nav("/obituary");

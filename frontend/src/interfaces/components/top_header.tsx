@@ -9,8 +9,8 @@ import {
   XCircleIcon,
 } from "@heroicons/react/24/outline";
 import clsx from "clsx";
-import React, { ReactNode, useEffect, useState } from "react";
-import { useGetDeceasedQuery } from "../../cores/features/deceased.slice";
+import  { ReactNode, useEffect, useState } from "react";
+
 import { useForm } from "react-hook-form";
 import { useSearchBurialMutation } from "../../cores/features/burial.slice";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -34,7 +34,7 @@ export const TopHeader = () => {
     lastName: "",
     year: 1997,
   });
-  const [search, { isLoading, isSuccess, data: paginateResult, reset , }] =
+  const [search, { isLoading, isSuccess, data: deceased=[], reset , }] =
     useSearchBurialMutation();
   const {
     formState: { errors },
@@ -46,14 +46,13 @@ export const TopHeader = () => {
     defaultValues: {
       firstName: "",
       lastName: "",
-      year: 1997,
+      year: null,
     },
     resolver: yupResolver(burialSearchSchema),
   });
   const onsubmit = handleSubmit((data) => {
-    console.log(data);
     reset();
-    setBurial(data);
+    setBurial(data)
     setPaginate(initialPagination);
     search({
       burial: data,
@@ -67,7 +66,7 @@ export const TopHeader = () => {
       <Modal
         isOpen={isSuccess}
         onClose={() => {
-          console.log(paginateResult);
+          console.log(deceased);
           setPaginate(initialPagination);
           reset();
         }}
@@ -90,9 +89,9 @@ export const TopHeader = () => {
           <div className="h-[75vh] overflow-scroll">
             <ul role="list" className="divide-y    divide-gray-100">
               {isSuccess &&
-                paginateResult &&
-                paginateResult?.data &&
-                paginateResult?.data?.map((item: Burial) => (
+               
+                deceased &&
+                deceased?.map((item: Burial) => (
                   <li key={item.id} className="">
                     <Link to={`deceased/${item.id}`} className="flex ">
                       <div className="flex min-w-0 gap-x-4 w-full">
@@ -148,35 +147,33 @@ export const TopHeader = () => {
           <div className="flex justify-between">
             <div>
               <span className="font-bold  ">
-                Total : {paginateResult?.totalPage}{" "}
+                {/* Total : {deceased}{" "} */}
               </span>
             </div>
             <div className="flex items-center">
               <button
                 onClick={async () => {
-                  if (paginate!.page > 0) {
-                    await reset();
+                  if (paginate!.page > 0 ) {
+                  
+                   
+                    search({ pagination: {...paginate, page:paginate.page-1}, burial: burial });
                     await setPaginate((prev) => {
                       return { ...prev, page: paginate.page - 1 };
-                    });
-                    await search({
-                      burial: burial,
-                      pagination: paginate,
                     });
                   }
                 }}
               >
                 <ChevronLeftIcon className="h-5" />
               </button>
-              <span className="font-bold p-2">{paginateResult?.page}</span>
+              <span className="font-bold p-2">{paginate?.page+1}</span>
               <button
                 onClick={() => {
-                  if (paginateResult!.hasNext) {
-                    reset();
+                  if (deceased && deceased.length>=paginate.perPage) {
+                    search({ pagination: {...paginate, page:paginate.page+1}, burial: burial });
                     setPaginate((prev) => {
                       return { ...prev, page: paginate.page + 1 };
                     });
-                    search({ pagination: paginate, burial: burial });
+                  
                   }
                 }}
               >
@@ -189,12 +186,12 @@ export const TopHeader = () => {
       <div className=" w-full bg_cim ">
         <div
           className={clsx(
-            "h-full w-full mx-auto  py-20 text-white items-center px-[200px]  bg-blue-900/50 flex flex-col",
+            " w-full mx-auto  h-96 text-white items-center px-[200px] gap-3  bg-blue-900/50 flex flex-col justify-center",
             isAvanced && ""
           )}
         >
           <span className="text-6xl   ">Rechercher un défunt</span>
-          <span className="text-center py-10">
+          <span className="text-center text-xl text-white/90">
             Recherchez les information sur <br /> un défunt proche plus
             facilement
           </span>
@@ -267,7 +264,7 @@ export const TopHeader = () => {
               )}
             </div>
           </div>
-          <div className="ml-auto my-3">
+          <div className="ml-auto mt-3">
             <button
               className="font-bold"
               onClick={() => setIsAvanced(!isAvanced)}
@@ -277,24 +274,119 @@ export const TopHeader = () => {
                 : "> Retour sur recherche classique"}
             </button>
           </div>
+          <div className="my-3 flex gap-4" >
+          <Link to={"/?search=1"}  >
+<div  className="h-5 w-5 bg-gray-200/90 rounded-full"></div>
+          </Link>
+<div  className="h-5 w-5 bg-kprimary-500/90 rounded-full"></div>
+
+          
         </div>
+        </div>
+        
       </div>
+      
     </form>
   );
 };
 
-export const TopHeader2 = ({
+export const TopHeaderSearchCim = () => {
+ 
+
+  return (
+    <form >
+    <div className=" w-full bg_cim h-96">
+      <div
+        className={clsx(
+          "h-full w-full mx-auto  py-20 text-white items-center px-[200px]  bg-blue-900/50 flex flex-col",
+          // isAvanced && ""
+        )}
+      >
+        <span className="text-6xl   ">Rechercher un cimetière</span>
+        <span className="text-center py-10 text-xl">
+          Trouvez les informations sur les cimetières du Sénégal <br></br>qui sont repertoriés dans notre base
+          </span>
+
+        <div className="flex w-full flex-row-reverse items-start">
+          <button type="submit" className="bg-red-500 py-3 px-5 rounded-r-md">
+            Rechecher
+          </button>
+          <div
+            className={clsx(
+              "grid  grow grid-cols-3  bg-white  search rounded-md rounded-tr-none overflow-hidden  rounded-br-none",
+             
+            )}
+          >
+            <div className="input_container grow ">
+              <UserIcon className="icon  " />
+              <input
+                type="text"
+                placeholder="Ville"
+                className="input  focus:border-red-500 focus:ring-red-500  "
+                // {...register("lastName")}
+              />
+            </div>
+
+            <div className="input_container divide-x-2">
+              <UserIcon className="icon  " />
+              <input
+                type="text"
+                placeholder="Commune"
+                className="input"
+                // {...register("firstName")}
+              />
+            </div>
+            <div className="input_container divide-x-2">
+              <CalendarDaysIcon className="icon  " />
+              <input
+                type="text"
+                placeholder="Nom du cimetiére"
+                className="input"
+                // {...register("year")}
+              />
+            </div>
+          
+          </div>
+        </div>
+        {/* <div className="ml-auto my-3">
+          <button
+            className="font-bold"
+            onClick={() => setIsAvanced(!isAvanced)}
+          >
+            {!isAvanced
+              ? "> Recherche avancée"
+              : "> Retour sur recherche classique"}
+          </button>
+        </div> */}
+        <div className="my-3 flex gap-4" >
+<div  className="h-5 w-5 bg-kprimary-500/90 rounded-full"></div>
+
+          <Link to={"/?search=0"}  >
+<div  className="h-5 w-5 bg-gray-200/90 rounded-full"></div>
+          </Link>
+        </div>
+      </div>
+    </div>
+  </form>
+  );
+};
+
+
+
+export const TopHeader2=({
   className,
   children,
 }: {
   className: string;
   children: ReactNode;
-}) => {
-  return (
-    <div className={clsx("h-96", className)}>
-      <div className="w-full h-full bg-blue-900/50 flex items-center justify-center">
-        {children}
-      </div>
-    </div>
-  );
-};
+})=>{
+return  (<div className={" w-full bg_cim h-96  "+ className}>
+<div
+  className={clsx(
+    "h-full w-full mx-auto  py-20 text-white items-center px-[200px]  bg-blue-900/50 flex  justify-center",
+    // isAvanced && ""
+  )}
+>
+  {children}
+  </div></div>)
+}

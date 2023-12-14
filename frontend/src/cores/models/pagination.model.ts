@@ -12,8 +12,6 @@ export const initialPagination: PaginationDto = {
   perPage: 50,
   search: "",
   fromDate:"0000",
-
-
 };
 export const initialPaginationAll: PaginationDto = {
   page: 0,
