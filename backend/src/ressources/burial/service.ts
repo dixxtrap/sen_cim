@@ -15,46 +15,26 @@ export class BurialService {
     return await this.repos.find({ take: 15 });
   }
   async search(body: SearchDeceasedDto, pagination: PaginationDto) {
-    console.log('-------------------search-------------------');
-    const length = await this.repos.count({
-      where: {
-        deceased: {
-          firstName: Like(`%${body.firstName}%`),
-          lastName: Like(`%${body.lastName}%`),
-          dateOfDeath: Raw((alias) => `YEAR(${alias}) >= :year`, {
-            year: body.year,
-          }),
+    return await this.repos
+      .find({
+        where: {
+          deceased: {
+            firstName: Like(`%${body.firstName}%`),
+            lastName: Like(`%${body.lastName}%`),
+            dateOfDeath: Raw((alias) => `YEAR(${alias}) = :year`, {
+              year: body.year,
+            }),
+          },
         },
-      },
-    });
-    const totalPage = Math.round(length / pagination.perPage);
-    const hasNext = totalPage >= pagination.page;
-    console.log(hasNext);
-    console.log(totalPage);
-    console.log(pagination.page);
-    const burials = await this.repos.find({
-      where: {
-        deceased: {
-          firstName: Like(`%${body.firstName}%`),
-          lastName: Like(`%${body.lastName}%`),
-          dateOfDeath: Raw((alias) => `YEAR(${alias}) = :year`, {
-            year: body.year,
-          }),
-        },
-      },
-      relations: { gravesite: { row: { section: true } }, deceased: true },
-      skip: pagination.page * pagination.perPage,
-      take: pagination.perPage,
-    });
-    if (burials.length > 0)
-      return {
-        totalPage,
-        data: burials,
-        length,
-        hasNext,
-        page: pagination.page,
-      };
-    throw new HttpException(ExceptionCode.NOT_FOUND, 404);
+        relations: { gravesite: { row: { section: true } }, deceased: true },
+        skip: pagination.page * pagination.perPage,
+        take: pagination.perPage,
+      })
+      .then((value) => value)
+      .catch((err) => {
+        console.log(err);
+        throw new HttpException(ExceptionCode.NOT_FOUND, 404);
+      });
   }
   async create(body: BurialDto) {
     return await this.repos.save(this.repos.create(body));

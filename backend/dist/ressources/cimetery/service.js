@@ -69,7 +69,7 @@ let CimeteryService = class CimeteryService {
     }
     async update(id, body) {
         const cim = await this.repos.findOne({ where: { id: (0, typeorm_3.Equal)(id) } });
-        if (cim.photo && cim.photo !== '') {
+        if (cim && (cim === null || cim === void 0 ? void 0 : cim.photo) && (cim === null || cim === void 0 ? void 0 : cim.photo) !== '') {
             (0, fs_1.unlink)(cim.photo, () => {
                 console.log('file delete');
             });

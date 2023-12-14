@@ -15,6 +15,7 @@ import { ApiBody, ApiTags } from '@nestjs/swagger';
 import { CimeteryDto } from './dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ExceptionCode } from 'src/utils/exception_code';
+import { fileInterceptor } from 'src/utils/multer.config';
 
 @Controller('cimetery')
 @ApiTags('Cimetery')
@@ -29,19 +30,20 @@ export class CimeteryController {
     return this.service.getById(id);
   }
   @Post('bulk')
-  @UseInterceptors(FileInterceptor('file'))
+  @UseInterceptors(fileInterceptor)
   createBulk(@Body() body, @UploadedFile() file: Express.Multer.File) {
     console.log(body);
     // return ExceptionCode.SUCCEEDED;
     return this.service.createBulk({ path: file.path, body });
   }
   @Put('add_photo/:id')
-  @UseInterceptors(FileInterceptor('file'))
+  @UseInterceptors(fileInterceptor)
   addPhoto(
     @Param('id') id: number,
     @UploadedFile() file: Express.Multer.File,
     @Body() body: CimeteryDto,
   ) {
+    console.log(file);
     return this.service.update(id, {
       ...body,
       photo: file.path,

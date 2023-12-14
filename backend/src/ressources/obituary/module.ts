@@ -5,19 +5,10 @@ import { diskStorage } from 'multer';
 import { Obituary } from 'src/ressources/typeorm';
 import { ObituaryController } from './controller';
 import { ObituaryService } from './service';
+import { MulterConfig } from 'src/utils/multer.config';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Obituary]),
-    MulterModule.register({
-      preservePath: false,
-
-      dest: 'upload',
-      storage: diskStorage({
-        destination: 'upload', // Dossier de destination où les fichiers téléchargés seront stockés
-      }),
-    }),
-  ],
+  imports: [TypeOrmModule.forFeature([Obituary]), MulterConfig],
   controllers: [ObituaryController],
   providers: [ObituaryService],
 })

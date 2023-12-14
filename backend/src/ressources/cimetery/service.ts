@@ -62,7 +62,7 @@ export class CimeteryService {
 
   async update(id: number, body: CimeteryDto) {
     const cim = await this.repos.findOne({ where: { id: Equal(id) } });
-    if (cim.photo && cim.photo !== '') {
+    if (cim && cim?.photo && cim?.photo !== '') {
       unlink(cim.photo, () => {
         console.log('file delete');
       });

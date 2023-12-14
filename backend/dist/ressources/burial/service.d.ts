@@ -7,13 +7,7 @@ export declare class BurialService {
     private repos;
     constructor(repos: Repository<Burial>);
     get(): Promise<Burial[]>;
-    search(body: SearchDeceasedDto, pagination: PaginationDto): Promise<{
-        totalPage: number;
-        data: Burial[];
-        length: number;
-        hasNext: boolean;
-        page: number;
-    }>;
+    search(body: SearchDeceasedDto, pagination: PaginationDto): Promise<Burial[]>;
     create(body: BurialDto): Promise<Burial>;
     getById(id: number): Promise<Burial>;
     update(id: number, body: BurialDto): Promise<import("typeorm").UpdateResult>;

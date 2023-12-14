@@ -16,11 +16,10 @@ exports.ObituaryController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const service_1 = require("./service");
-const platform_express_1 = require("@nestjs/platform-express");
-const multer_1 = require("multer");
 const path_1 = require("path");
 const dto_1 = require("./dto");
 const mysql_config_1 = require("../../mysql.config");
+const multer_config_1 = require("../../utils/multer.config");
 let ObituaryController = class ObituaryController {
     constructor(service) {
         this.service = service;
@@ -31,8 +30,8 @@ let ObituaryController = class ObituaryController {
         return this.service.create(body);
     }
     async getFile(res, name) {
-        console.log(`file--------------------${mysql_config_1.basedire}------------------ ${(0, path_1.join)(mysql_config_1.basedire, '..', 'src', 'upload', name)}`);
-        const filePath = (0, path_1.join)(mysql_config_1.basedire, '..', 'src', 'upload', name);
+        console.log(`file--------------------${mysql_config_1.basedire}------------------ ${(0, path_1.join)(mysql_config_1.basedire, '..', 'upload', name)}`);
+        const filePath = (0, path_1.join)(mysql_config_1.basedire, '..', 'upload', name);
         return res.sendFile(filePath);
     }
     find() {
@@ -41,25 +40,7 @@ let ObituaryController = class ObituaryController {
 };
 __decorate([
     (0, common_1.Post)(),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file', {
-        dest: './src/upload',
-        storage: (0, multer_1.diskStorage)({
-            destination: (req, file, cb) => {
-                console.log('------------------destination file-------------------');
-                console.log(file);
-                console.log(file);
-                cb(null, './src/upload');
-            },
-            filename: (req, file, callback) => {
-                console.log('------------------destination file name-------------------');
-                const randomName = Array(32)
-                    .fill(null)
-                    .map(() => Math.round(Math.random() * 16).toString(16))
-                    .join('');
-                return callback(null, `${randomName}${(0, path_1.extname)(file.originalname)}`);
-            },
-        }),
-    })),
+    (0, common_1.UseInterceptors)(multer_config_1.fileInterceptor),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.UploadedFile)()),
     __metadata("design:type", Function),

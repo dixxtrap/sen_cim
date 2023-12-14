@@ -26,24 +26,8 @@ let BurialService = class BurialService {
         return await this.repos.find({ take: 15 });
     }
     async search(body, pagination) {
-        console.log('-------------------search-------------------');
-        const length = await this.repos.count({
-            where: {
-                deceased: {
-                    firstName: (0, typeorm_3.Like)(`%${body.firstName}%`),
-                    lastName: (0, typeorm_3.Like)(`%${body.lastName}%`),
-                    dateOfDeath: (0, typeorm_3.Raw)((alias) => `YEAR(${alias}) >= :year`, {
-                        year: body.year,
-                    }),
-                },
-            },
-        });
-        const totalPage = Math.round(length / pagination.perPage);
-        const hasNext = totalPage >= pagination.page;
-        console.log(hasNext);
-        console.log(totalPage);
-        console.log(pagination.page);
-        const burials = await this.repos.find({
+        return await this.repos
+            .find({
             where: {
                 deceased: {
                     firstName: (0, typeorm_3.Like)(`%${body.firstName}%`),
@@ -56,16 +40,12 @@ let BurialService = class BurialService {
             relations: { gravesite: { row: { section: true } }, deceased: true },
             skip: pagination.page * pagination.perPage,
             take: pagination.perPage,
+        })
+            .then((value) => value)
+            .catch((err) => {
+            console.log(err);
+            throw new common_1.HttpException(exception_code_1.ExceptionCode.NOT_FOUND, 404);
         });
-        if (burials.length > 0)
-            return {
-                totalPage,
-                data: burials,
-                length,
-                hasNext,
-                page: pagination.page,
-            };
-        throw new common_1.HttpException(exception_code_1.ExceptionCode.NOT_FOUND, 404);
     }
     async create(body) {
         return await this.repos.save(this.repos.create(body));

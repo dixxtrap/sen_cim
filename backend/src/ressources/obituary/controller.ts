@@ -17,6 +17,7 @@ import { extname, join } from 'path';
 import { ObituaryDto } from './dto';
 import { Response } from 'express';
 import { basedire } from 'src/mysql.config';
+import { fileInterceptor } from 'src/utils/multer.config';
 
 @Controller('obituary')
 @ApiTags('obituary')
@@ -24,31 +25,7 @@ export class ObituaryController {
   constructor(private service: ObituaryService) {}
 
   @Post()
-  @UseInterceptors(
-    FileInterceptor('file', {
-      dest: './src/upload',
-      storage: diskStorage({
-        destination: (req, file, cb) => {
-          console.log('------------------destination file-------------------');
-          console.log(file);
-          console.log(file);
-          cb(null, './src/upload');
-        }, // Dossier de destination où les fichiers téléchargés seront stockés
-        filename: (req, file, callback) => {
-          console.log(
-            '------------------destination file name-------------------',
-          );
-
-          const randomName = Array(32)
-            .fill(null)
-            .map(() => Math.round(Math.random() * 16).toString(16))
-            .join('');
-
-          return callback(null, `${randomName}${extname(file.originalname)}`);
-        },
-      }),
-    }),
-  )
+  @UseInterceptors(fileInterceptor)
   create(
     @Body() body: ObituaryDto,
     @UploadedFile()
@@ -64,12 +41,12 @@ export class ObituaryController {
       `file--------------------${basedire}------------------ ${join(
         basedire,
         '..',
-        'src',
+    
         'upload',
         name,
       )}`,
     );
-    const filePath = join(basedire, '..', 'src', 'upload', name); // Path to the specific file
+    const filePath = join(basedire, '..', 'upload', name); // Path to the specific file
     return res.sendFile(filePath);
   }
   @Get('')

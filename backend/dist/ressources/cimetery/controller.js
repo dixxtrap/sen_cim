@@ -17,7 +17,7 @@ const common_1 = require("@nestjs/common");
 const service_1 = require("./service");
 const swagger_1 = require("@nestjs/swagger");
 const dto_1 = require("./dto");
-const platform_express_1 = require("@nestjs/platform-express");
+const multer_config_1 = require("../../utils/multer.config");
 let CimeteryController = class CimeteryController {
     constructor(service) {
         this.service = service;
@@ -33,6 +33,7 @@ let CimeteryController = class CimeteryController {
         return this.service.createBulk({ path: file.path, body });
     }
     addPhoto(id, file, body) {
+        console.log(file);
         return this.service.update(id, Object.assign(Object.assign({}, body), { photo: file.path, photoName: file.filename }));
     }
     update(id, body) {
@@ -60,7 +61,7 @@ __decorate([
 ], CimeteryController.prototype, "getById", null);
 __decorate([
     (0, common_1.Post)('bulk'),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file')),
+    (0, common_1.UseInterceptors)(multer_config_1.fileInterceptor),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.UploadedFile)()),
     __metadata("design:type", Function),
@@ -69,7 +70,7 @@ __decorate([
 ], CimeteryController.prototype, "createBulk", null);
 __decorate([
     (0, common_1.Put)('add_photo/:id'),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file')),
+    (0, common_1.UseInterceptors)(multer_config_1.fileInterceptor),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.UploadedFile)()),
     __param(2, (0, common_1.Body)()),

@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.basedire = void 0;
+exports.config = exports.basedire = void 0;
 const typeorm_1 = require("./ressources/typeorm");
 exports.basedire = __dirname;
-const config = {
+exports.config = {
     type: 'mysql',
     host: 'localhost',
     port: 3307,
@@ -14,5 +14,5 @@ const config = {
     database: 'sen_cim',
     synchronize: true,
 };
-exports.default = config;
+exports.default = exports.config;
 //# sourceMappingURL=mysql.config.js.map
