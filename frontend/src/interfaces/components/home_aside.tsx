@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 
 export const HomeAside = ({top}:{top?:ReactNode}) => {
   return (
-    <div className="min-w-[360px] gap-y-4  md:w-[360px]  px-3  flex flex-col">
+    <div className="min-w-[360px] gap-y-4 md:w-[360px]   p-3  flex flex-col">
       {top}
       <Don />
       {/* <Pub /> */}

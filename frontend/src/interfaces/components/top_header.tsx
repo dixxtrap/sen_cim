@@ -26,6 +26,9 @@ import gravesiteImg from "../../assets/img7.png";
 import { Link } from "react-router-dom";
 import { initialPagination } from "../../cores/models/pagination.model";
 import { Loading } from "./alert";
+import * as Yup from "yup"
+import { useGetCimeteryQuery } from "../../cores/features/cimetery";
+import { Cimetery } from "../../cores/models/cimetery.model";
 export const TopHeader = () => {
   const [isAvanced, setIsAvanced] = useState<boolean>(false);
   const [paginate, setPaginate] = useState(initialPagination);
@@ -46,7 +49,6 @@ export const TopHeader = () => {
     defaultValues: {
       firstName: "",
       lastName: "",
-      year: null,
     },
     resolver: yupResolver(burialSearchSchema),
   });
@@ -291,10 +293,59 @@ export const TopHeader = () => {
 };
 
 export const TopHeaderSearchCim = () => {
- 
-
+  const {register, handleSubmit, }=useForm({
+    defaultValues:{city:"",address:"", name:"" },
+    resolver:yupResolver(Yup.object({
+      city:Yup.string(),
+      address:Yup.string(),
+      name:Yup.string(),
+    }))
+  })
+  const {data:cimeteries=[]}=useGetCimeteryQuery("");
+  const [filterSearch,setFilterSearch]=useState<Cimetery[]>()
+const _onsubmit=handleSubmit((data:{city?:string, address?:string, name?:string})=>{
+  console.log(data);
+setFilterSearch(cimeteries.filter(item=>item.city.includes(data?.city??"")&&item.name.includes(data.name??"")))
+})
   return (
-    <form >
+    <>
+    <Modal isOpen={filterSearch?.length!>0} onClose={()=>setFilterSearch([])}>
+    <Dialog.Title
+          as="div"
+          className="text-lg font-medium pt-3 leading-6 text-gray-900 sticky top-0 bg-white"
+        >
+          <div className="w-full h-10 flex justify-between  ">
+            <span> List des Defunts</span>
+            <button
+              onClick={()=>setFilterSearch([])}
+              className="bg-kprimary-500 h-6 w-6 rounded-full"
+            >
+              <XCircleIcon className="text-white h-6 w-6" />
+            </button>
+          </div>
+        </Dialog.Title>
+      {
+        filterSearch?.map(item=> <div className="flex ">
+         <div className="h-10 w-10">
+         <img
+                            className="h-8 w-8 flex-none "
+                            src={item.photo?`v1/file/${item.photoName}`:gravesiteImg}
+                            
+                            alt=""
+                          />
+         </div>
+         <div className="flex flex-col">
+         <span className="font-bold">
+            {item.name}
+          </span>
+          <span>
+            {item.address}
+          </span>
+         </div>
+        </div>)
+      }
+    </Modal>
+    <form onSubmit={_onsubmit}>
     <div className=" w-full bg_cim h-96">
       <div
         className={clsx(
@@ -323,7 +374,7 @@ export const TopHeaderSearchCim = () => {
                 type="text"
                 placeholder="Ville"
                 className="input  focus:border-red-500 focus:ring-red-500  "
-                // {...register("lastName")}
+                {...register("city")}
               />
             </div>
 
@@ -333,7 +384,7 @@ export const TopHeaderSearchCim = () => {
                 type="text"
                 placeholder="Commune"
                 className="input"
-                // {...register("firstName")}
+                {...register("address")}
               />
             </div>
             <div className="input_container divide-x-2">
@@ -342,7 +393,7 @@ export const TopHeaderSearchCim = () => {
                 type="text"
                 placeholder="Nom du cimetiére"
                 className="input"
-                // {...register("year")}
+                {...register("name")}
               />
             </div>
           
@@ -368,6 +419,7 @@ export const TopHeaderSearchCim = () => {
       </div>
     </div>
   </form>
+  </>
   );
 };
 

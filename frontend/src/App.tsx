@@ -14,10 +14,11 @@ import { ObituaryCreate } from "./interfaces/pages/obituary_create";
 import { AboutUs } from "./interfaces/pages/about_us";
 import { LegalDisclaimer } from "./interfaces/pages/legal_disclaimer";
 import { PrivacyPolicy } from "./interfaces/pages/privacy_policy";
+import { FocusTrap } from "@headlessui/react";
 
 function App() {
   return (
-    <>
+    <><FocusTrap  >
       <Provider store={store}>
         <BrowserRouter>
         <div id='top'/>
@@ -44,6 +45,7 @@ function App() {
           </div>
         </BrowserRouter>
       </Provider>
+      </FocusTrap>
     </>
   );
 }
