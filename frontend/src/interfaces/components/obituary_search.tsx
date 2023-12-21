@@ -14,7 +14,7 @@ export const ObituarySearch = () => {
         <input className="input2" />
       </Input>
       <Input label="Date de décès :  ">
-        <input className="input2" } />
+        <input className="input2" />
       </Input>
       <button className="btn  btn-blue mx-auto">Rechercher</button>
     </form>
