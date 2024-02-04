@@ -31,14 +31,14 @@ export const WishCreate = () => {
       {isSuccess && (
         <Navigate to={deceasedId ? `/deceased/${burialId}` : `/wish`} />
       )}
-      <div className="min-h-[600px] flex p-3">
+      <div className="min-h-[600px] flex md:flex-row flex-col  p-3">
         <div className="grow flex flex-col gap-y-4">
           {" "}
           <span className=" text-3xl font-bold text-kprimary-500 pb-3">
             {" "}
             Envoyer une prière pour un proche
           </span>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-2">
             <div className="p-4 shadow-sm text-center ring-1  ring-kgray-50/30 rounded-md">
               Quand vous laissez une prière sur notre site, chaque dernier
               samedi du mois, un acte symbolique est posé et partagé sur nos
@@ -80,7 +80,7 @@ export const WishCreate = () => {
           </div>
           
         </div>
-        <div className="w-96">
+        <div className="md:w-96 w-full">
           <HomeAside />
         </div>
       </div>

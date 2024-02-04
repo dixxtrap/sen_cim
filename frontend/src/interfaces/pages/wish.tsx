@@ -16,13 +16,13 @@ export const Wish = () => {
   return (
     <>
       <TopHeader2 className="bg_jardin">
-        <div className="md:px-20 px-3 max-w-2xl flex items-center justify-center">
+        <div className="md:px-20 px-3 max-w-2xl flex f items-center justify-center">
           <span className="text-center  text-white text-2xl">
           Repos et paix en mémoire de nos proches partis avant nous.  À ceux là que nous avons aimés, que leurs âmes reposent en paix.
           </span>
         </div>
       </TopHeader2>
-      <div className="min-h-[600px] flex p-3">
+      <div className="min-h-[600px] flex  md:flex-row flex-col p-3">
         <div className="grow flex flex-col rounded-md ring-kgray-100/30  divide-kgray-100/30   ring-1 ring-inset   divide-y gap-y-4">
           {" "}
           <span className="pt-3 px-3 text-xl font-bold text-kprimary-500 ">
@@ -42,7 +42,7 @@ export const Wish = () => {
           </div>
           {/* <div className="ring gap-y-4 ring-kgray-50/10 shadow-md ring-inset rounded-md divide-y"></div> */}
         </div>
-        <div className="w-96">
+        <div className="md:w-96 w-full">
           <HomeAside top={<WishCreateComponent />} />
         </div>
       </div>

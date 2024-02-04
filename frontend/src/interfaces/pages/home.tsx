@@ -14,8 +14,8 @@ export const Home = () => {
   return (
     <div className="">
    <Search/>
-      <div className="flex   bg-sky-50">
-        <div className="grow flex flex-col w-[70vw] p-3 gap-y-5 md:gap-y-10">
+      <div className="flex  flex-col   md:flex-row bg-sky-50">
+        <div className="grow flex flex-col md:w-[70vw] p-3 gap-y-5 md:gap-y-10">
           <HomeCimetery />
           <HomeChifferKey />
           <HomeWishes />

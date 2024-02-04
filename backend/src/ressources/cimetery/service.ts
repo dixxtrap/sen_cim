@@ -1,7 +1,7 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Cimetery } from 'src/ressources/typeorm';
-import { Equal, In, Repository } from 'typeorm';
+import { DataSource, Equal, In, QueryBuilder, Repository } from 'typeorm';
 import { CimeteryDto, getLocalisation } from './dto';
 import { unlink } from 'fs';
 import { ExceptionCode } from 'src/utils/exception_code';
@@ -43,17 +43,21 @@ export class CimeteryService {
     try {
       await Promise.all(
         listCimetiery.map(async (item) => {
-          await succesList.push(await this.create(item));
+          return this.create(item);
         }),
-      );
-      return ExceptionCode.SUCCEEDED;
+      )
+        .then(() => ExceptionCode.SUCCEEDED)
+        .catch((err) => {
+          console.log(err);
+          throw new HttpException(ExceptionCode.FAILLURE, 500);
+        });
     } catch (error) {
-      await this.repos.delete({ id: In(succesList.map((item) => item.id)) });
       console.log(error);
       throw new HttpException(
         { ...ExceptionCode.FAILLURE, messageLigne: succesList.length },
         500,
       );
+    } finally {
     }
   }
   async getById(id: number) {

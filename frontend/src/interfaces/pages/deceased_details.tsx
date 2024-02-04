@@ -129,7 +129,7 @@ export const DeceasedDetails = () => {
                         <div className="p-3 rounded-md  text-center shadow-md flex flex-col  ring-kgray-100/10 ring-inset ring-1">
                          <div className="flex items-center justify-center">
                           <span className="text-9xl">
-                            {flowerShared.flower.photoText}
+                            {flowerShared?.flower?.photoText}
                           </span>
                           <span>{flowerShared.comment}</span>
                          </div>

@@ -7,7 +7,7 @@ export default defineConfig({
   server:{
     port:3001,
     proxy:{
-      "/v1":"http://localhost:3000/"
+      "/v1":"http://52.206.124.205:3000/"
     } 
   }
 })

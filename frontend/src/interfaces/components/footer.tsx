@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo_sen_cim.png";
 import facebook from "../../assets/facebook.png"
 import linkedin from "../../assets/linkedin.png"
 import instagram from "../../assets/instagram.png"
@@ -9,14 +8,14 @@ import toTop from "../../assets/toTop.png"
 export const Footer = () => {
   return (
     <>
-      <div className="h-[500px]  flex flex-col pt-10 pl-10 bg-black ">
+      <div className="  flex flex-col pt-10 pl-10 bg-black ">
         <Link to={"/"} className="flex flex-shrink-0 items-center">
           <span className="text-3xl  font-bold ml-2 text-white">
             SenCim<span className="text-kprimary-500">.</span>
           </span>
         </Link>
-        <div className="flex flex-row ">
-          <div className="grid grid-cols-3 py-3 gap-x-5 md:gap-x-16 text-white space-x-36 px-1 ">
+        <div className="flex md:flex-row flex-wrap ">
+          <div className="grid grid-cols-1 md:grid-cols-3 py-3 gap-x-5 md:gap-x-16 text-white md:space-x-36 px-1 ">
             <div className="flex flex-col gap-y-3">
               <span className="text-lg font-medium ">À propos</span>
               <span className="text-justify font-thin ">
@@ -26,7 +25,7 @@ export const Footer = () => {
                 composent.
               </span>
             </div>
-            <div className="flex flex-col gap-y-3 font-thin">
+            <div className="flex flex-col gap-y-3  items-start font-thin">
               <span className="text-lg font-medium ">Contact et Réseaux</span>
               <span>
                 Mail : Hello@sencim.com

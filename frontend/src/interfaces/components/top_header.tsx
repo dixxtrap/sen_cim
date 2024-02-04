@@ -1,6 +1,7 @@
 import {
   BuildingLibraryIcon,
   ChevronLeftIcon,
+  MagnifyingGlassIcon,
 } from "@heroicons/react/24/solid";
 import { CalendarDaysIcon } from "@heroicons/react/20/solid";
 import {
@@ -185,26 +186,27 @@ export const TopHeader = () => {
           </div>
         </Dialog.Title>
       </Modal>
-      <div className=" w-full bg_cim ">
+      <div className=" w-full bg_cim  ">
         <div
           className={clsx(
-            " w-full mx-auto  h-96 text-white items-center px-[200px] gap-3  bg-blue-900/50 flex flex-col justify-center",
+            " w-full mx-auto   text-white py-4 items-center md:px-[200px] gap-3  bg-blue-900/50 flex flex-col justify-center",
             isAvanced && ""
           )}
         >
-          <span className="text-6xl   ">Rechercher un défunt</span>
+          <span className="md:text-6xl text-2xl font-bold  ">Rechercher un défunt</span>
           <span className="text-center text-xl text-white/90">
             Recherchez les information sur <br /> un défunt proche plus
             facilement
           </span>
 
-          <div className="flex w-full flex-row-reverse items-start">
-            <button type="submit" className="bg-red-500 py-3 px-5 rounded-r-md">
-              Rechecher
+          <div className="flex w-full flex-col-reverse  md:flex-row-reverse items-center  md:items-start">
+            <button type="submit" className="bg-red-500 py-3 px-5   md:rounded-r-md">
+              <span className="md:visible hidden">Rechecher</span>
+              <MagnifyingGlassIcon className="visible md:hidden h-[1.45rem] "/>
             </button>
             <div
               className={clsx(
-                "grid  grow grid-cols-3  bg-white  search rounded-md rounded-tr-none overflow-hidden",
+                "grid  md:grow w-full md:grid-cols-3  grid-cols-1   bg-white  search rounded-md rounded-tr-none overflow-hidden",
                 { "rounded-br-none": !isAvanced }
               )}
             >
@@ -435,7 +437,7 @@ export const TopHeader2=({
 return  (<div className={" w-full bg_cim h-96  "+ className}>
 <div
   className={clsx(
-    "h-full w-full mx-auto  py-20 text-white items-center px-[200px]  bg-blue-900/50 flex  justify-center",
+    "h-full w-full mx-auto  py-20 text-white items-center md:px-[200px]  bg-blue-900/50 flex  justify-center",
     // isAvanced && ""
   )}
 >

@@ -1,17 +1,17 @@
-import { ShareIcon } from "@heroicons/react/24/outline";
 import { useGetObituaryQuery } from "../../cores/features/obituary";
 import { formatDate } from "../../utils/format_date";
 import { Loading } from "./alert";
+import { Link } from "react-router-dom";
 
 export const ObituaryAside = () => {
-  const { data = [], isLoading, isSuccess } = useGetObituaryQuery("");
+  const { data = [], isLoading } = useGetObituaryQuery("");
 
   return (
     <>
       <Loading isLoading={isLoading} />
       {data[0] && (
         <div className="min-h-[500px] ring_gray flex flex-col px-2 py-4">
-          <span className="font-semibold text-right">
+          <span className="font-semibold text-center">
             CATÉGORIE : {data[0]?.category}
           </span>
           <div className="flex flex-row pt-4 ml-1">
@@ -61,15 +61,15 @@ export const ObituaryAside = () => {
               🌺 Laisser une fleur
             </button>
           </div>
-          <a href="" className="text-center text-kprimary-500 underline pb-3">
+          <Link to={"/obituary/create"}   className="text-center text-kprimary-500 underline pb-3">
             <span>Publier un avis de décès</span>
-          </a>
-          <a href="" className="text-center text-kprimary-500 underline pb-3">
+          </Link>
+          <Link to={"/obituary/create"} className="text-center text-kprimary-500 underline pb-3">
             <span>Publier un souvenir de décès</span>
-          </a>
-          <a href="" className="text-center text-kprimary-500 underline pb-3">
+          </Link>
+          <Link to={"/obituary/create"}  className="text-center text-kprimary-500 underline pb-3">
             <span>Publier un anniversaire de décès</span>
-          </a>
+          </Link>
         </div>
       )}
     </>

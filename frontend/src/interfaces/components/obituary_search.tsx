@@ -1,7 +1,4 @@
-import { useForm } from "react-hook-form";
 import { Input } from "./custom_input";
-import { yupResolver } from "@hookform/resolvers/yup/src/yup.js";
-import * as Yup from "yup"
 export const ObituarySearch = () => {
 
   return (

@@ -5,6 +5,7 @@ import { HomeAside } from "../components/home_aside";
 import { TopHeader2 } from "../components/top_header";
 import { formatDate } from "../../utils/format_date";
 import { ObituarySearch } from "../components/obituary_search";
+import { Link } from "react-router-dom";
 
 export const Obituary = () => {
   const { data = [], isLoading, isSuccess } = useGetObituaryQuery("");
@@ -17,7 +18,7 @@ export const Obituary = () => {
           que nous avons aimés, que leurs âmes reposent en paix.
         </span>
       </TopHeader2>
-      <div className="flex p-2 ">
+      <div className="flex  md:flex-row flex-col p-2 ">
         <div className="grow ring ring-kgray-50/20 ring-inset rounded-md ">
           <div className="flex flex-col divide-y ">
             <div className="p-2 title">
@@ -75,12 +76,12 @@ export const Obituary = () => {
                       <span>Partager </span>
                     </button>
                     <div className="grow"></div>
-                    <button className="btn text-white bg-kprimary-500 flex items-center ring-kprimary-200 text">
+                    <Link to={`/wish/create?obituaryId=${item.id}`} className="btn text-white bg-kprimary-500 flex items-center ring-kprimary-200 text">
                       🙏 Laisser une prière
-                    </button>
-                    <button className="btn text-white bg-kgray-500 flex items-center ring-kgray-200 text">
+                    </Link>
+                    <Link to={`/shared_flower/create?obituaryId=${item.id}`} className="btn text-white bg-kgray-500 flex items-center ring-kgray-200 text">
                       🌺 Laisser une fleur
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ))}

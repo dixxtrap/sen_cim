@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import Slider, { Settings } from 'react-slick';
-import { TopHeader, TopHeader2, TopHeaderSearchCim } from './top_header';
+import { TopHeader, TopHeaderSearchCim } from './top_header';
 import { useLocation } from 'react-router-dom';
 const settings: Settings = {
         dots: true,

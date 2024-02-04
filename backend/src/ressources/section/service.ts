@@ -1,7 +1,7 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Section } from 'src/ressources/typeorm';
-import { Equal, In, Like, Repository } from 'typeorm';
+import { In, Like, Repository } from 'typeorm';
 import { SectionDto } from './dto';
 import { ExcelService } from 'src/utils/excel.service';
 import { ExceptionCode } from 'src/utils/exception_code';
@@ -52,7 +52,6 @@ export class SectionService {
     console.log(body);
     const section = await this.repos.findOne({
       where: {
-        cimeteryId: Equal(body.cimeteryId),
         name: Like(
           `${
             body.name === '' || body.name === null || body.name === '--'
